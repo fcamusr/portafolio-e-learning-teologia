@@ -1,0 +1,15 @@
+# Normalizar archivos de texto en el repositorio
+* text=auto eol=lf
+
+# Scripts propios de Windows
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Archivos binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
