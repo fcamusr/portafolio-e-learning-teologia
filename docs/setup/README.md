@@ -1,13 +1,13 @@
-# Configuración del entorno
+# Setup
 
-Esta sección documenta cómo preparar el entorno de desarrollo local del proyecto.
+Documentación relacionada con la instalación, configuración y ejecución local del proyecto.
 
-## Archivos disponibles
+## Archivos
 
-- `prerequisites.md`: requisitos previos.
-- `backend.md`: configuración del backend Django.
-- `frontend.md`: configuración del frontend Next.js.
+- `prerequisites.md`: herramientas necesarias.
+- `backend.md`: configuración del backend.
+- `frontend.md`: configuración del frontend.
 - `database.md`: configuración de PostgreSQL.
-- `environment-variables.md`: variables de entorno necesarias.
-- `run-project.md`: cómo ejecutar el proyecto completo.
-- `troubleshooting.md`: errores comunes y soluciones.
+- `environment-variables.md`: variables de entorno.
+- `run-project.md`: cómo ejecutar el proyecto.
+- `troubleshooting.md`: problemas comunes.

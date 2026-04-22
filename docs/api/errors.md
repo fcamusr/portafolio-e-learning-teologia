@@ -1,19 +1,16 @@
 
 ## `docs/api/errors.md`
 
-Explica errores comunes.
+```md
+# Errores de API
 
-Ejemplo:
+Formato planificado de errores.
+
+## Ejemplo
 
 ```json
 {
-  "detail": "Authentication credentials were not provided."
+  "error": "Mensaje del error",
+  "detail": "Detalle adicional",
+  "code": "ERROR_CODE"
 }
-
-Contendría:
-
-Errores de autenticación.
-Errores de permisos.
-Errores de validación.
-Errores de recursos no encontrados.
-Errores internos.

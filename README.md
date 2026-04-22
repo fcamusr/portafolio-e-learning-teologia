@@ -1,200 +1,63 @@
-README raíz:
-Presenta el proyecto.
+# Portafolio E-learning de Teología
 
-backend/README.md:
-Explica cómo instalar y ejecutar backend.
+Aplicación web fullstack orientada al aprendizaje progresivo de Biblia y teología evangélica.
 
-frontend/README.md:
-Explica cómo instalar y ejecutar frontend.
+El objetivo del proyecto es construir una plataforma e-learning profunda, amigable e innovadora, donde los usuarios puedan aprender, practicar, reflexionar, evaluar su progreso y aplicar lo aprendido a la vida cristiana.
 
-docs/:
-Explica decisiones, arquitectura y detalles profundos.
+Este proyecto también funciona como portafolio profesional para demostrar habilidades en desarrollo fullstack, arquitectura de software, documentación, buenas prácticas, seguridad básica, Git/GitHub y trabajo con bases de datos.
 
-El README.md de la raíz no debe ser una enciclopedia.
+## Stack principal
 
-Debe responder rápido:
+- Backend: Django
+- Frontend: Next.js
+- Base de datos: PostgreSQL
+- Lenguajes: Python, JavaScript, HTML y CSS
+- Control de versiones: Git y GitHub
 
-Qué es el proyecto.
-Qué problema resuelve.
-Qué tecnologías usa.
-Cómo está organizado.
-Cómo ejecutarlo de forma resumida.
-Dónde está la documentación completa.
-Estado del proyecto.
+## Estructura general
 
-Ejemplo de estructura:
-
-# Plataforma E-learning de Teología
-
-Aplicación fullstack para la gestión de cursos de formación bíblica y teológica, con usuarios, lecciones, evaluaciones, progreso académico y certificados.
-
-## Objetivo
-
-Construir una plataforma educativa que permita estudiar teología de forma estructurada, progresiva y accesible.
-
-## Tecnologías principales
-
-- Django
-- Django REST Framework
-- PostgreSQL
-- Next.js
-- React
-- Redis
-- Celery
-
-## Estructura del proyecto
-
-```txt
-project/
+```text
+Portafolio/
 ├── backend/
 ├── frontend/
 ├── docs/
+├── .gitignore
 └── README.md
+Arquitectura general
+
+El proyecto usa arquitectura separada:
+
+Django funciona como backend principal y futura API.
+Next.js funciona como frontend.
+PostgreSQL almacena los datos.
+La comunicación entre frontend y backend se realizará mediante HTTP/API.
+Estado actual
+Backend Django creado.
+PostgreSQL conectado.
+Servidor Django probado.
+Frontend Next.js creado con App Router.
+Servidor Next.js probado.
+App local users creada en backend/apps/users.
+Modelo User personalizado creado heredando de AbstractUser.
+Documentación base creada en docs/.
+Repositorio subido a GitHub.
 Documentación
 
-La documentación completa se encuentra en la carpeta docs/.
+La documentación del proyecto está en la carpeta docs/.
 
-Secciones principales:
+Archivos principales:
 
-Arquitectura.
-Backend.
-Frontend.
-Base de datos.
-API.
-Seguridad.
-Despliegue.
-Modelo educativo.
-Lineamientos teológicos.
-Ejecución local
+docs/setup/: instalación, configuración y ejecución.
+docs/architecture/: arquitectura y decisiones técnicas.
+docs/database/: modelos, relaciones y migraciones.
+docs/api/: endpoints y contratos de API.
+docs/decisions/: decisiones importantes del proyecto.
+Seguridad básica
 
-Para ejecutar el backend, revisar:
+Los archivos reales de entorno no se suben a GitHub.
 
-backend/README.md
+Se versionan archivos .env.example para mostrar la estructura esperada de configuración sin exponer secretos.
 
-Para ejecutar el frontend, revisar:
+Objetivo profesional
 
-frontend/README.md
-Estado del proyecto
-
-Proyecto en desarrollo activo.
-
-
-El README raíz es como la portada y el índice principal.
-
-
-
-
-
-Estructura gigante de documentación posible para el futuro
-
-Una versión grande y madura podría verse así:
-
-docs/
-├── README.md
-├── architecture/
-│   ├── overview.md
-│   ├── system-context.md
-│   ├── backend-frontend-communication.md
-│   ├── modules.md
-│   ├── scalability.md
-│   └── folder-structure.md
-├── backend/
-│   ├── overview.md
-│   ├── apps.md
-│   ├── settings.md
-│   ├── authentication.md
-│   ├── permissions.md
-│   ├── admin.md
-│   ├── celery.md
-│   └── management-commands.md
-├── frontend/
-│   ├── overview.md
-│   ├── routing.md
-│   ├── components.md
-│   ├── design-system.md
-│   ├── state-management.md
-│   ├── api-integration.md
-│   └── accessibility.md
-├── database/
-│   ├── overview.md
-│   ├── models.md
-│   ├── relationships.md
-│   ├── migrations.md
-│   ├── indexes.md
-│   └── seed-data.md
-├── api/
-│   ├── overview.md
-│   ├── authentication.md
-│   ├── users.md
-│   ├── courses.md
-│   ├── lessons.md
-│   ├── quizzes.md
-│   ├── progress.md
-│   ├── certificates.md
-│   ├── errors.md
-│   └── status-codes.md
-├── product/
-│   ├── vision.md
-│   ├── users-and-roles.md
-│   ├── features.md
-│   ├── user-flows.md
-│   ├── course-lifecycle.md
-│   ├── enrollment-flow.md
-│   └── roadmap.md
-├── learning/
-│   ├── learning-model.md
-│   ├── course-structure.md
-│   ├── assessment-model.md
-│   ├── progress-rules.md
-│   └── certificates.md
-├── theology/
-│   ├── doctrinal-guidelines.md
-│   ├── content-review.md
-│   ├── biblical-references.md
-│   ├── citation-policy.md
-│   └── sensitive-topics.md
-├── security/
-│   ├── overview.md
-│   ├── authentication-security.md
-│   ├── permissions-security.md
-│   ├── data-protection.md
-│   ├── file-upload-security.md
-│   ├── secrets-management.md
-│   └── security-checklist.md
-├── deployment/
-│   ├── overview.md
-│   ├── local.md
-│   ├── staging.md
-│   ├── production.md
-│   ├── environment-variables.md
-│   ├── static-and-media-files.md
-│   ├── domain-and-ssl.md
-│   └── rollback.md
-├── testing/
-│   ├── overview.md
-│   ├── backend-tests.md
-│   ├── frontend-tests.md
-│   ├── api-tests.md
-│   ├── manual-testing.md
-│   └── test-data.md
-├── operations/
-│   ├── monitoring.md
-│   ├── logs.md
-│   ├── backups.md
-│   ├── maintenance.md
-│   ├── incident-response.md
-│   └── admin-tasks.md
-├── decisions/
-│   ├── README.md
-│   ├── 0001-use-django.md
-│   ├── 0002-use-nextjs.md
-│   ├── 0003-use-postgresql.md
-│   ├── 0004-separate-backend-frontend.md
-│   └── 0005-use-apps-folder.md
-└── guides/
-    ├── contributing.md
-    ├── coding-standards.md
-    ├── git-workflow.md
-    ├── branch-strategy.md
-    ├── commit-conventions.md
-    └── troubleshooting.md
+Este proyecto busca demostrar capacidad para construir una aplicación fullstack real, documentada, mantenible y pensada con criterios de ingeniería de software.

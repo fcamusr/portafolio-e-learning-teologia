@@ -1,45 +1,20 @@
-Documentación de decisiones técnicas
-docs/
-└── decisions/
-    ├── README.md
-    ├── 0001-use-django.md
-    ├── 0002-use-nextjs.md
-    ├── 0003-use-postgresql.md
-    ├── 0004-separate-backend-frontend.md
-    ├── 0005-use-apps-folder.md
-    └── 0006-use-celery-for-background-tasks.md
 
-Esto se conoce muchas veces como ADR: Architecture Decision Records.
+---
 
-Cada archivo explica una decisión.
+# 9. Decisiones
 
-Ejemplo:
+## `docs/decisions/README.md`
 
-# 0004 - Separar backend y frontend
+```md
+# Decisiones técnicas
 
-## Contexto
+Esta carpeta contiene decisiones importantes del proyecto.
 
-El proyecto necesita una arquitectura cercana a aplicaciones reales, donde el backend gestione datos y reglas de negocio, y el frontend se encargue de la experiencia de usuario.
+Cada archivo explica:
 
-## Decisión
+- Decisión tomada.
+- Motivo.
+- Consecuencias.
+- Alternativas consideradas.
 
-Se separa el proyecto en dos carpetas principales:
-
-- backend/
-- frontend/
-
-## Consecuencias
-
-Ventajas:
-
-- Separación clara de responsabilidades.
-- Mayor escalabilidad.
-- Facilita despliegues separados.
-
-Desventajas:
-
-- Mayor complejidad inicial.
-- Requiere configurar CORS.
-- Requiere manejar comunicación HTTP entre ambas partes.
-
-Este tipo de documentación es excelente para tu crecimiento porque te obliga a pensar como ingeniero.
+Este formato ayuda a entender por qué el proyecto fue construido de cierta manera.

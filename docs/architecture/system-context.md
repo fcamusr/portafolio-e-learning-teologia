@@ -1,24 +1,26 @@
-docs/architecture/system-context.md
+# Contexto del sistema
 
-Este documento explica el sistema desde afuera hacia adentro.
+La aplicación será una plataforma e-learning de teología evangélica.
 
-Respondería:
+## Usuario principal
 
-¿Quiénes usan la plataforma?
-¿Qué sistemas externos se conectan?
-¿Qué actores existen?
-¿Qué límites tiene la aplicación?
+Persona interesada en aprender Biblia, teología y vida cristiana de forma progresiva.
 
-Actores posibles:
+## Objetivo del usuario
 
-Estudiante
-Profesor
-Administrador
-Editor de contenido
-Revisor doctrinal
-Sistema de correo
-Pasarela de pago
-Servicio de almacenamiento de archivos
-Sistema de analítica
+- Aprender contenido bíblico y teológico.
+- Practicar lo aprendido.
+- Evaluar su progreso.
+- Reflexionar y aplicar lo aprendido a la vida cristiana.
 
-En un e-learning de teología, esto es importante porque no todos los usuarios hacen lo mismo. Un estudiante consume cursos, un profesor crea contenido, un revisor doctrinal valida material, y un administrador gestiona usuarios y permisos.
+## Componentes del sistema
+
+- Frontend Next.js.
+- Backend Django.
+- Base de datos PostgreSQL.
+- Documentación del proyecto.
+- Repositorio GitHub.
+
+## Principio central
+
+La aplicación debe ser útil más allá de completar una ruta inicial de aprendizaje. Debe invitar al usuario a volver, practicar, profundizar y crecer.

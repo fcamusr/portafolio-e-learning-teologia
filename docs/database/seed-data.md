@@ -1,11 +1,19 @@
-docs/database/seed-data.md
+# Seed data
 
-Explica datos iniciales.
+Datos iniciales o de prueba del proyecto.
 
-Ejemplo:
+## Estado actual
 
-Roles iniciales.
-Categorías iniciales.
-Cursos de ejemplo.
-Usuario administrador local.
-Datos de prueba.
+No hay seed data definido.
+
+## Posibles usos futuros
+
+- Cursos de ejemplo.
+- Lecciones iniciales.
+- Preguntas de prueba.
+- Roles de usuario.
+- Contenido bíblico inicial.
+
+## Regla
+
+Los datos iniciales deben ser reproducibles y documentados.

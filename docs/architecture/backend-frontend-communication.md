@@ -1,29 +1,29 @@
-docs/architecture/backend-frontend-communication.md
+```md
+# Comunicación backend-frontend
 
-Explica cómo se comunican Django y Next.js.
+Django y Next.js se comunicarán mediante HTTP.
 
-Contendría:
+## Backend
 
-URL base de la API.
-Autenticación.
-Tokens o sesiones.
-CORS.
-Manejo de errores.
-Flujo de login.
-Flujo de logout.
-Flujo de refresco de sesión si aplica.
+Django expondrá endpoints de API.
 
-Ejemplo:
+Ejemplo planificado:
 
-# Comunicación entre backend y frontend
+```text
+/api/...
+Frontend
 
-El frontend consume datos desde el backend mediante peticiones HTTP.
+Next.js consumirá esos endpoints usando fetch u otra capa de cliente HTTP cuando sea necesario.
 
-En desarrollo local:
+Desarrollo local
 
-- Backend: `http://127.0.0.1:8000`
-- Frontend: `http://localhost:3000`
+Backend:
 
-La API responde en formato JSON.
+http://127.0.0.1:8000/
 
-El frontend no accede directamente a la base de datos. Toda operación sobre usuarios, cursos, evaluaciones y progreso pasa por el backend.
+Frontend:
+
+http://localhost:3000/
+Nota
+
+Cuando se implemente la API, se deberá configurar CORS para permitir comunicación segura entre ambos servidores.

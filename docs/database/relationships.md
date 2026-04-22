@@ -1,15 +1,22 @@
-docs/database/relationships.md
+```md
+# Relaciones
 
-Explica relaciones importantes.
+Relaciones planificadas de alto nivel.
 
-Ejemplo:
+## Posibles relaciones futuras
 
-Un usuario puede estar inscrito en muchos cursos.
-Un curso puede tener muchos estudiantes.
-Un curso tiene muchos módulos.
-Un módulo tiene muchas lecciones.
-Una lección puede tener una evaluación.
-Un estudiante puede tener muchos intentos de evaluación.
-Un certificado pertenece a un estudiante y a un curso.
+Un usuario podrá tener progreso en muchas lecciones.
 
-Este documento te ayudaría mucho a fortalecer pensamiento de base de datos.
+Un curso podrá tener muchos módulos.
+
+Un módulo podrá tener muchas lecciones.
+
+Una lección podrá tener evaluaciones o actividades.
+
+Un usuario podrá responder quizzes.
+
+Un usuario podrá tener notas personales.
+
+## Nota
+
+Estas relaciones aún no están implementadas. Se documentarán con más detalle cuando se diseñen los modelos reales.

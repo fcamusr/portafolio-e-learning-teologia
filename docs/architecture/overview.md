@@ -1,22 +1,36 @@
-Qué tipo de aplicación es.
-Qué partes principales tiene.
-Cómo se separan backend y frontend.
-Qué rol cumple Django.
-Qué rol cumple Next.js.
-Qué rol cumple PostgreSQL.
-Qué rol cumplen Redis y Celery si existen.
-Cómo fluye la información.
-
-Ejemplo:
-
 # Visión general de arquitectura
 
-La plataforma utiliza una arquitectura fullstack desacoplada.
+El proyecto usa arquitectura separada entre backend y frontend.
 
-El backend está construido con Django y expone una API para gestionar usuarios, cursos, lecciones, evaluaciones, progreso y certificados.
+## Backend
 
-El frontend está construido con Next.js y consume la API para mostrar la plataforma a estudiantes, profesores y administradores.
+Django será el backend principal.
 
-PostgreSQL se utiliza como base de datos principal.
+Responsabilidades:
 
-Redis y Celery se utilizan para tareas asíncronas como envío de correos, generación de certificados y procesamiento de reportes.
+- Modelos.
+- Base de datos.
+- Autenticación.
+- Lógica de negocio.
+- API.
+
+## Frontend
+
+Next.js será el frontend.
+
+Responsabilidades:
+
+- Interfaz de usuario.
+- Navegación.
+- Experiencia de aprendizaje.
+- Consumo de API.
+
+## Base de datos
+
+PostgreSQL será la base de datos principal.
+
+## Estilo arquitectónico
+
+Se usará un monolito modular en Django.
+
+Esto significa que el backend será un solo proyecto Django, pero organizado en apps separadas por dominio.

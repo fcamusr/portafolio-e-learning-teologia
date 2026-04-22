@@ -1,45 +1,39 @@
-docs/architecture/modules.md
+```md
+# Módulos del sistema
 
-Aquí documentas los módulos grandes del sistema.
+Módulos actuales y planificados.
 
-Ejemplo:
+## Actual
 
-Módulo de usuarios
-Módulo de cursos
-Módulo de lecciones
-Módulo de evaluaciones
-Módulo de progreso
-Módulo de certificados
-Módulo de pagos
-Módulo de reportes
-Módulo de administración
-Módulo de contenido teológico
+### users
 
-Para cada módulo podrías explicar:
+Responsable del modelo de usuario personalizado.
 
-Responsabilidad.
-Modelos principales.
-Endpoints relacionados.
-Reglas de negocio.
-Permisos.
-Relaciones con otros módulos.
+Ubicación:
 
-Ejemplo:
+```text
+backend/apps/users/
+Planificados
+content
 
-## Módulo de cursos
+Cursos, módulos, lecciones y recursos.
 
-Responsable de gestionar cursos, módulos, lecciones y recursos complementarios.
+progress
 
-Entidades principales:
+Progreso del usuario.
 
-- Course
-- CourseModule
-- Lesson
-- LessonResource
+quizzes
 
-Reglas principales:
+Evaluaciones y preguntas.
 
-- Un curso puede tener muchos módulos.
-- Un módulo puede tener muchas lecciones.
-- Una lección puede contener video, texto, preguntas o recursos descargables.
-- Solo usuarios con rol de profesor o administrador pueden crear cursos.
+certificates
+
+Certificados o evidencias de avance.
+
+notes
+
+Notas personales y reflexiones.
+
+Criterio
+
+Cada app debe tener una responsabilidad clara y no mezclar dominios diferentes.

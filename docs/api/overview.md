@@ -1,23 +1,28 @@
-docs/api/overview.md
+# Visión general de API
 
-Explica la API completa.
+La API será construida con Django y consumida por Next.js.
 
-Contendría:
+## Estado actual
 
-URL base.
-Formato JSON.
-Convenciones.
-Versionado.
-Autenticación.
-Formato de errores.
+La API aún no está implementada.
 
-Ejemplo:
+## Objetivo
 
-# API
+Exponer datos y acciones del sistema, como:
 
-La API expone endpoints REST para que el frontend pueda consultar y modificar datos de la plataforma.
+- Usuarios.
+- Cursos.
+- Lecciones.
+- Evaluaciones.
+- Progreso.
+- Certificados.
 
-URL base local:
+## Formato esperado
 
-```txt
-http://127.0.0.1:8000/api/
+La API devolverá respuestas en JSON.
+
+## Principio
+
+El frontend no debe conectarse directamente a la base de datos. Debe comunicarse con Django mediante API.
+
+DRF es una herramienta oficial ampliamente usada para construir APIs web con Django, y sus serializers permiten convertir modelos/querysets a datos que pueden renderizarse como JSON.

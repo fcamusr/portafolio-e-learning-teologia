@@ -1,36 +1,32 @@
-`docs/setup/database.md`
-
-Aquí explicas PostgreSQL.
-
-Contenido inicial:
-
-```md id="t2pv50"
+```md
 # Configuración de base de datos
 
-El proyecto utiliza PostgreSQL como base de datos principal.
+El proyecto usa PostgreSQL como base de datos principal.
 
-## Datos necesarios
+## Base de datos local
 
-Para conectar Django con PostgreSQL se necesita:
+Nombre usado en desarrollo:
 
-- Nombre de la base de datos.
-- Usuario.
-- Contraseña.
-- Host.
-- Puerto.
+```text
+portafolio_db
+Herramienta gráfica
 
-## Puerto por defecto
+Se puede usar pgAdmin para crear y revisar la base de datos.
 
-```txt
-5432
-Migraciones de Django
+Configuración en Django
 
-Crear migraciones:
+La conexión se define en backend/config/settings.py, idealmente usando variables de entorno.
 
-python manage.py makemigrations
+Campos principales:
 
-Aplicar migraciones:
+ENGINE
+NAME
+USER
+PASSWORD
+HOST
+PORT
+Nota importante
 
-python manage.py migrate
+No se debe subir a GitHub la contraseña real de la base de datos.
 
-Más adelante puedes agregar cómo crear la base desde pgAdmin o desde consola.
+La estructura de variables debe documentarse en .env.example.

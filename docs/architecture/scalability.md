@@ -1,28 +1,22 @@
-docs/architecture/scalability.md
-
-Este documento aparece cuando el proyecto crece.
-
-Contendría:
-
-Qué partes podrían escalar.
-Qué tareas se pasan a Celery.
-Qué consultas necesitan optimización.
-Qué datos se cachean.
-Qué archivos se almacenan fuera del servidor.
-Qué problemas podrían aparecer con muchos usuarios.
-
-Ejemplo:
-
+```md
 # Escalabilidad
 
-La plataforma puede crecer en número de estudiantes, cursos y evaluaciones.
+El proyecto crecerá como monolito modular.
 
-Posibles puntos críticos:
+## Por qué no microservicios al inicio
 
-- Consultas de progreso por usuario.
-- Reportes de cursos.
-- Generación de certificados.
-- Envío masivo de correos.
-- Carga de archivos multimedia.
+El proyecto está siendo construido por una persona y está en etapa inicial.
 
-Las tareas pesadas deberán procesarse de forma asíncrona usando Celery.
+Un monolito modular permite aprender, avanzar rápido y mantener orden sin agregar complejidad innecesaria.
+
+## Cómo crecerá
+
+- Separando apps por dominio.
+- Documentando decisiones.
+- Usando API clara.
+- Evitando mezclar lógica en lugares incorrectos.
+- Manteniendo documentación viva.
+
+## Regla
+
+No agregar complejidad antes de necesitarla.

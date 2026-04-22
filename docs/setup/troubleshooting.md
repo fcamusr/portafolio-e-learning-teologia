@@ -1,36 +1,44 @@
-`docs/setup/troubleshooting.md`
+```md
+# Troubleshooting
 
-Aquí registras errores comunes.
+Problemas comunes y soluciones.
 
-Contenido inicial:
+## Error: no existe manage.py
 
-```md id="8ny10v"
-# Problemas comunes
+Causa probable: el comando se ejecutó desde la carpeta incorrecta.
 
-## Error de conexión con PostgreSQL
+Solución: ejecutar comandos Django desde:
 
-Verificar que:
+```text
+backend/
 
-- PostgreSQL esté ejecutándose.
-- La base de datos exista.
-- El usuario y contraseña sean correctos.
-- El puerto sea `5432`.
+Ejemplo:
 
-## Error porque no existen las tablas
+cd backend
+python manage.py runserver
+.env.example no aparece en Git
 
-Ejecutar:
+Causa probable: .gitignore está ignorando .env*.
 
-```bash
-python manage.py migrate
-Error con dependencias del frontend
+Solución: permitir explícitamente .env.example.
 
-Eliminar node_modules y reinstalar:
+.env
+.env.*
+!.env.example
+Frontend no inicia
 
+Verificar dependencias:
+
+cd frontend
 npm install
-Error con el entorno virtual
+npm run dev
+Backend no conecta a PostgreSQL
 
-Verificar que el entorno virtual esté activado antes de ejecutar comandos de Django.
+Revisar:
 
-
-Este archivo crecerá mucho con el tiempo. Es como tu “libreta de problemas resueltos”.
-
+Nombre de base de datos.
+Usuario.
+Contraseña.
+Puerto.
+Variables de entorno.
+Que PostgreSQL esté iniciado.

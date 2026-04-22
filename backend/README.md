@@ -1,99 +1,82 @@
-README raíz:
-Presenta el proyecto.
+# Backend - Django
 
-backend/README.md:
-Explica cómo instalar y ejecutar backend.
+Backend principal del proyecto e-learning de teología.
 
-frontend/README.md:
-Explica cómo instalar y ejecutar frontend.
+Este backend está construido con Django y PostgreSQL. Su responsabilidad será manejar la lógica de negocio, autenticación, modelos, base de datos y futura API que consumirá el frontend Next.js.
 
-docs/:
-Explica decisiones, arquitectura y detalles profundos.
+## Estructura actual
 
-El README del backend debe ser práctico y técnico.
+```text
+backend/
+├── apps/
+│   └── users/
+├── config/
+├── .env
+├── .env.example
+├── .gitignore
+├── manage.py
+├── README.md
+└── requirements.txt
+Apps locales
 
-Debe contener:
+Las apps propias del proyecto se ubican dentro de:
 
-```txt
-Qué es el backend.
-Tecnologías usadas.
-Requisitos.
-Instalación.
-Variables de entorno.
-Base de datos.
-Migraciones.
-Crear superusuario.
-Ejecutar servidor.
-Ejecutar tests.
-Apps principales.
-Comandos útiles.
-Enlaces a documentación técnica.
+backend/apps/
 
-Ejemplo de estructura:
+Esto ayuda a separar las apps locales del código de configuración del proyecto.
 
-# Backend
+App users
 
-Backend de la plataforma e-learning de teología, construido con Django y Django REST Framework.
+La app users contiene el modelo de usuario personalizado.
 
-## Responsabilidades
+El modelo User hereda de AbstractUser, por lo que mantiene el comportamiento base de Django, pero deja preparada la estructura para extender el usuario en el futuro.
 
-- Gestión de usuarios.
-- Autenticación y permisos.
-- Gestión de cursos.
-- Gestión de lecciones.
-- Evaluaciones.
-- Progreso académico.
-- Certificados.
-- API para el frontend.
-
-## Tecnologías
-
-- Python
-- Django
-- Django REST Framework
-- PostgreSQL
-- Redis
-- Celery
-
-## Instalación
-
-Crear entorno virtual:
-
-```bash
-python -m venv venv
-
-Activar entorno virtual:
-
-.\venv\Scripts\Activate.ps1
-
-Instalar dependencias:
-
-pip install -r requirements.txt
 Variables de entorno
 
-Crear archivo .env en la carpeta backend.
+El backend usa un archivo .env para configuración local sensible.
 
-Usar como referencia:
+Este archivo no debe subirse a GitHub.
+
+El archivo .env.example sí se versiona para mostrar qué variables necesita el proyecto.
+
+Ejecutar backend
+
+Desde la carpeta backend/:
+
+.venv\Scripts\activate
+python manage.py runserver
+
+El servidor se ejecuta en:
+
+http://127.0.0.1:8000/
+Base de datos
+
+El backend usa PostgreSQL como base de datos principal.
+
+La configuración real debe cargarse desde variables de entorno.
+
+```md
+## Configuración con variables de entorno
+
+El backend usa variables de entorno para evitar dejar secretos dentro del código fuente.
+
+Archivo real local:
+
+```text
+.env
+
+Archivo de ejemplo versionable:
 
 .env.example
-Migraciones
-python manage.py makemigrations
-python manage.py migrate
-Crear superusuario
-python manage.py createsuperuser
-Ejecutar servidor
-python manage.py runserver
-Apps principales
-users
-courses
-lessons
-quizzes
-progress
-certificates
-Documentación relacionada
-docs/backend/overview.md
-docs/api/overview.md
-docs/database/models.md
-docs/security/authentication-security.md
 
-La idea es que alguien pueda levantar el backend sin leer toda la documentación profunda.
+El archivo .env debe contener valores reales de desarrollo local.
+
+El archivo .env.example debe contener la estructura esperada sin secretos reales.
+
+Dependencia para cargar variables
+
+El proyecto usa python-dotenv para cargar backend/.env desde config/settings.py.
+
+Después de instalar o actualizar dependencias:
+
+pip freeze > requirements.txt

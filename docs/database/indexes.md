@@ -1,19 +1,20 @@
-docs/database/indexes.md
+```md
+# Índices
 
-Este documento sería más avanzado.
+Los índices ayudan a mejorar consultas frecuentes en la base de datos.
 
-Contendría:
+## Estado actual
 
-Qué campos necesitan índices.
-Por qué se indexan.
-Qué consultas frecuentes existen.
-Cómo evitar consultas lentas.
+No se han definido índices personalizados.
 
-Ejemplos:
+## Cuándo considerar índices
 
-course.slug
-user.email
-enrollment.user_id
-enrollment.course_id
-progress.user_id
-progress.lesson_id
+- Búsquedas frecuentes.
+- Filtros por usuario.
+- Filtros por curso.
+- Consultas de progreso.
+- Ordenamientos frecuentes.
+
+## Regla
+
+No agregar índices sin una razón clara, porque también tienen costo de escritura y mantenimiento.

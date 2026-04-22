@@ -1,18 +1,19 @@
-## `docs/api/courses.md`
-
-Documenta endpoints de cursos.
-
-Ejemplo:
-
 ```md
 # API de cursos
 
-## Listar cursos
+## Estado actual
 
-```http
+No implementado.
+
+## Objetivo futuro
+
+Permitir listar y consultar cursos de teología.
+
+Posibles endpoints:
+
+```text
 GET /api/courses/
+GET /api/courses/{id}/
+Nota
 
-Obtener curso por slug
-GET /api/courses/{slug}/
-Crear curso
-POST /api/courses/
+La estructura definitiva dependerá del diseño de modelos.

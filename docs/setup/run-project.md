@@ -1,34 +1,28 @@
-docs/setup/run-project.md
+```md
+# Ejecutar el proyecto localmente
 
-Este archivo explica cómo levantar todo el sistema.
+El proyecto se ejecuta con dos servidores: backend y frontend.
 
-Contenido inicial:
+## Terminal 1: backend
 
-# Ejecutar el proyecto completo
-
-Para ejecutar el proyecto en local se deben levantar dos servidores:
-
-- Backend Django
-- Frontend Next.js
-
-## Ejecutar backend
-
-Desde la carpeta `backend`:
+Desde `backend/`:
 
 ```bash
+.venv\Scripts\activate
 python manage.py runserver
 
-El backend queda disponible en:
+Backend:
 
-http://127.0.0.1:8000
-Ejecutar frontend
+http://127.0.0.1:8000/
+Terminal 2: frontend
 
-Desde la carpeta frontend:
+Desde frontend/:
 
 npm run dev
 
-El frontend queda disponible en:
+Frontend:
 
-http://localhost:3000
+http://localhost:3000/
+Nota
 
-Este archivo es útil para el “día a día”.
+Ambos servidores deben estar activos cuando el frontend necesite consumir datos desde Django.
