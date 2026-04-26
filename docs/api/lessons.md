@@ -1,18 +1,16 @@
-## `docs/api/lessons.md`
-
-```md
 # API de lecciones
 
 ## Estado actual
 
-No implementado.
+No hay endpoints de lecciones implementados.
 
 ## Objetivo futuro
 
-Permitir consultar lecciones dentro de cursos y módulos.
+Este recurso debería permitir consultar lecciones, su orden dentro de una estructura formativa y el contenido asociado a cada una.
 
-Posibles endpoints:
+## Endpoints previstos
 
 ```text
 GET /api/lessons/
 GET /api/lessons/{id}/
+```

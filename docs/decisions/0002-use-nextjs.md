@@ -2,27 +2,23 @@
 
 ## Estado
 
-Aceptada.
+Aceptada
+
+## Contexto
+
+El proyecto necesita una base moderna para construir interfaz, navegación y composición de pantallas, con posibilidad de crecer hacia una aplicación web más completa.
 
 ## Decisión
 
 Usar Next.js como frontend del proyecto.
 
-## Motivo
-
-Next.js permite trabajar con React, rutas modernas, renderizado flexible y una estructura adecuada para aplicaciones web profesionales.
-
 ## Consecuencias
 
-La interfaz se construirá en `frontend/`.
-
-Next.js consumirá la API de Django.
+- La interfaz se desarrollará en `frontend/`.
+- La aplicación consumirá al backend mediante HTTP.
+- Se adopta la estructura y convenciones propias de Next.js.
 
 ## Alternativas consideradas
 
-- React con Vite.
-- Templates de Django.
-
-## Conclusión
-
-Next.js será el frontend principal.
+- React con Vite
+- Templates de Django

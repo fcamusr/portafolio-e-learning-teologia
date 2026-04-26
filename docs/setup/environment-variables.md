@@ -1,69 +1,78 @@
-```md
 # Variables de entorno
 
-El proyecto usa variables de entorno para separar configuración sensible del código fuente.
+El proyecto usa variables de entorno para separar configuración sensible del código fuente y facilitar cambios entre entornos.
 
 ## Regla principal
 
-Los archivos reales de entorno no deben subirse a GitHub.
-
-Los archivos `.env.example` sí deben versionarse porque sirven como plantilla de configuración.
+- Los archivos reales de entorno no deben versionarse.
+- Los archivos `*.env.example` sí deben mantenerse actualizados como plantilla.
 
 ## Backend
 
-Archivo real:
+Archivo local:
 
 ```text
 backend/.env
+```
 
-Archivo versionable:
+Archivo versionado:
 
+```text
 backend/.env.example
-Variables del backend
+```
+
+Variables documentadas:
+
+| Variable | Descripción |
+| --- | --- |
+| `SECRET_KEY` | Clave secreta usada por Django |
+| `DEBUG` | Activa o desactiva el modo de depuración |
+| `ALLOWED_HOSTS` | Lista de hosts permitidos |
+| `DB_NAME` | Nombre de la base PostgreSQL |
+| `DB_USER` | Usuario de PostgreSQL |
+| `DB_PASSWORD` | Contraseña del usuario |
+| `DB_HOST` | Host del servidor PostgreSQL |
+| `DB_PORT` | Puerto del servidor PostgreSQL |
+
+Ejemplo:
+
+```dotenv
 SECRET_KEY=change-me
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1,localhost
-
 DB_NAME=portafolio_db
 DB_USER=postgres
 DB_PASSWORD=your-db-password
 DB_HOST=localhost
 DB_PORT=5432
-Significado de las variables del backend
+```
 
-SECRET_KEY es la clave secreta de Django. No debe compartirse ni subirse al repositorio.
+## Frontend
 
-DEBUG controla si Django se ejecuta en modo desarrollo.
+Archivo local:
 
-ALLOWED_HOSTS define qué hosts pueden servir la aplicación.
-
-DB_NAME indica el nombre de la base de datos PostgreSQL.
-
-DB_USER indica el usuario de PostgreSQL.
-
-DB_PASSWORD indica la contraseña del usuario de PostgreSQL.
-
-DB_HOST indica el host donde corre PostgreSQL.
-
-DB_PORT indica el puerto de PostgreSQL.
-
-Frontend
-
-Archivo real:
-
+```text
 frontend/.env.local
+```
 
-Archivo versionable:
+Archivo versionado:
 
+```text
 frontend/.env.example
-Variables del frontend
+```
+
+Variables documentadas:
+
+| Variable | Descripción |
+| --- | --- |
+| `NEXT_PUBLIC_API_BASE_URL` | URL base del backend que consumirá el frontend |
+
+Ejemplo:
+
+```dotenv
 NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
-Significado de las variables del frontend
+```
 
-NEXT_PUBLIC_API_BASE_URL define la URL base del backend Django.
+## Nota de seguridad
 
-El prefijo NEXT_PUBLIC_ indica que la variable puede estar disponible en el navegador.
-
-Nota de seguridad
-
-No usar el prefijo NEXT_PUBLIC_ para secretos, contraseñas, tokens privados o claves sensibles.
+Las variables con prefijo `NEXT_PUBLIC_` pueden estar expuestas en el navegador. No deben utilizarse para secretos, tokens privados ni credenciales sensibles.

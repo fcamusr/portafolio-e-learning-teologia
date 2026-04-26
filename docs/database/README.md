@@ -1,12 +1,32 @@
 # Base de datos
 
-Documentación relacionada con PostgreSQL, modelos, relaciones, migraciones e índices.
+Esta sección documenta cómo se modelan y administran los datos del proyecto.
 
-## Archivos
+## Contenido
 
-- `overview.md`: visión general.
-- `models.md`: modelos actuales y planificados.
-- `relationships.md`: relaciones entre modelos.
-- `migrations.md`: migraciones.
-- `indexes.md`: índices.
-- `seed-data.md`: datos iniciales.
+- [overview.md](./overview.md): visión general y estado actual
+- [models.md](./models.md): modelos implementados y dominios previstos
+- [relationships.md](./relationships.md): relaciones actuales y futuras de alto nivel
+- [migrations.md](./migrations.md): flujo de cambios de esquema
+- [indexes.md](./indexes.md): lineamientos sobre índices
+- [seed-data.md](./seed-data.md): criterio para datos iniciales o de prueba
+
+## Enfoque actual
+
+La base de datos ya está conectada al backend, pero el modelo de dominio todavía está en una etapa temprana. Por eso esta documentación distingue claramente entre el esquema existente y el que aún está previsto.
+
+## Orden de lectura recomendado
+
+1. [overview.md](./overview.md)
+2. [models.md](./models.md)
+3. [relationships.md](./relationships.md)
+4. [migrations.md](./migrations.md)
+5. [indexes.md](./indexes.md)
+6. [seed-data.md](./seed-data.md)
+
+## Por qué este orden
+
+- Primero entiendes el objetivo general del modelo de datos.
+- Luego revisas qué entidades existen y cuáles están proyectadas.
+- Después ves cómo se relacionarán.
+- Al final pasas a la operación: migraciones, desempeño e inicialización de datos.

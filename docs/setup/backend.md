@@ -1,69 +1,77 @@
-```md
 # Configuración del backend
 
-El backend está dentro de la carpeta:
+El backend vive en la carpeta `backend/` y se ejecuta como un proyecto Django independiente.
 
-```text
-backend/
-Activar entorno virtual
+## 1. Crear entorno virtual
 
-Desde backend/:
+Desde `backend/`:
 
+```powershell
+python -m venv .venv
 .venv\Scripts\activate
-Instalar dependencias
+```
+
+## 2. Instalar dependencias
+
+```powershell
 pip install -r requirements.txt
-Ejecutar servidor
+```
+
+## 3. Configurar variables de entorno
+
+Usa `backend/.env.example` como plantilla y crea `backend/.env` con valores reales para tu entorno local.
+
+El backend carga estas variables desde `config/settings.py` mediante:
+
+```python
+load_dotenv(BASE_DIR / ".env")
+```
+
+## 4. Aplicar migraciones
+
+Con PostgreSQL ya disponible:
+
+```powershell
+python manage.py migrate
+```
+
+## 5. Validar configuración
+
+```powershell
+python manage.py check
+```
+
+Este comando permite detectar errores de configuración antes de levantar el servidor.
+
+## 6. Ejecutar el servidor
+
+```powershell
 python manage.py runserver
+```
 
-Servidor local:
+Backend local: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-http://127.0.0.1:8000/
-Estructura importante
-backend/
-├── apps/
-│   └── users/
-├── config/
-└── manage.py
-App users
-
-La app users se creó dentro de backend/apps/users.
-
-El modelo User hereda de AbstractUser.
-
-En settings.py se configuró:
-
-AUTH_USER_MODEL = "users.User"
-Nota
-
-Los comandos de Django deben ejecutarse desde la carpeta donde está manage.py.
-
-Agrega esta sección al final:
-
-```md
-## Variables de entorno en Django
-
-El backend carga variables desde:
+## Archivos y carpetas importantes
 
 ```text
-backend/.env
+backend/
+|-- apps/
+|   `-- users/
+|-- config/
+|-- .env.example
+|-- manage.py
+`-- requirements.txt
+```
 
-Para esto se usa python-dotenv.
+## Detalles relevantes del estado actual
 
-La carga se realiza en config/settings.py con:
+- La app local disponible es `users`
+- El modelo `User` extiende `AbstractUser`
+- `AUTH_USER_MODEL` está definido como `users.User`
+- La ruta `/admin/` está disponible por defecto
 
-load_dotenv(BASE_DIR / ".env")
+## Referencias relacionadas
 
-Esto permite mantener fuera del código fuente valores sensibles como:
-
-SECRET_KEY
-DB_PASSWORD
-configuración real de PostgreSQL
-Verificar configuración
-
-Desde backend/:
-
-python manage.py check
-
-Si no hay errores, levantar servidor:
-
-python manage.py runserver
+- [../../backend/README.md](../../backend/README.md)
+- [database.md](./database.md)
+- [environment-variables.md](./environment-variables.md)

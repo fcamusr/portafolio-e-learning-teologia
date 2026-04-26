@@ -1,63 +1,72 @@
 # Portafolio E-learning de Teología
 
-Aplicación web fullstack orientada al aprendizaje progresivo de Biblia y teología evangélica.
+Aplicación fullstack orientada al aprendizaje progresivo de Biblia y teología evangélica. El proyecto busca combinar una experiencia de estudio clara y amigable con una base técnica bien documentada, mantenible y extensible.
 
-El objetivo del proyecto es construir una plataforma e-learning profunda, amigable e innovadora, donde los usuarios puedan aprender, practicar, reflexionar, evaluar su progreso y aplicar lo aprendido a la vida cristiana.
+Además de su propósito funcional, este repositorio también sirve como portafolio profesional para demostrar criterios de ingeniería de software, organización de arquitectura, documentación técnica y buenas prácticas de desarrollo.
 
-Este proyecto también funciona como portafolio profesional para demostrar habilidades en desarrollo fullstack, arquitectura de software, documentación, buenas prácticas, seguridad básica, Git/GitHub y trabajo con bases de datos.
-
-## Stack principal
+## Resumen del proyecto
 
 - Backend: Django
 - Frontend: Next.js
 - Base de datos: PostgreSQL
-- Lenguajes: Python, JavaScript, HTML y CSS
-- Control de versiones: Git y GitHub
+- Arquitectura: backend y frontend separados dentro del mismo repositorio
+- Estado actual: base técnica inicial operativa, con backend configurado, frontend creado y documentación estructurada
 
-## Estructura general
+## Estado actual
+
+Hoy el repositorio contiene una base sólida sobre la cual seguir construyendo:
+
+- Un proyecto Django funcional en `backend/`
+- Un modelo de usuario personalizado en `backend/apps/users/models.py`
+- Configuración de PostgreSQL mediante variables de entorno
+- Un frontend Next.js con App Router en `frontend/`
+- Una estructura documental en `docs/` para setup, arquitectura, API, base de datos y decisiones técnicas
+
+Todavía no existen endpoints de negocio ni una interfaz funcional del producto. La documentación distingue explícitamente entre lo implementado y lo planificado para evitar ambigüedades.
+
+## Estructura del repositorio
 
 ```text
 Portafolio/
-├── backend/
-├── frontend/
-├── docs/
-├── .gitignore
-└── README.md
-Arquitectura general
+|-- backend/
+|-- frontend/
+|-- docs/
+|-- .gitignore
+`-- README.md
+```
 
-El proyecto usa arquitectura separada:
+- `backend/`: proyecto Django, configuración, modelos y futura API
+- `frontend/`: aplicación Next.js y futura interfaz de usuario
+- `docs/`: documentación técnica y operativa del proyecto
 
-Django funciona como backend principal y futura API.
-Next.js funciona como frontend.
-PostgreSQL almacena los datos.
-La comunicación entre frontend y backend se realizará mediante HTTP/API.
-Estado actual
-Backend Django creado.
-PostgreSQL conectado.
-Servidor Django probado.
-Frontend Next.js creado con App Router.
-Servidor Next.js probado.
-App local users creada en backend/apps/users.
-Modelo User personalizado creado heredando de AbstractUser.
-Documentación base creada en docs/.
-Repositorio subido a GitHub.
-Documentación
+## Primeros pasos
 
-La documentación del proyecto está en la carpeta docs/.
+1. Revisa los prerrequisitos en [docs/setup/prerequisites.md](./docs/setup/prerequisites.md).
+2. Configura el backend siguiendo [backend/README.md](./backend/README.md).
+3. Configura el frontend siguiendo [frontend/README.md](./frontend/README.md).
+4. Completa las variables de entorno usando `backend/.env.example` y `frontend/.env.example`.
+5. Ejecuta ambos servicios con la guía de [docs/setup/run-project.md](./docs/setup/run-project.md).
 
-Archivos principales:
+## Documentación
 
-docs/setup/: instalación, configuración y ejecución.
-docs/architecture/: arquitectura y decisiones técnicas.
-docs/database/: modelos, relaciones y migraciones.
-docs/api/: endpoints y contratos de API.
-docs/decisions/: decisiones importantes del proyecto.
-Seguridad básica
+La documentación del proyecto está organizada por dominios:
 
-Los archivos reales de entorno no se suben a GitHub.
+- [docs/README.md](./docs/README.md): mapa general de la documentación
+- [docs/setup/README.md](./docs/setup/README.md): instalación, configuración y ejecución local
+- [docs/architecture/README.md](./docs/architecture/README.md): contexto, estructura y criterios de arquitectura
+- [docs/database/README.md](./docs/database/README.md): modelos, migraciones y lineamientos de datos
+- [docs/api/README.md](./docs/api/README.md): estado y diseño previsto de la API
+- [docs/decisions/README.md](./docs/decisions/README.md): decisiones técnicas registradas
 
-Se versionan archivos .env.example para mostrar la estructura esperada de configuración sin exponer secretos.
+## Seguridad y configuración
 
-Objetivo profesional
+Los archivos con secretos reales no se versionan. La configuración local se define mediante archivos de entorno:
 
-Este proyecto busca demostrar capacidad para construir una aplicación fullstack real, documentada, mantenible y pensada con criterios de ingeniería de software.
+- `backend/.env`
+- `frontend/.env.local`
+
+Los archivos `*.env.example` sí se mantienen en el repositorio como referencia de configuración.
+
+## Objetivo documental
+
+La documentación de este proyecto se mantiene como documentación viva. Cada cambio relevante en estructura, setup, arquitectura o contratos técnicos debería reflejarse en los documentos correspondientes.

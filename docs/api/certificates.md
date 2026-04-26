@@ -1,19 +1,16 @@
-
-## `docs/api/certificates.md`
-
-```md
 # API de certificados
 
 ## Estado actual
 
-No implementado.
+No hay endpoints de certificados implementados.
 
 ## Objetivo futuro
 
-Permitir generar o consultar certificados cuando el usuario complete rutas, cursos o evaluaciones.
+Este recurso debería permitir consultar evidencias de avance, certificados o logros asociados al recorrido formativo del usuario.
 
-Posibles endpoints:
+## Endpoints previstos
 
 ```text
 GET /api/certificates/
 GET /api/certificates/{id}/
+```

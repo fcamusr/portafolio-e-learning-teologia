@@ -1,28 +1,29 @@
 # Visión general de API
 
-La API será construida con Django y consumida por Next.js.
+La API será el contrato principal entre el backend Django y el frontend Next.js.
 
 ## Estado actual
 
-La API aún no está implementada.
+Hoy no existen endpoints de negocio implementados. El backend solo expone la ruta administrativa estándar de Django y la base técnica necesaria para construir una API más adelante.
 
 ## Objetivo
 
-Exponer datos y acciones del sistema, como:
+La API deberá exponer datos y acciones relacionadas con:
 
-- Usuarios.
-- Cursos.
-- Lecciones.
-- Evaluaciones.
-- Progreso.
-- Certificados.
+- usuarios
+- cursos y lecciones
+- evaluaciones
+- progreso
+- certificados o logros
 
 ## Formato esperado
 
-La API devolverá respuestas en JSON.
+La expectativa es trabajar con respuestas JSON y contratos consistentes entre recursos.
 
-## Principio
+## Principio de diseño
 
-El frontend no debe conectarse directamente a la base de datos. Debe comunicarse con Django mediante API.
+El frontend no debe comunicarse directamente con la base de datos. Toda operación de negocio debe pasar por el backend.
 
-DRF es una herramienta oficial ampliamente usada para construir APIs web con Django, y sus serializers permiten convertir modelos/querysets a datos que pueden renderizarse como JSON.
+## Observación técnica
+
+`djangorestframework` ya aparece en `backend/requirements.txt`, lo que deja preparada la base para una futura implementación API, aunque hoy todavía no esté configurada en rutas ni apps instaladas.

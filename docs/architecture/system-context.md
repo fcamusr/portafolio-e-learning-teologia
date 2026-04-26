@@ -1,26 +1,26 @@
 # Contexto del sistema
 
-La aplicación será una plataforma e-learning de teología evangélica.
+El proyecto apunta a una plataforma e-learning enfocada en formación bíblica y teológica, con una experiencia gradual, práctica y orientada a la continuidad del aprendizaje.
 
 ## Usuario principal
 
-Persona interesada en aprender Biblia, teología y vida cristiana de forma progresiva.
+La persona usuaria objetivo es alguien que desea estudiar Biblia, teología y vida cristiana de forma estructurada, con apoyo digital para avanzar, repasar y medir progreso.
 
-## Objetivo del usuario
+## Necesidades que el sistema busca cubrir
 
-- Aprender contenido bíblico y teológico.
-- Practicar lo aprendido.
-- Evaluar su progreso.
-- Reflexionar y aplicar lo aprendido a la vida cristiana.
+- acceder a contenido formativo ordenado
+- avanzar de manera progresiva
+- practicar y evaluar lo aprendido
+- registrar progreso personal
+- volver al contenido para profundizar y consolidar aprendizaje
 
-## Componentes del sistema
+## Componentes de la solución
 
-- Frontend Next.js.
-- Backend Django.
-- Base de datos PostgreSQL.
-- Documentación del proyecto.
-- Repositorio GitHub.
+- un frontend web en Next.js
+- un backend en Django
+- una base de datos PostgreSQL
+- una documentación técnica que acompañe la evolución del producto
 
-## Principio central
+## Principio de diseño
 
-La aplicación debe ser útil más allá de completar una ruta inicial de aprendizaje. Debe invitar al usuario a volver, practicar, profundizar y crecer.
+El sistema no está pensado solo para mostrar contenido, sino para sostener un proceso de aprendizaje. Por eso la arquitectura considera desde el inicio conceptos como usuarios, progreso, evaluaciones y futuras rutas formativas.

@@ -1,19 +1,16 @@
-
-## `docs/api/quizzes.md`
-
-```md
 # API de quizzes
 
 ## Estado actual
 
-No implementado.
+No hay endpoints de evaluaciones implementados.
 
 ## Objetivo futuro
 
-Permitir evaluaciones, preguntas y respuestas.
+Este recurso debería cubrir quizzes, preguntas, respuestas e intentos del usuario.
 
-Posibles endpoints:
+## Endpoints previstos
 
 ```text
-GET /api/quizzes/{id}/
+GET  /api/quizzes/{id}/
 POST /api/quizzes/{id}/submit/
+```

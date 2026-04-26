@@ -2,28 +2,23 @@
 
 ## Estado
 
-Aceptada.
+Aceptada
+
+## Contexto
+
+El proyecto busca mantener responsabilidades claras entre experiencia de usuario y lógica de negocio, permitiendo además que ambos lados evolucionen con menor acoplamiento.
 
 ## Decisión
 
-Mantener backend y frontend en carpetas separadas.
-
-## Motivo
-
-Esta separación permite trabajar Django como backend/API y Next.js como frontend independiente.
+Mantener backend y frontend en carpetas separadas dentro del mismo repositorio.
 
 ## Consecuencias
 
-El proyecto tendrá dos servidores en desarrollo:
-
-- Django en puerto 8000.
-- Next.js en puerto 3000.
+- El desarrollo local requiere dos servidores.
+- El frontend y el backend pueden evolucionar con ciclos diferentes.
+- La comunicación entre ambos debe definirse mediante contratos HTTP/API.
 
 ## Alternativas consideradas
 
-- Usar solo Django templates.
-- Integrar React dentro de Django.
-
-## Conclusión
-
-Se usará arquitectura separada.
+- Usar solo templates de Django
+- Integrar React dentro del backend

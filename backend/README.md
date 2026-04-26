@@ -1,82 +1,97 @@
-# Backend - Django
+# Backend
 
-Backend principal del proyecto e-learning de teología.
+Backend principal del proyecto, construido con Django y PostgreSQL. Su responsabilidad es concentrar la lógica de negocio, la persistencia de datos, la autenticación del sistema y la futura API que consumirá el frontend.
 
-Este backend está construido con Django y PostgreSQL. Su responsabilidad será manejar la lógica de negocio, autenticación, modelos, base de datos y futura API que consumirá el frontend Next.js.
+## Alcance actual
 
-## Estructura actual
+Actualmente el backend incluye:
+
+- Proyecto Django base en `backend/config/`
+- App local `users` en `backend/apps/users/`
+- Modelo de usuario personalizado basado en `AbstractUser`
+- Configuración de base de datos PostgreSQL mediante variables de entorno
+- Ruta del panel administrativo de Django en `/admin/`
+
+Todavía no existen endpoints de negocio ni vistas API implementadas.
+
+## Estructura relevante
 
 ```text
 backend/
-├── apps/
-│   └── users/
-├── config/
-├── .env
-├── .env.example
-├── .gitignore
-├── manage.py
-├── README.md
-└── requirements.txt
-Apps locales
+|-- apps/
+|   `-- users/
+|-- config/
+|-- .env.example
+|-- manage.py
+|-- requirements.txt
+`-- README.md
+```
 
-Las apps propias del proyecto se ubican dentro de:
+- `apps/`: aplicaciones locales del dominio
+- `config/`: configuración global del proyecto Django
+- `manage.py`: punto de entrada para comandos administrativos
+- `requirements.txt`: dependencias del backend
 
-backend/apps/
+## Configuración local
 
-Esto ayuda a separar las apps locales del código de configuración del proyecto.
+Desde `backend/`, crea y activa un entorno virtual:
 
-App users
+```powershell
+crea: python -m venv .venv
+activa: .venv\Scripts\activate
+desactiva: deactivate
+```
 
-La app users contiene el modelo de usuario personalizado.
+Instala dependencias:
 
-El modelo User hereda de AbstractUser, por lo que mantiene el comportamiento base de Django, pero deja preparada la estructura para extender el usuario en el futuro.
+```powershell
+pip install -r requirements.txt
+```
 
-Variables de entorno
+Copia `backend/.env.example` a `backend/.env` y completa los valores reales de tu entorno local.
 
-El backend usa un archivo .env para configuración local sensible.
+## Ejecución
 
-Este archivo no debe subirse a GitHub.
+Con el entorno virtual activo y la base de datos disponible
 
-El archivo .env.example sí se versiona para mostrar qué variables necesita el proyecto.
+```powershell
+python manage.py migrate #migrar
+python manage.py check #salud
+python manage.py runserver #arrancar
+```
 
-Ejecutar backend
+El servidor de desarrollo queda disponible en [http://127.0.0.1:8000/].
 
-Desde la carpeta backend/:
+## Variables de entorno
 
-.venv\Scripts\activate
-python manage.py runserver
+El backend carga variables desde `backend/.env` usando `python-dotenv` dentro de `backend/config/settings.py`.
 
-El servidor se ejecuta en:
+Variables requeridas:
 
-http://127.0.0.1:8000/
-Base de datos
+- `SECRET_KEY`
+- `DEBUG`
+- `ALLOWED_HOSTS`
+- `DB_NAME`
+- `DB_USER`
+- `DB_PASSWORD`
+- `DB_HOST`
+- `DB_PORT`
 
-El backend usa PostgreSQL como base de datos principal.
+Nunca se deben subir secretos reales al repositorio. El archivo versionado debe ser siempre `backend/.env.example`.
 
-La configuración real debe cargarse desde variables de entorno.
+## Modelo de usuario
 
-```md
-## Configuración con variables de entorno
+El modelo actual se define en `backend/apps/users/models.py` y extiende `AbstractUser`:
 
-El backend usa variables de entorno para evitar dejar secretos dentro del código fuente.
+```python
+class User(AbstractUser):
+    pass
+```
 
-Archivo real local:
+Tomar esta decisión al inicio evita migraciones complejas más adelante si el proyecto necesita extender el perfil de usuario.
 
-```text
-.env
+## Referencias relacionadas
 
-Archivo de ejemplo versionable:
-
-.env.example
-
-El archivo .env debe contener valores reales de desarrollo local.
-
-El archivo .env.example debe contener la estructura esperada sin secretos reales.
-
-Dependencia para cargar variables
-
-El proyecto usa python-dotenv para cargar backend/.env desde config/settings.py.
-
-Después de instalar o actualizar dependencias:
-
-pip freeze > requirements.txt
+- [docs/setup/backend.md](../docs/setup/backend.md)
+- [docs/database/models.md](../docs/database/models.md)
+- [docs/architecture/modules.md](../docs/architecture/modules.md)

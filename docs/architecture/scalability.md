@@ -1,22 +1,33 @@
-```md
 # Escalabilidad
 
-El proyecto crecerá como monolito modular.
+El proyecto está pensado para crecer como un monolito modular antes de considerar una arquitectura distribuida.
 
-## Por qué no microservicios al inicio
+## Por qué este enfoque
 
-El proyecto está siendo construido por una persona y está en etapa inicial.
+En una etapa temprana, un monolito bien organizado ofrece ventajas claras:
 
-Un monolito modular permite aprender, avanzar rápido y mantener orden sin agregar complejidad innecesaria.
+- menor complejidad operativa
+- menor costo de coordinación
+- mayor velocidad de desarrollo
+- mejor trazabilidad de cambios
 
-## Cómo crecerá
+## Cómo debería crecer
 
-- Separando apps por dominio.
-- Documentando decisiones.
-- Usando API clara.
-- Evitando mezclar lógica en lugares incorrectos.
-- Manteniendo documentación viva.
+La evolución esperada del sistema pasa por:
 
-## Regla
+- separar dominios en apps del backend
+- definir contratos API claros
+- mantener decisiones técnicas documentadas
+- evitar acoplamientos innecesarios entre frontend, backend y datos
 
-No agregar complejidad antes de necesitarla.
+## Señales que podrían justificar un cambio de enfoque
+
+Antes de pensar en microservicios o particiones mayores, deberían existir necesidades reales como:
+
+- equipos trabajando en dominios muy separados
+- requerimientos de escalado independientes por módulo
+- complejidad operativa que ya no pueda manejarse razonablemente en un monolito
+
+## Regla práctica
+
+No introducir complejidad arquitectónica antes de que el producto y el equipo realmente la necesiten.
