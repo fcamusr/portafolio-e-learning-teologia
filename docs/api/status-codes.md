@@ -1,7 +1,6 @@
-```md
 # Códigos de estado HTTP
 
-Códigos que se usarán en la API.
+Este documento resume los códigos de estado que deberían usarse de forma consistente cuando la API exista.
 
 ## Códigos comunes
 
@@ -14,6 +13,8 @@ Códigos que se usarán en la API.
 403 Forbidden
 404 Not Found
 500 Internal Server Error
-Regla
+```
 
-Usar códigos HTTP según la intención real de la respuesta.
+## Regla
+
+El código HTTP debe reflejar la intención real de la respuesta. No conviene devolver siempre `200` cuando hubo errores de validación, autorización o inexistencia de recursos.

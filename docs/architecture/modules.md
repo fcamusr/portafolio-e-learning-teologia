@@ -1,39 +1,37 @@
-```md
 # Módulos del sistema
 
-Módulos actuales y planificados.
+Este documento identifica los dominios actuales y los módulos previstos para el crecimiento del backend.
 
-## Actual
+## Módulo implementado
 
-### users
+### `users`
 
-Responsable del modelo de usuario personalizado.
+- Ubicación: `backend/apps/users/`
+- Responsabilidad actual: definir el modelo de usuario personalizado
+- Estado: implementado como base técnica
 
-Ubicación:
+## Módulos previstos
 
-```text
-backend/apps/users/
-Planificados
-content
+### `content`
 
-Cursos, módulos, lecciones y recursos.
+Responsable de cursos, módulos, lecciones y recursos formativos.
 
-progress
+### `progress`
 
-Progreso del usuario.
+Responsable del seguimiento del avance del usuario.
 
-quizzes
+### `quizzes`
 
-Evaluaciones y preguntas.
+Responsable de evaluaciones, preguntas, respuestas e intentos.
 
-certificates
+### `certificates`
 
-Certificados o evidencias de avance.
+Responsable de evidencias de avance, logros o certificados.
 
-notes
+### `notes`
 
-Notas personales y reflexiones.
+Responsable de notas personales, reflexiones o apuntes vinculados al aprendizaje.
 
-Criterio
+## Criterio de diseño
 
-Cada app debe tener una responsabilidad clara y no mezclar dominios diferentes.
+Cada módulo debe tener una responsabilidad clara. Cuando el backend crezca, la preferencia es separar dominios por apps en vez de concentrar lógica no relacionada en un solo lugar.

@@ -1,29 +1,24 @@
 # Autenticación
 
-Documentación de autenticación del proyecto.
+Este documento describe el punto de partida actual y la decisión pendiente sobre autenticación API.
 
 ## Estado actual
 
-Existe un modelo de usuario personalizado en Django.
+- Existe un modelo de usuario personalizado en Django.
+- `AUTH_USER_MODEL` está configurado como `users.User`.
+- No hay autenticación por API implementada todavía.
+- El acceso administrativo de Django sigue disponible por la vía estándar del framework.
 
-Aún no se ha implementado autenticación por API.
+## Base técnica existente
 
-## Modelo de usuario
+El modelo actual extiende `AbstractUser`, lo que deja preparada la posibilidad de agregar campos o comportamiento de autenticación más adelante sin cambiar de modelo a mitad del proyecto.
 
-El modelo `User` hereda de `AbstractUser`.
+## Decisión pendiente
 
-Configuración:
+Todavía no está definido el mecanismo de autenticación entre Django y Next.js. Algunas alternativas razonables para evaluar más adelante son:
 
-```python
-AUTH_USER_MODEL = "users.User"
-Futuro
+- sesiones
+- tokens
+- JWT
 
-Se evaluará el mecanismo de autenticación más adecuado para conectar Django con Next.js.
-
-Opciones posibles:
-
-Sesiones.
-Tokens.
-JWT.
-
-La decisión se documentará en docs/decisions/ cuando se implemente.
+Cuando esa decisión se tome, debe registrarse también en `docs/decisions/`.

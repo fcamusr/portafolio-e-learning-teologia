@@ -1,39 +1,39 @@
 # Prerrequisitos
 
-Para ejecutar el proyecto localmente se necesitan las siguientes herramientas:
+Antes de ejecutar el proyecto localmente, asegúrate de contar con las herramientas base para backend, frontend y base de datos.
 
-## Backend
+## Requeridos
 
-- Python compatible con Django 6.
-- Entorno virtual de Python.
-- PostgreSQL.
-- pip.
+### Backend
 
-## Frontend
+- Python compatible con las dependencias definidas en `backend/requirements.txt`
+- `pip`
+- soporte para entornos virtuales de Python
+- PostgreSQL accesible desde tu máquina local
 
-- Node.js.
-- npm.
+### Frontend
 
-## Herramientas recomendadas
+- Node.js compatible con `frontend/package.json`
+- `npm`
 
-- Git.
-- GitHub.
-- VS Code.
-- pgAdmin.
+## Recomendados
 
-## Verificar instalaciones
+- Git
+- VS Code u otro editor con soporte para JavaScript y Python
+- pgAdmin, TablePlus o cualquier cliente para PostgreSQL
 
-```bash
+## Verificación rápida
+
+```powershell
 python --version
 pip --version
 node --version
 npm --version
 git --version
+```
 
-Nota
+Si alguno de estos comandos falla, instala o corrige la herramienta antes de continuar con la configuración del proyecto.
 
-El proyecto usa Django, Next.js y PostgreSQL. Las versiones deben mantenerse actualizadas y revisarse contra documentación oficial antes de hacer cambios importantes.
+## Siguiente paso
 
-
-Django 6.0 soporta oficialmente Python 3.12, 3.13 y 3.14, así que conviene documentar la versión real que estás usando cuando la confirmemos con `python --version`. :contentReference[oaicite:2]{index=2}
-
+Una vez verificado el entorno, continúa con [backend.md](./backend.md) y [frontend.md](./frontend.md).

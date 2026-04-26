@@ -1,29 +1,33 @@
-```md
 # Comunicación backend-frontend
 
-Django y Next.js se comunicarán mediante HTTP.
+La comunicación entre backend y frontend está pensada mediante HTTP, con Django como fuente de datos y Next.js como consumidor.
 
-## Backend
+## Estado actual
 
-Django expondrá endpoints de API.
+Actualmente:
 
-Ejemplo planificado:
+- el backend expone la ruta administrativa `/admin/`
+- todavía no existen endpoints API de negocio
+- el frontend ya contempla la variable `NEXT_PUBLIC_API_BASE_URL` para apuntar al backend
 
-```text
-/api/...
-Frontend
+## Dirección de diseño
 
-Next.js consumirá esos endpoints usando fetch u otra capa de cliente HTTP cuando sea necesario.
+Cuando la API se implemente:
 
-Desarrollo local
+- Django expondrá endpoints bajo una convención consistente, previsiblemente en rutas como `/api/...`
+- Next.js consumirá esos endpoints con `fetch` u otra capa HTTP
+- el frontend no deberá conectarse directamente a la base de datos
 
-Backend:
+## Entorno local
 
-http://127.0.0.1:8000/
+- Backend: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+- Frontend: [http://localhost:3000/](http://localhost:3000/)
 
-Frontend:
+## Consideraciones futuras
 
-http://localhost:3000/
-Nota
+Cuando ambos servicios intercambien datos reales, habrá que definir explícitamente:
 
-Cuando se implemente la API, se deberá configurar CORS para permitir comunicación segura entre ambos servidores.
+- estrategia de autenticación
+- formato de errores
+- política de CORS
+- versionado o estabilidad del contrato API

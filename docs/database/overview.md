@@ -1,25 +1,26 @@
 # Visión general de base de datos
 
-El proyecto usa PostgreSQL como base de datos principal.
+El proyecto usa PostgreSQL como motor de datos principal y Django se comunica con él mediante el ORM.
 
-Django se comunica con PostgreSQL mediante su ORM.
+## Objetivo del modelo de datos
 
-## Objetivo
+El sistema está pensado para almacenar información relacionada con:
 
-Guardar información de:
-
-- Usuarios.
-- Cursos.
-- Lecciones.
-- Evaluaciones.
-- Progreso.
-- Reflexiones.
-- Certificados o logros.
+- usuarios
+- cursos y lecciones
+- evaluaciones
+- progreso
+- notas o reflexiones
+- certificados o logros
 
 ## Estado actual
 
-La base de datos está conectada con Django.
+Hoy la base de datos soporta principalmente la base técnica inicial del backend:
 
-El primer modelo personalizado importante es `User`.
+- conexión configurada mediante variables de entorno
+- migraciones de Django aplicables
+- modelo `User` personalizado como primera entidad del dominio
 
-Django soporta oficialmente PostgreSQL como backend de base de datos, entre otros motores.
+## Alcance documental
+
+Mientras el dominio real aún no esté implementado, esta sección debe documentar con precisión qué tablas y relaciones existen efectivamente y cuáles siguen siendo proyecciones de diseño.

@@ -2,29 +2,30 @@
 
 ## Estado
 
-Aceptada.
+Aceptada
 
 ## Decisión
 
-Crear apps locales dentro de:
+Crear las apps locales dentro de:
 
 ```text
 backend/apps/
+```
 
-Motivo
+## Contexto
 
-Esto ayuda a organizar mejor las apps propias del proyecto cuando el backend crezca.
+Se busca separar con claridad la configuración global de Django y los módulos del dominio del negocio.
 
-Consecuencias
+## Consecuencias
 
-Las apps deben configurarse correctamente en apps.py.
+- Las apps locales quedan agrupadas en un solo lugar.
+- La estructura del backend escala mejor cuando se agregan nuevos dominios.
+- La configuración de importaciones y `INSTALLED_APPS` debe ser explícita.
 
 Ejemplo:
 
+```python
 name = "apps.users"
+```
 
-En INSTALLED_APPS se registra la configuración completa de la app.
-
-Conclusión
-
-Las apps locales vivirán dentro de backend/apps/.
+En `INSTALLED_APPS` se registra la configuración completa de la app, por ejemplo `apps.users.apps.UsersConfig`.

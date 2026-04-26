@@ -1,20 +1,21 @@
-```md
 # Índices
 
-Los índices ayudan a mejorar consultas frecuentes en la base de datos.
+Los índices ayudan a acelerar consultas frecuentes, pero también introducen costo adicional de escritura y mantenimiento.
 
 ## Estado actual
 
-No se han definido índices personalizados.
+No hay índices personalizados documentados en los modelos del proyecto.
 
-## Cuándo considerar índices
+## Cuándo evaluar un índice
 
-- Búsquedas frecuentes.
-- Filtros por usuario.
-- Filtros por curso.
-- Consultas de progreso.
-- Ordenamientos frecuentes.
+Conviene considerarlo cuando existan consultas repetidas sobre:
 
-## Regla
+- filtros por usuario
+- filtros por curso o lección
+- búsquedas frecuentes
+- ordenamientos muy usados
+- tablas de progreso o intentos con crecimiento sostenido
 
-No agregar índices sin una razón clara, porque también tienen costo de escritura y mantenimiento.
+## Criterio
+
+No agregar índices de manera preventiva. Primero conviene observar consultas reales, entender patrones de acceso y luego justificar el cambio.

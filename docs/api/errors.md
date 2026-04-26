@@ -1,16 +1,21 @@
-
-## `docs/api/errors.md`
-
-```md
 # Errores de API
 
-Formato planificado de errores.
+Este documento propone una convención para respuestas de error cuando la API sea implementada.
 
-## Ejemplo
+## Estado actual
+
+Todavía no existe una capa API con formato de errores formalizado.
+
+## Formato sugerido
 
 ```json
 {
-  "error": "Mensaje del error",
-  "detail": "Detalle adicional",
+  "error": "Mensaje breve",
+  "detail": "Detalle adicional para diagnóstico",
   "code": "ERROR_CODE"
 }
+```
+
+## Criterio
+
+El formato definitivo debería ser consistente en todos los endpoints y suficientemente estable para que el frontend pueda manejar errores de forma predecible.

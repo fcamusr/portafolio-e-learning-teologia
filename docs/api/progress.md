@@ -1,19 +1,16 @@
-
-## `docs/api/progress.md`
-
-```md
 # API de progreso
 
 ## Estado actual
 
-No implementado.
+No hay endpoints de progreso implementados.
 
 ## Objetivo futuro
 
-Registrar avance del usuario en cursos, módulos, lecciones y evaluaciones.
+Este recurso debería registrar y consultar el avance del usuario en cursos, módulos, lecciones y evaluaciones.
 
-Posibles endpoints:
+## Endpoints previstos
 
 ```text
-GET /api/progress/me/
+GET  /api/progress/me/
 POST /api/lessons/{id}/complete/
+```

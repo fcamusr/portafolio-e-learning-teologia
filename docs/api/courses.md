@@ -1,19 +1,20 @@
-```md
 # API de cursos
 
 ## Estado actual
 
-No implementado.
+No hay endpoints de cursos implementados.
 
 ## Objetivo futuro
 
-Permitir listar y consultar cursos de teología.
+Este recurso debería permitir listar y consultar la oferta de cursos o rutas formativas.
 
-Posibles endpoints:
+## Endpoints previstos
 
 ```text
 GET /api/courses/
 GET /api/courses/{id}/
-Nota
+```
 
-La estructura definitiva dependerá del diseño de modelos.
+## Nota
+
+La forma final del recurso dependerá del diseño real de modelos, serialización y navegación entre contenidos.

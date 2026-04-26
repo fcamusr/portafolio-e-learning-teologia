@@ -1,29 +1,46 @@
 # Configuración del frontend
 
-El frontend está dentro de la carpeta:
+El frontend vive en `frontend/` y se ejecuta como una aplicación Next.js independiente del backend.
+
+## 1. Instalar dependencias
+
+Desde `frontend/`:
+
+```powershell
+npm install
+```
+
+## 2. Configurar variables de entorno
+
+Usa `frontend/.env.example` como base y crea `frontend/.env.local`.
+
+Variable documentada actualmente:
 
 ```text
-frontend/
-Instalar dependencias
+NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
+```
 
-Desde frontend/:
+## 3. Ejecutar el servidor de desarrollo
 
-npm install
-Ejecutar servidor
+```powershell
 npm run dev
+```
 
-Servidor local:
+Frontend local: [http://localhost:3000/](http://localhost:3000/)
 
-http://localhost:3000/
-Configuración inicial
+## Estado actual del frontend
 
-El proyecto fue creado con:
+La aplicación fue creada con:
 
-JavaScript.
-ESLint.
-Sin Tailwind CSS.
-Carpeta src/.
-App Router.
-Rol del frontend
+- JavaScript
+- App Router
+- estructura `src/`
+- ESLint
 
-El frontend será responsable de la interfaz de usuario y consumirá datos desde el backend Django mediante API.
+La página principal todavía corresponde al scaffold inicial de Next.js, por lo que el proyecto está listo para construir la experiencia real del producto.
+
+## Referencias relacionadas
+
+- [../../frontend/README.md](../../frontend/README.md)
+- [environment-variables.md](./environment-variables.md)
+- [run-project.md](./run-project.md)
