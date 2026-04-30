@@ -1,4 +1,4 @@
-# Configuración del backend
+# Configuracion del backend
 
 El backend vive en la carpeta `backend/` y se ejecuta como un proyecto Django independiente.
 
@@ -16,6 +16,14 @@ python -m venv .venv
 ```powershell
 pip install -r requirements.txt
 ```
+
+Entre las dependencias actuales del backend destacan:
+
+- `Django`
+- `djangorestframework`
+- `django-cors-headers`
+- `psycopg2-binary`
+- `python-dotenv`
 
 ## 3. Configurar variables de entorno
 
@@ -35,13 +43,13 @@ Con PostgreSQL ya disponible:
 python manage.py migrate
 ```
 
-## 5. Validar configuración
+## 5. Validar configuracion
 
 ```powershell
 python manage.py check
 ```
 
-Este comando permite detectar errores de configuración antes de levantar el servidor.
+Este comando permite detectar errores de configuracion antes de levantar el servidor.
 
 ## 6. Ejecutar el servidor
 
@@ -51,11 +59,19 @@ python manage.py runserver
 
 Backend local: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
+## Verificacion API inicial
+
+Despues de ejecutar `python manage.py check` y levantar el servidor, conviene verificar:
+
+- panel administrativo: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
+- endpoint de salud: [http://127.0.0.1:8000/api/health/](http://127.0.0.1:8000/api/health/)
+
 ## Archivos y carpetas importantes
 
 ```text
 backend/
 |-- apps/
+|   |-- core/
 |   `-- users/
 |-- config/
 |-- .env.example
@@ -65,10 +81,13 @@ backend/
 
 ## Detalles relevantes del estado actual
 
-- La app local disponible es `users`
+- Las apps locales disponibles son `users` y `core`
 - El modelo `User` extiende `AbstractUser`
-- `AUTH_USER_MODEL` está definido como `users.User`
-- La ruta `/admin/` está disponible por defecto
+- `AUTH_USER_MODEL` esta definido como `users.User`
+- `rest_framework` y `corsheaders` ya estan registrados en la configuracion del proyecto
+- `CORS_ALLOWED_ORIGINS` permite solicitudes desde `http://localhost:3000`
+- La ruta `/admin/` esta disponible por defecto
+- La ruta `/api/health/` permite validar la base inicial de la API
 
 ## Referencias relacionadas
 

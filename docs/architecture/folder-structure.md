@@ -1,6 +1,6 @@
 # Estructura de carpetas
 
-Este documento describe la organización actual del repositorio y la responsabilidad de cada sección principal.
+Este documento describe la organizacion actual del repositorio y la responsabilidad de cada seccion principal.
 
 ## Estructura general
 
@@ -18,6 +18,7 @@ Portafolio/
 ```text
 backend/
 |-- apps/
+|   |-- core/
 |   `-- users/
 |-- config/
 |-- .env.example
@@ -27,8 +28,10 @@ backend/
 ```
 
 - `apps/`: apps locales del proyecto
-- `config/`: configuración principal de Django
-- `.env.example`: plantilla de configuración local
+- `apps/core/`: endpoints transversales como verificaciones tecnicas de salud
+- `apps/users/`: dominio de usuarios y modelo de usuario personalizado
+- `config/`: configuracion principal de Django
+- `.env.example`: plantilla de configuracion local
 
 ## Frontend
 
@@ -36,7 +39,9 @@ backend/
 frontend/
 |-- public/
 |-- src/
-|   `-- app/
+|   |-- app/
+|   `-- lib/
+|       `-- api.js
 |-- .env.example
 |-- eslint.config.mjs
 |-- jsconfig.json
@@ -45,11 +50,13 @@ frontend/
 `-- README.md
 ```
 
-- `src/app/`: rutas y layout principal de Next.js
-- `public/`: activos estáticos
-- `.env.example`: plantilla de configuración del frontend
+- `src/app/`: rutas, layout y pagina principal de Next.js
+- `src/lib/`: logica compartida del frontend
+- `src/lib/api.js`: acceso reutilizable a endpoints del backend
+- `public/`: activos estaticos
+- `.env.example`: plantilla de configuracion del frontend
 
-## Documentación
+## Documentacion
 
 ```text
 docs/
@@ -57,11 +64,14 @@ docs/
 |-- architecture/
 |-- database/
 |-- decisions/
+|-- progress/
 |-- setup/
 `-- README.md
 ```
 
-Cada subcarpeta documenta una dimensión distinta del proyecto para evitar mezclar contenido operativo con contenido arquitectónico.
+Cada subcarpeta documenta una dimension distinta del proyecto para evitar mezclar contenido operativo con contenido arquitectonico.
+
+- `progress/`: bitacora de avance del proyecto para retomar trabajo y registrar hitos
 
 ## Archivos y carpetas locales que no deben versionarse
 

@@ -1,23 +1,24 @@
-# Documentación del proyecto
+# Documentacion del proyecto
 
-Esta carpeta reúne la documentación técnica y operativa del repositorio. Su propósito es ayudar a entender el sistema, configurarlo localmente y mantener trazabilidad sobre decisiones relevantes.
+Esta carpeta reune la documentacion tecnica y operativa del repositorio. Su proposito es ayudar a entender el sistema, configurarlo localmente y mantener trazabilidad sobre decisiones relevantes.
 
-## Cómo está organizada
+## Como esta organizada
 
-- [setup/README.md](./setup/README.md): instalación, variables de entorno y ejecución local
-- [architecture/README.md](./architecture/README.md): contexto del producto, estructura y criterios de diseño
+- [setup/README.md](./setup/README.md): instalacion, variables de entorno y ejecucion local
+- [architecture/README.md](./architecture/README.md): contexto del producto, estructura y criterios de diseno
 - [database/README.md](./database/README.md): estado de la base de datos, modelos y lineamientos operativos
-- [api/README.md](./api/README.md): estado actual y diseño previsto de la API
-- [decisions/README.md](./decisions/README.md): decisiones técnicas registradas como ADRs
+- [api/README.md](./api/README.md): estado actual y diseno previsto de la API
+- [progress/README.md](./progress/README.md): bitacora de avance del proyecto y punto de reentrada
+- [decisions/README.md](./decisions/README.md): decisiones tecnicas registradas como ADRs
 
 ## Principios editoriales
 
-La documentación de este proyecto sigue estas reglas:
+La documentacion de este proyecto sigue estas reglas:
 
 - Debe describir con claridad lo que existe hoy.
-- Debe diferenciar sin ambigüedad lo implementado de lo planificado.
-- Debe priorizar instrucciones útiles para otra persona que entre al proyecto.
-- Debe actualizarse junto con cambios de arquitectura, setup, datos o contratos técnicos.
+- Debe diferenciar sin ambiguedad lo implementado de lo planificado.
+- Debe priorizar instrucciones utiles para otra persona que entre al proyecto.
+- Debe actualizarse junto con cambios de arquitectura, setup, datos o contratos tecnicos.
 
 ## Orden de lectura recomendado
 
@@ -40,7 +41,15 @@ La documentación de este proyecto sigue estas reglas:
 6. [setup/run-project.md](./setup/run-project.md)
 7. [setup/troubleshooting.md](./setup/troubleshooting.md)
 
-### Si quieres entender la solución técnica
+### Si quieres retomar rapidamente el proyecto
+
+1. [progress/README.md](./progress/README.md)
+2. [../README.md](../README.md)
+3. [architecture/overview.md](./architecture/overview.md)
+4. [api/overview.md](./api/overview.md)
+5. [setup/run-project.md](./setup/run-project.md)
+
+### Si quieres entender la solucion tecnica
 
 1. [architecture/system-context.md](./architecture/system-context.md)
 2. [architecture/overview.md](./architecture/overview.md)
@@ -49,29 +58,21 @@ La documentación de este proyecto sigue estas reglas:
 5. [architecture/folder-structure.md](./architecture/folder-structure.md)
 6. [architecture/scalability.md](./architecture/scalability.md)
 
-### Si quieres entender los datos del sistema
-
-1. [database/overview.md](./database/overview.md)
-2. [database/models.md](./database/models.md)
-3. [database/relationships.md](./database/relationships.md)
-4. [database/migrations.md](./database/migrations.md)
-5. [database/indexes.md](./database/indexes.md)
-6. [database/seed-data.md](./database/seed-data.md)
-
-### Si quieres revisar la API prevista
+### Si quieres revisar la API actual y prevista
 
 1. [api/overview.md](./api/overview.md)
-2. [api/authentication.md](./api/authentication.md)
-3. [api/users.md](./api/users.md)
-4. [api/courses.md](./api/courses.md)
-5. [api/lessons.md](./api/lessons.md)
-6. [api/quizzes.md](./api/quizzes.md)
-7. [api/progress.md](./api/progress.md)
-8. [api/certificates.md](./api/certificates.md)
-9. [api/errors.md](./api/errors.md)
-10. [api/status-codes.md](./api/status-codes.md)
+2. [api/health.md](./api/health.md)
+3. [api/authentication.md](./api/authentication.md)
+4. [api/users.md](./api/users.md)
+5. [api/courses.md](./api/courses.md)
+6. [api/lessons.md](./api/lessons.md)
+7. [api/quizzes.md](./api/quizzes.md)
+8. [api/progress.md](./api/progress.md)
+9. [api/certificates.md](./api/certificates.md)
+10. [api/errors.md](./api/errors.md)
+11. [api/status-codes.md](./api/status-codes.md)
 
-### Si quieres entender por qué se tomaron ciertas decisiones
+### Si quieres entender por que se tomaron ciertas decisiones
 
 1. [decisions/README.md](./decisions/README.md)
 2. [decisions/0001-use-django.md](./decisions/0001-use-django.md)
