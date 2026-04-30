@@ -1,24 +1,29 @@
 # Backend
 
-Backend principal del proyecto, construido con Django y PostgreSQL. Su responsabilidad es concentrar la lógica de negocio, la persistencia de datos, la autenticación del sistema y la futura API que consumirá el frontend.
+Backend principal del proyecto, construido con Django, Django REST Framework y PostgreSQL. Su responsabilidad es concentrar la logica de negocio, la persistencia de datos, la autenticacion del sistema y la API que consumira el frontend.
 
 ## Alcance actual
 
 Actualmente el backend incluye:
 
 - Proyecto Django base en `backend/config/`
+- App local `core` en `backend/apps/core/` para endpoints transversales
 - App local `users` en `backend/apps/users/`
 - Modelo de usuario personalizado basado en `AbstractUser`
-- Configuración de base de datos PostgreSQL mediante variables de entorno
+- Configuracion de base de datos PostgreSQL mediante variables de entorno
+- Django REST Framework registrado para construir endpoints API
+- `django-cors-headers` configurado para permitir solicitudes desde `http://localhost:3000`
+- Endpoint tecnico de salud disponible en `/api/health/`
 - Ruta del panel administrativo de Django en `/admin/`
 
-Todavía no existen endpoints de negocio ni vistas API implementadas.
+Todavia no existen endpoints de negocio. El unico endpoint API implementado por ahora es el de verificacion tecnica de salud.
 
 ## Estructura relevante
 
 ```text
 backend/
 |-- apps/
+|   |-- core/
 |   `-- users/
 |-- config/
 |-- .env.example
@@ -28,11 +33,11 @@ backend/
 ```
 
 - `apps/`: aplicaciones locales del dominio
-- `config/`: configuración global del proyecto Django
+- `config/`: configuracion global del proyecto Django
 - `manage.py`: punto de entrada para comandos administrativos
 - `requirements.txt`: dependencias del backend
 
-## Configuración local
+## Configuracion local
 
 Desde `backend/`, crea y activa un entorno virtual:
 
@@ -50,17 +55,22 @@ pip install -r requirements.txt
 
 Copia `backend/.env.example` a `backend/.env` y completa los valores reales de tu entorno local.
 
-## Ejecución
+## Ejecucion
 
-Con el entorno virtual activo y la base de datos disponible
+Con el entorno virtual activo y la base de datos disponible:
 
 ```powershell
-python manage.py migrate #migrar
-python manage.py check #salud
-python manage.py runserver #arrancar
+python manage.py migrate
+python manage.py check
+python manage.py runserver
 ```
 
-El servidor de desarrollo queda disponible en [http://127.0.0.1:8000/].
+El servidor de desarrollo queda disponible en [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+
+Verificaciones utiles:
+
+- panel administrativo: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
+- endpoint de salud API: [http://127.0.0.1:8000/api/health/](http://127.0.0.1:8000/api/health/)
 
 ## Variables de entorno
 
@@ -88,10 +98,23 @@ class User(AbstractUser):
     pass
 ```
 
-Tomar esta decisión al inicio evita migraciones complejas más adelante si el proyecto necesita extender el perfil de usuario.
+Tomar esta decision al inicio evita migraciones complejas mas adelante si el proyecto necesita extender el perfil de usuario.
+
+## API y comunicacion local
+
+La base de la API ya esta preparada con estas piezas:
+
+- `rest_framework` en `INSTALLED_APPS`
+- `corsheaders` en `INSTALLED_APPS`
+- `corsheaders.middleware.CorsMiddleware` al inicio de `MIDDLEWARE`
+- `CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]`
+- prefijo `api/` conectado en `backend/config/urls.py`
+
+Esto permite que el frontend en `http://localhost:3000` pueda consumir endpoints del backend en `http://127.0.0.1:8000` cuando se avance con la integracion real.
 
 ## Referencias relacionadas
 
 - [docs/setup/backend.md](../docs/setup/backend.md)
+- [docs/api/health.md](../docs/api/health.md)
 - [docs/database/models.md](../docs/database/models.md)
 - [docs/architecture/modules.md](../docs/architecture/modules.md)
