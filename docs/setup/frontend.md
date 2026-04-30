@@ -1,6 +1,6 @@
-# Configuración del frontend
+# Configuracion del frontend
 
-El frontend vive en `frontend/` y se ejecuta como una aplicación Next.js independiente del backend.
+El frontend vive en `frontend/` y se ejecuta como una aplicacion Next.js independiente del backend.
 
 ## 1. Instalar dependencias
 
@@ -30,14 +30,32 @@ Frontend local: [http://localhost:3000/](http://localhost:3000/)
 
 ## Estado actual del frontend
 
-La aplicación fue creada con:
+La aplicacion fue creada con:
 
 - JavaScript
 - App Router
 - estructura `src/`
 - ESLint
 
-La página principal todavía corresponde al scaffold inicial de Next.js, por lo que el proyecto está listo para construir la experiencia real del producto.
+Ademas, ya existe una primera integracion real con el backend desde la pagina principal.
+
+## Primera integracion con el backend
+
+El frontend usa la variable de entorno `NEXT_PUBLIC_API_BASE_URL` para construir la URL base del backend Django.
+
+Se creo el archivo `frontend/src/lib/api.js` con una funcion `getHealth()` que consulta el endpoint `GET /api/health/`.
+
+Luego esa funcion fue usada en `frontend/src/app/page.js` para comprobar la primera conexion real entre frontend y backend.
+
+Como esta integracion se hace desde App Router, la pagina principal consume el backend desde un Server Component y renderiza en pantalla los datos devueltos por Django.
+
+## Verificacion recomendada
+
+Con backend y frontend ejecutandose:
+
+- abre [http://localhost:3000/](http://localhost:3000/)
+- verifica que aparezca el titulo del proyecto
+- confirma que se muestren `status`, `service` y `message` recibidos desde `/api/health/`
 
 ## Referencias relacionadas
 

@@ -1,8 +1,12 @@
-# Códigos de estado HTTP
+# Codigos de estado HTTP
 
-Este documento resume los códigos de estado que deberían usarse de forma consistente cuando la API exista.
+Este documento resume los codigos de estado que deberian usarse de forma consistente a medida que la API del proyecto crezca.
 
-## Códigos comunes
+## Estado actual
+
+El endpoint tecnico `/api/health/` responde con `200 OK` cuando el backend esta funcionando correctamente. Aun no existe una convencion completa aplicada a endpoints de negocio.
+
+## Codigos comunes
 
 ```text
 200 OK
@@ -17,4 +21,4 @@ Este documento resume los códigos de estado que deberían usarse de forma consi
 
 ## Regla
 
-El código HTTP debe reflejar la intención real de la respuesta. No conviene devolver siempre `200` cuando hubo errores de validación, autorización o inexistencia de recursos.
+El codigo HTTP debe reflejar la intencion real de la respuesta. No conviene devolver siempre `200` cuando hubo errores de validacion, autorizacion o inexistencia de recursos.
