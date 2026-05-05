@@ -2,7 +2,7 @@
 
 Este documento diferencia los modelos realmente implementados de las entidades que aun pertenecen al diseno futuro del producto.
 
-## Modelo implementado
+## Modelos implementados
 
 ### `User`
 
@@ -26,6 +26,35 @@ class User(AbstractUser):
 
 Se creo un modelo de usuario personalizado desde el inicio para evitar un cambio estructural complejo mas adelante si el proyecto necesita agregar campos o comportamiento especifico al usuario.
 
+### `Course`
+
+Ubicacion:
+
+```text
+backend/apps/learning/models.py
+```
+
+Campos implementados:
+
+- `title`
+- `description`
+- `level`
+- `is_published`
+- `created_at`
+- `updated_at`
+
+Detalles relevantes:
+
+- `level` usa `models.TextChoices` con `BEGINNER`, `INTERMEDIATE` y `ADVANCED`
+- `description` permite valor vacio
+- `is_published` parte en `False`
+- `created_at` y `updated_at` usan marcas automaticas de tiempo de Django
+
+Estado actual:
+
+- `Course` ya esta implementado en codigo
+- existe la migracion `backend/apps/learning/migrations/0001_initial.py` para crear este modelo
+
 ## Nucleo inicial del dominio del MVP
 
 La decision documental actual para el primer bloque del dominio funcional es trabajar con estas cuatro entidades:
@@ -38,8 +67,8 @@ La decision documental actual para el primer bloque del dominio funcional es tra
 Estado actual:
 
 - la app `backend/apps/learning/` ya existe y `LearningConfig` esta registrada en `INSTALLED_APPS`
-- ninguno de estos modelos existe todavia en el codigo del backend
-- la unica entidad de dominio implementada hoy sigue siendo `User`
+- `Course` ya esta implementado en el codigo del backend
+- `Unit`, `Lesson` y `LessonProgress` todavia no existen como modelos
 - por ahora no se documenta un modelo generico `Progress`; el seguimiento inicial previsto se concentra en `LessonProgress`
 
 ## Otros modelos previstos

@@ -4,6 +4,8 @@
 
 No hay endpoints de cursos implementados.
 
+El modelo `Course` si existe ya en `backend/apps/learning/models.py`, pero todavia no tiene contrato API expuesto.
+
 ## Objetivo futuro
 
 Este recurso deberia permitir listar y consultar la oferta de cursos o rutas formativas.

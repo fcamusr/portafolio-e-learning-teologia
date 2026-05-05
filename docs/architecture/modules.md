@@ -20,7 +20,7 @@ Este documento identifica los dominios actuales y los modulos previstos para el 
 
 - Ubicacion: `backend/apps/learning/`
 - Responsabilidad actual: alojar el nucleo inicial del dominio del MVP
-- Estado: implementado como app local y registrado en Django, pero aun sin modelos ni endpoints propios
+- Estado: implementado como app local y registrado en Django, con `Course` como primer modelo real del dominio y aun sin endpoints propios
 
 ## Nucleo inicial del dominio del MVP
 
@@ -35,7 +35,9 @@ Estado actual de esta decision:
 
 - esta decision ya queda documentada en el repositorio
 - ya existe la app local `learning` para alojar este nucleo
-- todavia no existen modelos ni endpoints de negocio para estas entidades
+- `Course` ya existe como modelo implementado
+- `Unit`, `Lesson` y `LessonProgress` siguen planificados
+- todavia no existen endpoints de negocio para estas entidades
 
 ## Modulos previstos
 

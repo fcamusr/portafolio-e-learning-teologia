@@ -110,20 +110,24 @@ Estos avances se registran sin fecha porque ya estaban construidos antes de crea
 - `LearningConfig` quedo registrada en `INSTALLED_APPS` dentro de `backend/config/settings.py`.
 - Quedo documentado que `learning` ya esta implementada como app local, pero que `Course`, `Unit`, `Lesson` y `LessonProgress` aun no existen como modelos ni como endpoints.
 
+#### Primer modelo real del dominio documentado
+
+- Se verifico que `backend/apps/learning/models.py` ya implementa `Course`.
+- Se verifico la migracion `backend/apps/learning/migrations/0001_initial.py` para crear ese modelo.
+- Se corrigio la documentacion que todavia describia a `learning` como app sin modelos, dejando `Course` como implementado y `Unit`, `Lesson` y `LessonProgress` como planificados.
+
 ## Ultimo punto alcanzado
 
-La ultima integracion completada fue la conexion real `Next.js <-> Django` usando el endpoint `GET /api/health/`.
-
-Esto significa que la base de comunicacion HTTP entre frontend y backend ya esta funcionando en desarrollo local.
+El ultimo avance real del dominio es la implementacion de `Course` como primer modelo dentro de `learning`, sobre una base donde la conexion `Next.js <-> Django` ya estaba funcionando con `GET /api/health/`.
 
 ## Proximo paso sugerido
 
 El siguiente avance natural puede ir por una de estas dos rutas:
 
 1. mejorar la UI inicial del frontend para salir de la pantalla de prueba
-2. implementar dentro de `learning` los modelos `Course`, `Unit`, `Lesson` y `LessonProgress`
+2. continuar dentro de `learning` con los modelos `Unit`, `Lesson` y `LessonProgress`
 
-Recomendacion actual: implementar esos modelos dentro de `learning`, porque la app base y la decision documental ya quedaron alineadas.
+Recomendacion actual: continuar con `Unit`, `Lesson` y `LessonProgress`, porque `Course` ya quedo como primera base real del dominio.
 
 ## Regla de mantenimiento de esta bitacora
 

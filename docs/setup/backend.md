@@ -84,6 +84,7 @@ backend/
 
 - Las apps locales disponibles son `users`, `core` y `learning`
 - `learning` ya esta registrada en Django como app local para el nucleo del dominio del MVP
+- `learning` ya implementa `Course` como primer modelo real del dominio
 - El modelo `User` extiende `AbstractUser`
 - `AUTH_USER_MODEL` esta definido como `users.User`
 - `rest_framework` y `corsheaders` ya estan registrados en la configuracion del proyecto
@@ -91,7 +92,7 @@ backend/
 - La ruta `/admin/` esta disponible por defecto
 - La ruta `/api/health/` permite validar la base inicial de la API
 
-Por ahora `learning` solo aporta estructura base de app. Aun no define modelos de negocio ni endpoints propios.
+Por ahora `learning` ya define el modelo `Course`, pero aun no expone endpoints propios ni implementa `Unit`, `Lesson` o `LessonProgress`.
 
 ## Referencias relacionadas
 

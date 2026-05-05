@@ -11,6 +11,7 @@ Actualmente el backend incluye:
 - App local `users` en `backend/apps/users/`
 - App local `learning` en `backend/apps/learning/` para alojar el nucleo del dominio del MVP
 - Modelo de usuario personalizado basado en `AbstractUser`
+- Modelo `Course` implementado en `backend/apps/learning/models.py`
 - Configuracion de base de datos PostgreSQL mediante variables de entorno
 - Django REST Framework registrado para construir endpoints API
 - `django-cors-headers` configurado para permitir solicitudes desde `http://localhost:3000`
@@ -19,7 +20,7 @@ Actualmente el backend incluye:
 
 Todavia no existen endpoints de negocio. El unico endpoint API implementado por ahora es el de verificacion tecnica de salud.
 
-La app `learning` ya esta creada y registrada en Django, pero todavia no implementa modelos ni endpoints para `Course`, `Unit`, `Lesson` o `LessonProgress`.
+La app `learning` ya esta creada y registrada en Django. Hoy implementa `Course` como primer modelo real del dominio, pero todavia no implementa endpoints ni los modelos `Unit`, `Lesson` o `LessonProgress`.
 
 ## Estructura relevante
 

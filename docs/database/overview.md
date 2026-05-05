@@ -21,8 +21,9 @@ Hoy la base de datos soporta principalmente la base tecnica inicial del backend:
 - migraciones de Django aplicables
 - modelo `User` personalizado como primera entidad del dominio
 - app `learning` creada y registrada para alojar el nucleo del MVP
+- modelo `Course` implementado como primer modelo real del dominio en `learning`
 
-Todavia no existen tablas propias para `Course`, `Unit`, `Lesson` ni `LessonProgress`.
+Hoy `Course` ya tiene definicion de modelo y migracion inicial. `Unit`, `Lesson` y `LessonProgress` todavia no existen como tablas propias del dominio.
 
 ## Alcance documental
 

@@ -7,7 +7,7 @@ Las migraciones son el mecanismo mediante el cual Django traduce cambios en los 
 ```text
 models.py
   -> makemigrations
-  -> archivo de migración
+  -> archivo de migracion
   -> migrate
   -> esquema actualizado en PostgreSQL
 ```
@@ -28,7 +28,10 @@ python manage.py migrate
 
 ## Estado actual
 
-El repositorio ya incluye una migración inicial para la app `users`.
+El repositorio ya incluye:
+
+- la migracion inicial de la app `users`
+- la migracion `backend/apps/learning/migrations/0001_initial.py`, que crea el modelo `Course`
 
 ## Regla de trabajo
 
