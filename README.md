@@ -27,11 +27,12 @@ Hoy el repositorio contiene una base solida sobre la cual seguir construyendo:
 - Un endpoint tecnico de salud en `backend/apps/core/` accesible en `/api/health/`
 - Una primera conexion real entre Next.js y Django desde `frontend/src/app/page.js`
 - Un modelo de usuario personalizado en `backend/apps/users/models.py`
+- Una app local `learning` registrada para alojar el nucleo inicial del dominio del MVP
 - Configuracion de PostgreSQL mediante variables de entorno
 - Un frontend Next.js con App Router en `frontend/`
 - Una estructura documental en `docs/` para setup, arquitectura, API, base de datos y decisiones tecnicas
 
-Todavia no existen endpoints de negocio ni una interfaz funcional del producto. La documentacion distingue explicitamente entre la base tecnica ya implementada y lo que sigue planificado para evitar ambiguedades.
+Todavia no existen endpoints de negocio ni una interfaz funcional del producto. La app `learning` existe como base estructural, pero `Course`, `Unit`, `Lesson` y `LessonProgress` siguen sin implementarse en codigo. La documentacion distingue explicitamente entre lo implementado y lo planificado para evitar ambiguedades.
 
 Si quieres revisar el avance cronologico y retomar rapidamente el proyecto, consulta [docs/progress/README.md](./docs/progress/README.md).
 
