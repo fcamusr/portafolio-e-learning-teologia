@@ -6,7 +6,9 @@ No hay endpoints de progreso implementados.
 
 ## Objetivo futuro
 
-Este recurso debería registrar y consultar el avance del usuario en cursos, módulos, lecciones y evaluaciones.
+Este recurso deberia registrar y consultar el avance del usuario sobre contenidos formativos.
+
+Si la decision actual del dominio se mantiene, el seguimiento inicial se apoyara en `LessonProgress` como registro de avance de un `User` sobre una `Lesson`.
 
 ## Endpoints previstos
 
@@ -14,3 +16,7 @@ Este recurso debería registrar y consultar el avance del usuario en cursos, mó
 GET  /api/progress/me/
 POST /api/lessons/{id}/complete/
 ```
+
+## Nota
+
+Todavia no existe un contrato cerrado para exponer progreso agregado por curso o por unidad.

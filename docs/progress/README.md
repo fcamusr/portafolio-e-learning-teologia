@@ -94,6 +94,22 @@ Estos avances se registran sin fecha porque ya estaban construidos antes de crea
 - `frontend/src/app/page.js` paso a consultar `GET /api/health/` desde un Server Component.
 - La pagina principal ya muestra en pantalla el estado del backend devuelto por Django.
 
+### 2026-05-04
+
+#### Decision documental del nucleo inicial del MVP
+
+- Se dejo documentado que el nucleo inicial planificado del dominio estara formado por `Course`, `Unit`, `Lesson` y `LessonProgress`.
+- Se corrigieron referencias documentales que todavia hablaban de `Module` o de un `Progress` generico.
+- Quedo explicitado en la documentacion que esta decision ya esta registrada, pero que esos modelos y apps de negocio aun no existen en el codigo.
+
+### 2026-05-05
+
+#### App `learning` creada como base del dominio
+
+- Se verifico la creacion de `backend/apps/learning/` con `apps.py`, `models.py`, `admin.py`, `views.py`, `tests.py` y carpeta `migrations/`.
+- `LearningConfig` quedo registrada en `INSTALLED_APPS` dentro de `backend/config/settings.py`.
+- Quedo documentado que `learning` ya esta implementada como app local, pero que `Course`, `Unit`, `Lesson` y `LessonProgress` aun no existen como modelos ni como endpoints.
+
 ## Ultimo punto alcanzado
 
 La ultima integracion completada fue la conexion real `Next.js <-> Django` usando el endpoint `GET /api/health/`.
@@ -105,9 +121,9 @@ Esto significa que la base de comunicacion HTTP entre frontend y backend ya esta
 El siguiente avance natural puede ir por una de estas dos rutas:
 
 1. mejorar la UI inicial del frontend para salir de la pantalla de prueba
-2. crear el primer recurso real del dominio del producto
+2. implementar dentro de `learning` los modelos `Course`, `Unit`, `Lesson` y `LessonProgress`
 
-Recomendacion actual: crear el primer recurso real del dominio, porque aporta mas valor tecnico y hace avanzar la arquitectura de negocio.
+Recomendacion actual: implementar esos modelos dentro de `learning`, porque la app base y la decision documental ya quedaron alineadas.
 
 ## Regla de mantenimiento de esta bitacora
 

@@ -72,6 +72,7 @@ Despues de ejecutar `python manage.py check` y levantar el servidor, conviene ve
 backend/
 |-- apps/
 |   |-- core/
+|   |-- learning/
 |   `-- users/
 |-- config/
 |-- .env.example
@@ -81,13 +82,16 @@ backend/
 
 ## Detalles relevantes del estado actual
 
-- Las apps locales disponibles son `users` y `core`
+- Las apps locales disponibles son `users`, `core` y `learning`
+- `learning` ya esta registrada en Django como app local para el nucleo del dominio del MVP
 - El modelo `User` extiende `AbstractUser`
 - `AUTH_USER_MODEL` esta definido como `users.User`
 - `rest_framework` y `corsheaders` ya estan registrados en la configuracion del proyecto
 - `CORS_ALLOWED_ORIGINS` permite solicitudes desde `http://localhost:3000`
 - La ruta `/admin/` esta disponible por defecto
 - La ruta `/api/health/` permite validar la base inicial de la API
+
+Por ahora `learning` solo aporta estructura base de app. Aun no define modelos de negocio ni endpoints propios.
 
 ## Referencias relacionadas
 

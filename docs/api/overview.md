@@ -16,9 +16,9 @@ Hoy no existen endpoints de negocio implementados, pero la base API ya esta oper
 La API debera exponer datos y acciones relacionadas con:
 
 - usuarios
-- cursos y lecciones
+- la estructura `Course -> Unit -> Lesson`
 - evaluaciones
-- progreso
+- progreso por leccion mediante `LessonProgress`
 - certificados o logros
 
 ## Formato esperado

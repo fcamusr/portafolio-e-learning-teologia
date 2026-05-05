@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     # Apps locales
     "apps.users.apps.UsersConfig",
     "apps.core.apps.CoreConfig",
+    "apps.learning.apps.LearningConfig",
 ]
 
 MIDDLEWARE = [

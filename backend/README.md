@@ -9,6 +9,7 @@ Actualmente el backend incluye:
 - Proyecto Django base en `backend/config/`
 - App local `core` en `backend/apps/core/` para endpoints transversales
 - App local `users` en `backend/apps/users/`
+- App local `learning` en `backend/apps/learning/` para alojar el nucleo del dominio del MVP
 - Modelo de usuario personalizado basado en `AbstractUser`
 - Configuracion de base de datos PostgreSQL mediante variables de entorno
 - Django REST Framework registrado para construir endpoints API
@@ -18,12 +19,15 @@ Actualmente el backend incluye:
 
 Todavia no existen endpoints de negocio. El unico endpoint API implementado por ahora es el de verificacion tecnica de salud.
 
+La app `learning` ya esta creada y registrada en Django, pero todavia no implementa modelos ni endpoints para `Course`, `Unit`, `Lesson` o `LessonProgress`.
+
 ## Estructura relevante
 
 ```text
 backend/
 |-- apps/
 |   |-- core/
+|   |-- learning/
 |   `-- users/
 |-- config/
 |-- .env.example

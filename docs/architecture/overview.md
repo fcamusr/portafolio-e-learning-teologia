@@ -43,11 +43,14 @@ La arquitectura ya esta definida a nivel estructural, pero la mayoria de los dom
 - proyecto Django funcional
 - proyecto Next.js funcional
 - modelo `User` personalizado
+- app local `learning` creada y registrada en `INSTALLED_APPS` como contenedor del nucleo inicial del dominio
 - configuracion de PostgreSQL
 - base API con Django REST Framework
 - configuracion CORS para desarrollo local
 - endpoint tecnico `/api/health/`
 - primera conexion real Next.js <-> Django desde `frontend/src/app/page.js`
+
+La parte de negocio dentro de `learning` sigue en etapa temprana: la app existe, pero `Course`, `Unit`, `Lesson` y `LessonProgress` todavia no estan implementados como modelos.
 
 ## Referencias relacionadas
 

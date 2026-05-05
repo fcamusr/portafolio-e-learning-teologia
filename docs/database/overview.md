@@ -1,26 +1,29 @@
-# Visión general de base de datos
+# Vision general de base de datos
 
-El proyecto usa PostgreSQL como motor de datos principal y Django se comunica con él mediante el ORM.
+El proyecto usa PostgreSQL como motor de datos principal y Django se comunica con el mediante el ORM.
 
 ## Objetivo del modelo de datos
 
-El sistema está pensado para almacenar información relacionada con:
+El sistema esta pensado para almacenar informacion relacionada con:
 
 - usuarios
-- cursos y lecciones
+- la estructura `Course -> Unit -> Lesson`
+- progreso de usuario por leccion mediante `LessonProgress`
 - evaluaciones
-- progreso
 - notas o reflexiones
 - certificados o logros
 
 ## Estado actual
 
-Hoy la base de datos soporta principalmente la base técnica inicial del backend:
+Hoy la base de datos soporta principalmente la base tecnica inicial del backend:
 
-- conexión configurada mediante variables de entorno
+- conexion configurada mediante variables de entorno
 - migraciones de Django aplicables
 - modelo `User` personalizado como primera entidad del dominio
+- app `learning` creada y registrada para alojar el nucleo del MVP
+
+Todavia no existen tablas propias para `Course`, `Unit`, `Lesson` ni `LessonProgress`.
 
 ## Alcance documental
 
-Mientras el dominio real aún no esté implementado, esta sección debe documentar con precisión qué tablas y relaciones existen efectivamente y cuáles siguen siendo proyecciones de diseño.
+Mientras el dominio real aun no este implementado, esta seccion debe documentar con precision que tablas y relaciones existen efectivamente y cuales siguen siendo proyecciones de diseno.

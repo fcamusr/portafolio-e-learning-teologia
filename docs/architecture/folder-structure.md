@@ -19,6 +19,7 @@ Portafolio/
 backend/
 |-- apps/
 |   |-- core/
+|   |-- learning/
 |   `-- users/
 |-- config/
 |-- .env.example
@@ -29,6 +30,7 @@ backend/
 
 - `apps/`: apps locales del proyecto
 - `apps/core/`: endpoints transversales como verificaciones tecnicas de salud
+- `apps/learning/`: nucleo inicial del dominio del MVP; hoy existe como app base, todavia sin modelos de negocio
 - `apps/users/`: dominio de usuarios y modelo de usuario personalizado
 - `config/`: configuracion principal de Django
 - `.env.example`: plantilla de configuracion local
