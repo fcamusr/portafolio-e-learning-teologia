@@ -1,20 +1,22 @@
 # Relaciones
 
-Este documento registra las relaciones del dominio a nivel conceptual. No reemplaza la definicion real de modelos ni de migraciones.
+Este documento registra las relaciones del dominio a nivel conceptual y en su estado actual de implementacion. No reemplaza la definicion real de modelos ni de migraciones.
 
-## Estado actual
+## Relaciones implementadas del nucleo inicial del MVP
 
-Actualmente no hay relaciones de dominio relevantes documentadas en el codigo mas alla de las que Django aporta de forma estandar al modelo `User`.
+Hoy el backend ya implementa estas relaciones:
 
-## Relaciones planificadas del nucleo inicial del MVP
+- un `Course` puede contener multiples `Unit`
+- una `Unit` puede contener multiples `Lesson`
+- un `LessonProgress` asocia a un `User` con una `Lesson`
 
-Si el dominio se implementa segun la decision actual, la estructura base esperada es esta:
+## Detalles relevantes implementados
 
-- un `Course` podra contener multiples `Unit`
-- una `Unit` podra contener multiples `Lesson`
-- un `LessonProgress` asociara a un `User` con una `Lesson`
-
-Todavia no se documentan restricciones concretas de integridad, cascadas ni unicidad para estas relaciones porque esos detalles aun no existen en el codigo.
+- `Unit.course` usa `on_delete=models.CASCADE` y `related_name="units"`
+- `Lesson.unit` usa `on_delete=models.CASCADE` y `related_name="lessons"`
+- `LessonProgress.user` usa `related_name="lesson_progresses"`
+- `LessonProgress.lesson` usa `related_name="progresses"`
+- `LessonProgress` define una unicidad por `user` y `lesson` mediante `unique_lesson_progress_per_user`
 
 ## Otras relaciones previstas
 
@@ -26,4 +28,4 @@ Ademas del nucleo inicial, el producto podria sumar mas adelante relaciones como
 
 ## Criterio
 
-Las relaciones definitivas deben documentarse una vez que existan modelos reales, restricciones de integridad y decisiones concretas sobre cascadas, unicidad y desempeno.
+Las relaciones definitivas deben seguir documentandose junto con cualquier cambio real de cascadas, unicidad, dependencia entre modelos o decisiones de desempeno.

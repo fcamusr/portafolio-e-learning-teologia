@@ -50,26 +50,86 @@ Detalles relevantes:
 - `is_published` parte en `False`
 - `created_at` y `updated_at` usan marcas automaticas de tiempo de Django
 
-Estado actual:
+### `Unit`
 
-- `Course` ya esta implementado en codigo
-- existe la migracion `backend/apps/learning/migrations/0001_initial.py` para crear este modelo
+Ubicacion:
 
-## Nucleo inicial del dominio del MVP
+```text
+backend/apps/learning/models.py
+```
 
-La decision documental actual para el primer bloque del dominio funcional es trabajar con estas cuatro entidades:
+Campos implementados:
 
-- `Course`: curso o ruta formativa
-- `Unit`: agrupacion intermedia dentro de un curso
-- `Lesson`: pieza minima de contenido consumible por el usuario
-- `LessonProgress`: avance de un usuario sobre una leccion
+- `course`
+- `title`
+- `description`
+- `order`
+- `is_published`
+- `created_at`
+- `updated_at`
 
-Estado actual:
+Detalles relevantes:
+
+- `course` referencia a `Course` con `related_name="units"`
+- define `ordering = ["order", "id"]`
+
+### `Lesson`
+
+Ubicacion:
+
+```text
+backend/apps/learning/models.py
+```
+
+Campos implementados:
+
+- `unit`
+- `title`
+- `summary`
+- `text_content`
+- `order`
+- `estimated_minutes`
+- `is_published`
+- `created_at`
+- `updated_at`
+
+Detalles relevantes:
+
+- `unit` referencia a `Unit` con `related_name="lessons"`
+- `summary` permite valor vacio
+- usa `text_content` en lugar de `content`
+- esta decision deja abierta la posibilidad de soportar otros tipos de contenido mas adelante sin forzar un nombre demasiado generico hoy
+- define `ordering = ["order", "id"]`
+
+### `LessonProgress`
+
+Ubicacion:
+
+```text
+backend/apps/learning/models.py
+```
+
+Campos implementados:
+
+- `user`
+- `lesson`
+- `is_completed`
+- `started_at`
+- `completed_at`
+- `updated_at`
+
+Detalles relevantes:
+
+- `user` referencia a `settings.AUTH_USER_MODEL` con `related_name="lesson_progresses"`
+- `lesson` referencia a `Lesson` con `related_name="progresses"`
+- `completed_at` permite `null` y `blank`
+- define el constraint `unique_lesson_progress_per_user` para evitar mas de un progreso por usuario y leccion
+
+## Estado actual del nucleo del MVP
 
 - la app `backend/apps/learning/` ya existe y `LearningConfig` esta registrada en `INSTALLED_APPS`
-- `Course` ya esta implementado en el codigo del backend
-- `Unit`, `Lesson` y `LessonProgress` todavia no existen como modelos
-- por ahora no se documenta un modelo generico `Progress`; el seguimiento inicial previsto se concentra en `LessonProgress`
+- `Course`, `Unit`, `Lesson` y `LessonProgress` ya estan implementados en el codigo del backend
+- por ahora no se documenta un modelo generico `Progress`; el seguimiento inicial real se concentra en `LessonProgress`
 
 ## Otros modelos previstos
 

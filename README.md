@@ -28,12 +28,12 @@ Hoy el repositorio contiene una base solida sobre la cual seguir construyendo:
 - Una primera conexion real entre Next.js y Django desde `frontend/src/app/page.js`
 - Un modelo de usuario personalizado en `backend/apps/users/models.py`
 - Una app local `learning` registrada para alojar el nucleo inicial del dominio del MVP
-- Un primer modelo real del dominio implementado en `backend/apps/learning/models.py`: `Course`
+- El nucleo del dominio del MVP ya implementado en `backend/apps/learning/models.py` con `Course`, `Unit`, `Lesson` y `LessonProgress`
 - Configuracion de PostgreSQL mediante variables de entorno
 - Un frontend Next.js con App Router en `frontend/`
 - Una estructura documental en `docs/` para setup, arquitectura, API, base de datos y decisiones tecnicas
 
-Todavia no existen endpoints de negocio ni una interfaz funcional del producto. En `learning`, `Course` ya esta implementado como modelo, mientras `Unit`, `Lesson` y `LessonProgress` siguen planificados. La documentacion distingue explicitamente entre lo implementado y lo planificado para evitar ambiguedades.
+Todavia no existen endpoints de negocio ni una interfaz funcional del producto. En `learning`, el nucleo del dominio ya esta modelado en base de datos, mientras la capa API y la experiencia de producto siguen en construccion. La documentacion distingue explicitamente entre lo implementado y lo planificado para evitar ambiguedades.
 
 Si quieres revisar el avance cronologico y retomar rapidamente el proyecto, consulta [docs/progress/README.md](./docs/progress/README.md).
 

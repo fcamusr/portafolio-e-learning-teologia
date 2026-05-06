@@ -27,6 +27,7 @@ Hoy el proyecto ya cuenta con:
 - base API inicial en Django REST Framework
 - primer endpoint `GET /api/health/`
 - primera conexion real entre frontend y backend
+- nucleo inicial del dominio implementado en `learning`
 
 Todavia no existen endpoints de negocio ni una interfaz funcional del producto final. El proyecto sigue en construccion activa.
 
@@ -106,28 +107,37 @@ Estos avances se registran sin fecha porque ya estaban construidos antes de crea
 
 #### App `learning` creada como base del dominio
 
-- Se verifico la creacion de `backend/apps/learning/` con `apps.py`, `models.py`, `admin.py`, `views.py`, `tests.py` y carpeta `migrations/`.
-- `LearningConfig` quedo registrada en `INSTALLED_APPS` dentro de `backend/config/settings.py`.
+- Se creo `backend/apps/learning/` con `apps.py`, `models.py`, `admin.py`, `views.py`, `tests.py` y carpeta `migrations/`.
+- `LearningConfig` se registro en `INSTALLED_APPS` dentro de `backend/config/settings.py`.
 - Quedo documentado que `learning` ya esta implementada como app local, pero que `Course`, `Unit`, `Lesson` y `LessonProgress` aun no existen como modelos ni como endpoints.
 
 #### Primer modelo real del dominio documentado
 
-- Se verifico que `backend/apps/learning/models.py` ya implementa `Course`.
-- Se verifico la migracion `backend/apps/learning/migrations/0001_initial.py` para crear ese modelo.
+- Se implemento `Course` en `backend/apps/learning/models.py`.
+- Se creo la migracion `backend/apps/learning/migrations/0001_initial.py` para ese modelo.
 - Se corrigio la documentacion que todavia describia a `learning` como app sin modelos, dejando `Course` como implementado y `Unit`, `Lesson` y `LessonProgress` como planificados.
+
+### 2026-05-06
+
+#### Nucleo del dominio del MVP implementado en `learning`
+
+- Se implementaron `Course`, `Unit`, `Lesson` y `LessonProgress` en `backend/apps/learning/models.py`.
+- En `Lesson` se uso `text_content` en lugar de `content` para mantener abierta la evolucion futura hacia otros tipos de contenido.
+- Se aplicaron las migraciones `0001_initial`, `0002_unit`, `0003_lesson` y `0004_lessonprogress`.
+- Se actualizo la documentacion para distinguir que el nucleo del dominio ya esta implementado en modelos, mientras la API de negocio sigue pendiente.
 
 ## Ultimo punto alcanzado
 
-El ultimo avance real del dominio es la implementacion de `Course` como primer modelo dentro de `learning`, sobre una base donde la conexion `Next.js <-> Django` ya estaba funcionando con `GET /api/health/`.
+El ultimo avance real del proyecto es que el nucleo inicial del dominio del MVP ya quedo implementado en base de datos con `Course`, `Unit`, `Lesson` y `LessonProgress`, sobre una base donde la comunicacion `Next.js <-> Django` ya estaba funcionando con `GET /api/health/`.
 
 ## Proximo paso sugerido
 
 El siguiente avance natural puede ir por una de estas dos rutas:
 
 1. mejorar la UI inicial del frontend para salir de la pantalla de prueba
-2. continuar dentro de `learning` con los modelos `Unit`, `Lesson` y `LessonProgress`
+2. comenzar a exponer el nucleo implementado mediante endpoints de negocio
 
-Recomendacion actual: continuar con `Unit`, `Lesson` y `LessonProgress`, porque `Course` ya quedo como primera base real del dominio.
+Recomendacion actual: empezar por los endpoints del dominio, porque el modelo de datos principal ya esta definido y migrado.
 
 ## Regla de mantenimiento de esta bitacora
 

@@ -4,7 +4,7 @@
 
 No hay endpoints de cursos implementados.
 
-El modelo `Course` si existe ya en `backend/apps/learning/models.py`, pero todavia no tiene contrato API expuesto.
+El modelo `Course` existe en `backend/apps/learning/models.py`, pero todavia no tiene contrato API expuesto.
 
 ## Objetivo futuro
 

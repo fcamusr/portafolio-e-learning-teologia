@@ -11,6 +11,13 @@ Hoy no existen endpoints de negocio implementados, pero la base API ya esta oper
 - la configuracion inicial de Django REST Framework y CORS para integracion local con el frontend
 - una primera integracion real desde la pagina principal de Next.js consumiendo ese endpoint
 
+Ademas, el backend ya tiene implementado el nucleo del dominio en modelos:
+
+- `Course`
+- `Unit`
+- `Lesson`
+- `LessonProgress`
+
 ## Objetivo
 
 La API debera exponer datos y acciones relacionadas con:

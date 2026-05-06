@@ -38,20 +38,20 @@ Este enfoque permite crecer sin introducir complejidad innecesaria demasiado pro
 
 ## Estado actual
 
-La arquitectura ya esta definida a nivel estructural, pero la mayoria de los dominios de negocio todavia no estan implementados. Hoy existe principalmente la base tecnica inicial:
+La arquitectura ya esta definida a nivel estructural, pero la capa API de negocio todavia no esta implementada. Hoy existe principalmente esta base:
 
 - proyecto Django funcional
 - proyecto Next.js funcional
 - modelo `User` personalizado
 - app local `learning` creada y registrada en `INSTALLED_APPS` como contenedor del nucleo inicial del dominio
-- modelo `Course` implementado dentro de `learning`
+- modelos `Course`, `Unit`, `Lesson` y `LessonProgress` implementados dentro de `learning`
 - configuracion de PostgreSQL
 - base API con Django REST Framework
 - configuracion CORS para desarrollo local
 - endpoint tecnico `/api/health/`
 - primera conexion real Next.js <-> Django desde `frontend/src/app/page.js`
 
-La parte de negocio dentro de `learning` sigue en etapa temprana: `Course` ya esta implementado como primer modelo, pero `Unit`, `Lesson` y `LessonProgress` todavia no existen como modelos.
+El nucleo del dominio ya existe en base de datos, pero todavia no cuenta con endpoints propios. En `Lesson`, el contenido textual actual se modela con `text_content` para dejar abierta la evolucion futura hacia otros tipos de contenido.
 
 ## Referencias relacionadas
 

@@ -26,12 +26,22 @@ Aplicar migraciones:
 python manage.py migrate
 ```
 
+Revisar migraciones de `learning`:
+
+```powershell
+python manage.py showmigrations learning
+```
+
 ## Estado actual
 
-El repositorio ya incluye:
+El repositorio ya incluye y tiene aplicadas en `learning` estas migraciones:
 
-- la migracion inicial de la app `users`
-- la migracion `backend/apps/learning/migrations/0001_initial.py`, que crea el modelo `Course`
+- `0001_initial.py`: crea `Course`
+- `0002_unit.py`: crea `Unit`
+- `0003_lesson.py`: crea `Lesson`
+- `0004_lessonprogress.py`: crea `LessonProgress`
+
+Tambien existe la migracion inicial de la app `users`.
 
 ## Regla de trabajo
 

@@ -4,6 +4,8 @@
 
 No hay endpoints de progreso implementados.
 
+El modelo `LessonProgress` existe en `backend/apps/learning/models.py`, pero todavia no tiene contrato API expuesto.
+
 ## Objetivo futuro
 
 Este recurso deberia registrar y consultar el avance del usuario sobre contenidos formativos.

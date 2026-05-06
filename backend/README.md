@@ -11,7 +11,7 @@ Actualmente el backend incluye:
 - App local `users` en `backend/apps/users/`
 - App local `learning` en `backend/apps/learning/` para alojar el nucleo del dominio del MVP
 - Modelo de usuario personalizado basado en `AbstractUser`
-- Modelo `Course` implementado en `backend/apps/learning/models.py`
+- Nucleo inicial del dominio implementado con `Course`, `Unit`, `Lesson` y `LessonProgress`
 - Configuracion de base de datos PostgreSQL mediante variables de entorno
 - Django REST Framework registrado para construir endpoints API
 - `django-cors-headers` configurado para permitir solicitudes desde `http://localhost:3000`
@@ -20,7 +20,7 @@ Actualmente el backend incluye:
 
 Todavia no existen endpoints de negocio. El unico endpoint API implementado por ahora es el de verificacion tecnica de salud.
 
-La app `learning` ya esta creada y registrada en Django. Hoy implementa `Course` como primer modelo real del dominio, pero todavia no implementa endpoints ni los modelos `Unit`, `Lesson` o `LessonProgress`.
+La app `learning` ya esta creada y registrada en Django. Hoy concentra el nucleo del dominio del MVP a nivel de modelos, pero todavia no expone endpoints propios.
 
 ## Estructura relevante
 
@@ -76,6 +76,7 @@ Verificaciones utiles:
 
 - panel administrativo: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
 - endpoint de salud API: [http://127.0.0.1:8000/api/health/](http://127.0.0.1:8000/api/health/)
+- migraciones de `learning`: `python manage.py showmigrations learning`
 
 ## Variables de entorno
 
@@ -104,6 +105,21 @@ class User(AbstractUser):
 ```
 
 Tomar esta decision al inicio evita migraciones complejas mas adelante si el proyecto necesita extender el perfil de usuario.
+
+## Nucleo del dominio
+
+En `backend/apps/learning/models.py` hoy existen:
+
+- `Course`
+- `Unit`
+- `Lesson`
+- `LessonProgress`
+
+Detalle relevante:
+
+- `Lesson` usa `text_content` en lugar de un campo generico `content`
+
+Esto permite modelar el contenido textual actual sin cerrar la puerta a soportar otros tipos de contenido en el futuro.
 
 ## API y comunicacion local
 

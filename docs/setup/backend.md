@@ -65,6 +65,7 @@ Despues de ejecutar `python manage.py check` y levantar el servidor, conviene ve
 
 - panel administrativo: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
 - endpoint de salud: [http://127.0.0.1:8000/api/health/](http://127.0.0.1:8000/api/health/)
+- migraciones de `learning`: `python manage.py showmigrations learning`
 
 ## Archivos y carpetas importantes
 
@@ -84,7 +85,8 @@ backend/
 
 - Las apps locales disponibles son `users`, `core` y `learning`
 - `learning` ya esta registrada en Django como app local para el nucleo del dominio del MVP
-- `learning` ya implementa `Course` como primer modelo real del dominio
+- `learning` ya implementa `Course`, `Unit`, `Lesson` y `LessonProgress`
+- `Lesson` usa `text_content` como campo textual actual
 - El modelo `User` extiende `AbstractUser`
 - `AUTH_USER_MODEL` esta definido como `users.User`
 - `rest_framework` y `corsheaders` ya estan registrados en la configuracion del proyecto
@@ -92,7 +94,7 @@ backend/
 - La ruta `/admin/` esta disponible por defecto
 - La ruta `/api/health/` permite validar la base inicial de la API
 
-Por ahora `learning` ya define el modelo `Course`, pero aun no expone endpoints propios ni implementa `Unit`, `Lesson` o `LessonProgress`.
+Por ahora `learning` ya define el nucleo del dominio, pero aun no expone endpoints propios.
 
 ## Referencias relacionadas
 
