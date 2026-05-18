@@ -31,7 +31,7 @@ Hoy el repositorio contiene una base solida sobre la cual seguir construyendo:
 - El nucleo del dominio del MVP ya implementado en `backend/apps/learning/models.py` con `Course`, `Unit`, `Lesson` y `LessonProgress`
 - Configuracion de PostgreSQL mediante variables de entorno
 - Un frontend Next.js con App Router en `frontend/`
-- Una estructura documental en `docs/` para setup, arquitectura, API, base de datos y decisiones tecnicas
+- Una estructura documental en `docs/` para setup, producto, arquitectura, API, base de datos, calidad, riesgos, progreso, decisiones tecnicas y plantillas reutilizables
 
 Todavia no existen endpoints de negocio ni una interfaz funcional del producto. En `learning`, el nucleo del dominio ya esta modelado en base de datos, mientras la capa API y la experiencia de producto siguen en construccion. La documentacion distingue explicitamente entre lo implementado y lo planificado para evitar ambiguedades.
 
@@ -66,11 +66,15 @@ La documentacion del proyecto esta organizada por dominios:
 
 - [docs/README.md](./docs/README.md): mapa general de la documentacion
 - [docs/setup/README.md](./docs/setup/README.md): instalacion, configuracion y ejecucion local
+- [docs/product/README.md](./docs/product/README.md): vision funcional, usuarios, MVP y roadmap del producto
 - [docs/architecture/README.md](./docs/architecture/README.md): contexto, estructura y criterios de arquitectura
 - [docs/database/README.md](./docs/database/README.md): modelos, migraciones y lineamientos de datos
 - [docs/api/README.md](./docs/api/README.md): estado y diseno previsto de la API
+- [docs/quality/README.md](./docs/quality/README.md): estrategia de QA, validacion y criterios de cierre
+- [docs/risks/README.md](./docs/risks/README.md): riesgos tecnicos y de proyecto, mitigaciones y seguimiento
 - [docs/progress/README.md](./docs/progress/README.md): avance del proyecto y bitacora de trabajo
 - [docs/decisions/README.md](./docs/decisions/README.md): decisiones tecnicas registradas
+- [docs/templates/README.md](./docs/templates/README.md): plantillas reutilizables para mantener consistencia documental
 
 ## Seguridad y configuracion
 

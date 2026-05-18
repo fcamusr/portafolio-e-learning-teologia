@@ -66,14 +66,22 @@ docs/
 |-- architecture/
 |-- database/
 |-- decisions/
+|-- product/
 |-- progress/
+|-- quality/
+|-- risks/
 |-- setup/
+|-- templates/
 `-- README.md
 ```
 
 Cada subcarpeta documenta una dimension distinta del proyecto para evitar mezclar contenido operativo con contenido arquitectonico.
 
+- `product/`: vision funcional, alcance, requerimientos y criterios de aceptacion
+- `quality/`: validacion, QA y criterios de cierre
+- `risks/`: riesgos abiertos, mitigaciones y seguimiento
 - `progress/`: bitacora de avance del proyecto para retomar trabajo y registrar hitos
+- `templates/`: formatos reutilizables para documentacion consistente
 
 ## Archivos y carpetas locales que no deben versionarse
 

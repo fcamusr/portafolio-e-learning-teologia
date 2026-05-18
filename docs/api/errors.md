@@ -19,3 +19,9 @@ Ya existe una base API inicial, pero todavia no hay un formato de errores formal
 ## Criterio
 
 El formato definitivo deberia ser consistente en todos los endpoints y suficientemente estable para que el frontend pueda manejar errores de forma predecible.
+
+## Referencias relacionadas
+
+- [status-codes.md](./status-codes.md)
+- [../quality/qa-strategy.md](../quality/qa-strategy.md)
+- [../quality/backend-checklist.md](../quality/backend-checklist.md)

@@ -23,7 +23,7 @@ Hoy el proyecto ya cuenta con:
 - frontend Next.js funcional
 - PostgreSQL conectado al backend
 - modelo de usuario personalizado
-- documentacion base organizada por areas
+- documentacion base organizada por setup, producto, arquitectura, API, base de datos, calidad, riesgos, decisiones y plantillas
 - base API inicial en Django REST Framework
 - primer endpoint `GET /api/health/`
 - primera conexion real entre frontend y backend
@@ -126,9 +126,28 @@ Estos avances se registran sin fecha porque ya estaban construidos antes de crea
 - Se aplicaron las migraciones `0001_initial`, `0002_unit`, `0003_lesson` y `0004_lessonprogress`.
 - Se actualizo la documentacion para distinguir que el nucleo del dominio ya esta implementado en modelos, mientras la API de negocio sigue pendiente.
 
+### 2026-05-17
+
+#### Nueva seccion de documentacion de producto
+
+- Se creo `docs/product/` para documentar vision funcional, usuarios, alcance MVP, flujos y roadmap.
+- Se conecto esta nueva seccion con el mapa general de `docs/`.
+- Quedo explicitado un orden de lectura para alinear decisiones de producto con arquitectura, API y progreso del proyecto.
+
+### 2026-05-18
+
+#### Fortalecimiento documental para QA, riesgos y trazabilidad
+
+- Se crearon `docs/quality/`, `docs/risks/` y `docs/templates/`.
+- `docs/quality/` quedo orientada a validacion, evidencia minima y criterio de cierre.
+- `docs/risks/` quedo orientada a registro vivo, matriz y mitigaciones.
+- `docs/templates/` quedo orientada a formatos reutilizables para mantener consistencia sin burocracia.
+- `docs/product/` se amplio con requerimientos y criterios de aceptacion para dejar una fuente de verdad funcional mas clara.
+- `docs/README.md` fue reescrito como mapa general de documentacion, fuentes de verdad y trazabilidad.
+
 ## Ultimo punto alcanzado
 
-El ultimo avance real del proyecto es que el nucleo inicial del dominio del MVP ya quedo implementado en base de datos con `Course`, `Unit`, `Lesson` y `LessonProgress`, sobre una base donde la comunicacion `Next.js <-> Django` ya estaba funcionando con `GET /api/health/`.
+El ultimo avance real del proyecto es que la documentacion ya cuenta con secciones especificas para producto, calidad, riesgos y plantillas reutilizables, conectadas con la base tecnica existente y con el nucleo del dominio del MVP ya implementado en base de datos mediante `Course`, `Unit`, `Lesson` y `LessonProgress`.
 
 ## Proximo paso sugerido
 
@@ -138,6 +157,8 @@ El siguiente avance natural puede ir por una de estas dos rutas:
 2. comenzar a exponer el nucleo implementado mediante endpoints de negocio
 
 Recomendacion actual: empezar por los endpoints del dominio, porque el modelo de datos principal ya esta definido y migrado.
+La nueva documentacion de [../product/README.md](../product/README.md) puede usarse como referencia para priorizar esos endpoints y la primera experiencia funcional del frontend.
+[../quality/README.md](../quality/README.md) y [../risks/README.md](../risks/README.md) ya pueden usarse para cerrar tareas con mejor trazabilidad y seguimiento.
 
 ## Regla de mantenimiento de esta bitacora
 

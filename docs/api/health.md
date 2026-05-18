@@ -62,3 +62,10 @@ Con backend y frontend levantados:
 4. Abre [http://localhost:3000/](http://localhost:3000/) y confirma que aparecen `status`, `service` y `message`.
 
 Segun el cliente, puedes ver JSON puro o la interfaz navegable de Django REST Framework. Ambas respuestas son validas.
+
+## Referencias relacionadas
+
+- [overview.md](./overview.md)
+- [../quality/qa-strategy.md](../quality/qa-strategy.md)
+- [../quality/backend-checklist.md](../quality/backend-checklist.md)
+- [../setup/run-project.md](../setup/run-project.md)

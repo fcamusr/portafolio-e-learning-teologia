@@ -25,6 +25,8 @@ Esta carpeta mezcla dos tipos de documentacion:
 
 Cada documento debe dejar ese estado explicito.
 
+La fuente de verdad de validacion no vive aqui. Si necesitas saber como se prueba o que evidencia pedir para cerrar un cambio de API, revisa [../quality/qa-strategy.md](../quality/qa-strategy.md).
+
 ## Orden de lectura recomendado
 
 1. [overview.md](./overview.md)
@@ -46,3 +48,9 @@ Cada documento debe dejar ese estado explicito.
 - Despues revisas la autenticacion, porque condiciona casi todo el resto.
 - Luego recorres los recursos por dominio funcional.
 - Al final cierras con convenciones transversales de errores y codigos HTTP.
+
+## Referencias relacionadas
+
+- [../quality/qa-strategy.md](../quality/qa-strategy.md)
+- [../quality/backend-checklist.md](../quality/backend-checklist.md)
+- [../product/requirements.md](../product/requirements.md)

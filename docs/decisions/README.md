@@ -1,14 +1,14 @@
-# Decisiones técnicas
+# Decisiones tecnicas
 
-Esta carpeta reúne decisiones de arquitectura y diseño que vale la pena preservar en el tiempo.
+Esta carpeta reune decisiones de arquitectura y diseno que vale la pena preservar en el tiempo.
 
 ## Objetivo
 
 Registrar decisiones ayuda a responder preguntas como:
 
-- por qué se eligió una tecnología
-- qué alternativas se evaluaron
-- qué consecuencias trae una decisión
+- por que se eligio una tecnologia
+- que alternativas se evaluaron
+- que consecuencias trae una decision
 
 ## Formato usado
 
@@ -16,11 +16,13 @@ Cada ADR de esta carpeta sigue una estructura simple:
 
 - estado
 - contexto o motivo
-- decisión
+- decision
 - consecuencias
 - alternativas consideradas
 
-## Índice actual
+La plantilla reutilizable para nuevas decisiones vive en [../templates/decision-record-template.md](../templates/decision-record-template.md).
+
+## Indice actual
 
 - [0001-use-django.md](./0001-use-django.md)
 - [0002-use-nextjs.md](./0002-use-nextjs.md)
@@ -36,8 +38,8 @@ Cada ADR de esta carpeta sigue una estructura simple:
 4. [0004-separate-backend-frontend.md](./0004-separate-backend-frontend.md)
 5. [0005-use-apps-folder.md](./0005-use-apps-folder.md)
 
-## Por qué este orden
+## Por que este orden
 
 - Empieza por las decisiones fundacionales de stack.
-- Luego pasa a la separación entre capas.
-- Termina con la decisión más específica de organización interna del backend.
+- Luego pasa a la separacion entre capas.
+- Termina con la decision mas especifica de organizacion interna del backend.
