@@ -131,6 +131,19 @@ Detalles relevantes:
 - `Course`, `Unit`, `Lesson` y `LessonProgress` ya estan implementados en el codigo del backend
 - por ahora no se documenta un modelo generico `Progress`; el seguimiento inicial real se concentra en `LessonProgress`
 
+## Registro real en Django admin
+
+Ademas de existir como modelos y tablas migradas, hoy `Course`, `Unit`, `Lesson` y `LessonProgress` ya estan registrados en `backend/apps/learning/admin.py`.
+
+Estado implementado en el admin:
+
+- `Course` usa un `ModelAdmin` con columnas de titulo, nivel, publicacion y timestamps, filtros por nivel, publicacion y fechas, busqueda por titulo y descripcion, y orden por titulo.
+- `Unit` usa un `ModelAdmin` con columnas para curso y orden, filtros por curso, publicacion y fechas, busqueda por titulo, descripcion y titulo del curso, y orden por curso, orden e id.
+- `Lesson` usa un `ModelAdmin` con columnas para unidad, orden y duracion estimada, filtros por unidad, publicacion y fechas, busqueda por titulo, resumen, `text_content`, unidad y curso, y orden por unidad, orden e id.
+- `LessonProgress` usa un `ModelAdmin` con columnas para usuario, leccion, completitud y timestamps relevantes, filtros por completitud y fechas, busqueda por usuario y por la jerarquia de la leccion, y orden descendente por `updated_at`.
+
+Esto ya esta implementado. No describe un plan futuro ni una propuesta: documenta el estado real actual del panel administrativo para el dominio `learning`.
+
 ## Otros modelos previstos
 
 Las siguientes entidades siguen apareciendo como parte del diseno futuro del producto, pero todavia no existen en el codigo:

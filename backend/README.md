@@ -121,6 +121,24 @@ Detalle relevante:
 
 Esto permite modelar el contenido textual actual sin cerrar la puerta a soportar otros tipos de contenido en el futuro.
 
+## Registro administrativo del dominio
+
+En `backend/apps/learning/admin.py` ya estan registrados en el panel administrativo de Django:
+
+- `Course`
+- `Unit`
+- `Lesson`
+- `LessonProgress`
+
+Estado real implementado:
+
+- `CourseAdmin` mejora el listado con columnas de titulo, nivel, publicacion y marcas de tiempo; tambien agrega filtros, busqueda por titulo y descripcion, y orden alfabetico por titulo.
+- `UnitAdmin` agrega columnas para curso y orden, filtros por curso y estado de publicacion, busqueda por titulo, descripcion y titulo del curso, y orden por curso, orden e id.
+- `LessonAdmin` agrega columnas para unidad, orden y duracion estimada, filtros por unidad y publicacion, busqueda por titulo, resumen, contenido textual, unidad y curso, y orden por unidad, orden e id.
+- `LessonProgressAdmin` agrega columnas para usuario, leccion y estado de completitud, filtros por completitud y marcas de tiempo, busqueda por usuario y jerarquia de la leccion, y orden descendente por actualizacion.
+
+Esto significa que el dominio ya no solo existe como modelos y migraciones: tambien cuenta con una configuracion administrativa base para facilitar carga, consulta y seguimiento desde `/admin/`.
+
 ## API y comunicacion local
 
 La base de la API ya esta preparada con estas piezas:

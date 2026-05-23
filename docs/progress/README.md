@@ -145,9 +145,18 @@ Estos avances se registran sin fecha porque ya estaban construidos antes de crea
 - `docs/product/` se amplio con requerimientos y criterios de aceptacion para dejar una fuente de verdad funcional mas clara.
 - `docs/README.md` fue reescrito como mapa general de documentacion, fuentes de verdad y trazabilidad.
 
+### 2026-05-23
+
+#### Registro documental del admin real para `learning`
+
+- Se verifico el estado real de `backend/apps/learning/admin.py`.
+- Quedo documentado que `Course`, `Unit`, `Lesson` y `LessonProgress` ya estan registrados en Django admin con `ModelAdmin`.
+- Se dejo registrado en la documentacion que ese admin ya mejora listados, filtros, busquedas y orden para el dominio `learning`.
+- Se distinguio explicitamente entre este estado implementado y las partes del dominio que siguen sin endpoints de negocio.
+
 ## Ultimo punto alcanzado
 
-El ultimo avance real del proyecto es que la documentacion ya cuenta con secciones especificas para producto, calidad, riesgos y plantillas reutilizables, conectadas con la base tecnica existente y con el nucleo del dominio del MVP ya implementado en base de datos mediante `Course`, `Unit`, `Lesson` y `LessonProgress`.
+El ultimo avance real del proyecto es que la documentacion ya refleja tambien el estado administrativo implementado del dominio `learning` en Django admin, ademas de las secciones especificas para producto, calidad, riesgos y plantillas reutilizables conectadas con la base tecnica existente.
 
 ## Proximo paso sugerido
 
