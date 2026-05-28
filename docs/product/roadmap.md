@@ -10,25 +10,30 @@ La fase actual del proyecto es de base tecnica ya operativa con dominio inicial 
 
 ### Fase 1: cerrar el flujo principal de aprendizaje en backend
 
-- exponer endpoints del dominio `Course`, `Unit`, `Lesson` y `LessonProgress`
-- definir contratos consistentes para lectura de contenido y avance
-- validar el flujo minimo necesario para estudiar y retomar
+- exponer endpoints para la ruta inicial de aprendizaje
+- definir contratos para unidad desbloqueada, clases vistas y progreso por leccion
+- definir reglas de desbloqueo de quiz y unidad
+- preparar autenticacion basica para asociar progreso a usuario
 
 ### Fase 2: construir la primera experiencia funcional en frontend
 
 - reemplazar la pantalla actual de prueba
-- mostrar cursos, unidades y lecciones
-- presentar progreso basico y llamadas claras a continuar
+- mostrar el curso inicial como ruta de aprendizaje
+- mostrar unidades como camino visual
+- abrir clases de una unidad en modal
+- abrir clase de texto y marcarla como vista
+- mostrar bloqueo/desbloqueo del quiz
 
 ### Fase 3: reforzar experiencia de cuenta y seguimiento
 
 - incorporar autenticacion aplicada al flujo real
 - asegurar que el progreso este asociado al usuario correcto
 - mejorar estado vacio, errores y continuidad
+- incorporar dashboard simple de avance si aporta claridad
 
 ### Fase 4: ampliar valor formativo
 
-- agregar quizzes cuando el flujo principal ya sea estable
+- implementar quizzes con intentos, maximo de errores y preguntas nuevas al repetir
 - evaluar certificados o logros
 - decidir si entran funciones editoriales o administrativas adicionales
 

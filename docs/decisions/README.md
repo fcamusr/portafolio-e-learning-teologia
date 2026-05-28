@@ -24,6 +24,7 @@ La plantilla reutilizable para nuevas decisiones vive en [../templates/decision-
 
 ## Indice actual
 
+- [DIAGRAMS.md](./DIAGRAMS.md)
 - [0001-use-django.md](./0001-use-django.md)
 - [0002-use-nextjs.md](./0002-use-nextjs.md)
 - [0003-use-postgresql.md](./0003-use-postgresql.md)
@@ -32,11 +33,12 @@ La plantilla reutilizable para nuevas decisiones vive en [../templates/decision-
 
 ## Orden de lectura recomendado
 
-1. [0001-use-django.md](./0001-use-django.md)
-2. [0002-use-nextjs.md](./0002-use-nextjs.md)
-3. [0003-use-postgresql.md](./0003-use-postgresql.md)
-4. [0004-separate-backend-frontend.md](./0004-separate-backend-frontend.md)
-5. [0005-use-apps-folder.md](./0005-use-apps-folder.md)
+1. [DIAGRAMS.md](./DIAGRAMS.md)
+2. [0001-use-django.md](./0001-use-django.md)
+3. [0002-use-nextjs.md](./0002-use-nextjs.md)
+4. [0003-use-postgresql.md](./0003-use-postgresql.md)
+5. [0004-separate-backend-frontend.md](./0004-separate-backend-frontend.md)
+6. [0005-use-apps-folder.md](./0005-use-apps-folder.md)
 
 ## Por que este orden
 

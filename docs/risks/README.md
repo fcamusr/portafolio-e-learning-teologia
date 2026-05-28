@@ -12,6 +12,7 @@ Esta carpeta responde a la pregunta "que puede comprometer alcance, calidad, con
 
 - [risk-register.md](./risk-register.md): registro vivo de riesgos con estado, impacto y mitigacion
 - [risk-matrix.md](./risk-matrix.md): criterio de priorizacion por probabilidad e impacto
+- [DIAGRAMS.md](./DIAGRAMS.md): mapas visuales de causas, prioridad y estrategia de mitigacion
 
 ## Fuente principal de verdad
 

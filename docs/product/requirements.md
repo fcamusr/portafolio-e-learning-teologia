@@ -14,20 +14,28 @@ Este documento describe que necesita lograr el producto. No define contratos HTT
 
 Los siguientes requerimientos reflejan el alcance funcional hoy documentado para el flujo principal del MVP:
 
-- El sistema debe permitir visualizar cursos disponibles.
-- El sistema debe permitir entrar a un curso y recorrer sus unidades.
-- El sistema debe permitir abrir lecciones y consumir su contenido principal.
-- El sistema debe permitir registrar o actualizar avance por leccion.
+- El sistema debe presentar una ruta de aprendizaje inicial asociada a un unico curso.
+- El sistema debe mostrar las unidades del curso como un camino de aprendizaje.
+- El sistema debe permitir seleccionar una unidad desbloqueada y ver sus clases en un modal.
+- El sistema debe permitir abrir una clase de texto desde el modal.
+- El sistema debe marcar automaticamente una clase como vista cuando el usuario entra a su pantalla de contenido.
+- El sistema debe permitir navegar libremente entre las clases de texto de una unidad desbloqueada.
+- El sistema debe bloquear el quiz de la unidad hasta que todas sus clases de texto hayan sido vistas.
+- El sistema debe permitir realizar el quiz de la unidad cuando cumpla los requisitos de desbloqueo.
+- El sistema debe validar el quiz con un maximo permitido de respuestas erroneas.
+- El sistema debe repetir el cuestionario con preguntas nuevas si el usuario no lo aprueba.
+- El sistema debe marcar la unidad como completada y desbloquear la siguiente solo cuando el quiz haya sido aprobado.
 - El sistema debe ayudar a retomar el estudio desde el ultimo punto relevante.
+- El sistema debe permitir login y registro para asociar progreso a una cuenta real.
 
 ### Requerimientos funcionales posteriores al MVP
 
 Estos puntos existen como direccion futura, pero no forman parte del cierre minimo actual:
 
-- evaluaciones o quizzes
 - certificados o logros
 - herramientas editoriales o administrativas mas completas
 - recomendaciones personalizadas
+- dashboards de avance o seguimiento
 
 ### Requerimientos no funcionales base
 
@@ -41,10 +49,19 @@ Estos puntos existen como direccion futura, pero no forman parte del cierre mini
 
 - La jerarquia principal del contenido es `Course -> Unit -> Lesson`.
 - El progreso base se mide por leccion mediante `LessonProgress`.
+- El MVP inicial parte con un solo curso visible para el usuario; por eso la experiencia prioriza ruta de aprendizaje por sobre catalogo de cursos.
+- Las unidades funcionan como etapas de una ruta: solo la siguiente unidad se desbloquea cuando la unidad actual se completa.
+- Una clase de texto se marca como vista automaticamente al entrar a su pantalla.
+- El quiz de una unidad se desbloquea solo cuando todas las clases de texto de esa unidad fueron vistas.
+- La aprobacion del quiz debe considerar un maximo permitido de respuestas erroneas.
+- Si el usuario no aprueba el quiz, debe repetir un cuestionario con preguntas nuevas.
+- La unidad se completa solo cuando el quiz fue aprobado.
+- La siguiente unidad se desbloquea solo despues de completar la unidad anterior.
+- El producto puede incluir dashboards, pero no reportes como foco inicial.
 - La continuidad del aprendizaje es parte central del valor del producto.
-- Pendiente por definir: reglas exactas para marcar una leccion como completada.
-- Pendiente por definir: reglas exactas para desbloqueo, orden forzado o prerequisitos entre lecciones.
-- Pendiente por definir: reglas exactas de evaluacion, aprobacion y certificados.
+- Pendiente por definir: cantidad exacta de respuestas erroneas permitidas para aprobar un quiz.
+- Pendiente por definir: estrategia exacta de generacion o seleccion de preguntas nuevas al repetir quiz.
+- Pendiente por definir: reglas exactas de dashboard y metricas visibles para el usuario.
 
 ## Relacion con otros documentos
 

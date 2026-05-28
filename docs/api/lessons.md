@@ -6,7 +6,7 @@ No hay endpoints de lecciones implementados.
 
 El modelo `Lesson` existe en `backend/apps/learning/models.py`, pero todavia no tiene contrato API expuesto.
 
-## Objetivo futuro
+## Objetivo del MVP pendiente
 
 Este recurso deberia permitir consultar lecciones, su orden dentro de una `Unit` y el contenido asociado a cada una.
 

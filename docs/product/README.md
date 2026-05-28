@@ -5,6 +5,7 @@ Esta seccion documenta el producto desde una perspectiva funcional: que problema
 ## Contenido
 
 - [overview.md](./overview.md): vision general del producto y su estado actual
+- [DIAGRAMS.md](./DIAGRAMS.md): mapas visuales de vision, MVP y flujo funcional
 - [users.md](./users.md): usuarios objetivo, necesidades y criterios de valor
 - [mvp.md](./mvp.md): alcance funcional del primer producto util
 - [requirements.md](./requirements.md): requerimientos funcionales, no funcionales y reglas de negocio conocidas
@@ -39,12 +40,13 @@ Si un documento de `quality/`, `api/` o `progress/` necesita hablar de alguno de
 ## Orden de lectura recomendado
 
 1. [overview.md](./overview.md)
-2. [users.md](./users.md)
-3. [mvp.md](./mvp.md)
-4. [requirements.md](./requirements.md)
-5. [acceptance-criteria.md](./acceptance-criteria.md)
-6. [user-flows.md](./user-flows.md)
-7. [roadmap.md](./roadmap.md)
+2. [DIAGRAMS.md](./DIAGRAMS.md)
+3. [users.md](./users.md)
+4. [mvp.md](./mvp.md)
+5. [requirements.md](./requirements.md)
+6. [acceptance-criteria.md](./acceptance-criteria.md)
+7. [user-flows.md](./user-flows.md)
+8. [roadmap.md](./roadmap.md)
 
 ## Por que este orden
 

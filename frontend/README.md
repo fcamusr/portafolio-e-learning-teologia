@@ -25,6 +25,7 @@ frontend/
 |   `-- lib/
 |       `-- api.js
 |-- .env.example
+|-- DIAGRAMS.md
 |-- eslint.config.mjs
 |-- jsconfig.json
 |-- next.config.mjs
@@ -35,6 +36,7 @@ frontend/
 - `src/app/`: rutas, layout y paginas del frontend
 - `src/lib/api.js`: funciones reutilizables para consultar el backend
 - `public/`: archivos estaticos
+- `DIAGRAMS.md`: mapas visuales de App Router, `page.js`, `api.js` y consumo del backend
 - `package.json`: scripts y dependencias del proyecto
 
 ## Configuracion local
@@ -86,6 +88,7 @@ Con backend y frontend levantados:
 
 ## Referencias relacionadas
 
+- [DIAGRAMS.md](./DIAGRAMS.md)
 - [docs/setup/frontend.md](../docs/setup/frontend.md)
 - [docs/setup/environment-variables.md](../docs/setup/environment-variables.md)
 - [docs/architecture/backend-frontend-communication.md](../docs/architecture/backend-frontend-communication.md)

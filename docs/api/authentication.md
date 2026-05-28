@@ -22,3 +22,15 @@ Todavía no está definido el mecanismo de autenticación entre Django y Next.js
 - JWT
 
 Cuando esa decisión se tome, debe registrarse también en `docs/decisions/`.
+
+## Impacto en el flujo de aprendizaje
+
+El producto contempla login y registro para asociar el progreso a una cuenta real. Esta decision afecta:
+
+- marcado automatico de clases vistas
+- desbloqueo de quiz por unidad
+- aprobacion de quiz
+- desbloqueo de la siguiente unidad
+- dashboards de avance
+
+Antes de implementar el flujo completo de progreso conviene cerrar la estrategia de autenticacion para evitar retrabajo en frontend, API y persistencia.

@@ -4,6 +4,7 @@ Esta sección documenta cómo se modelan y administran los datos del proyecto.
 
 ## Contenido
 
+- [DIAGRAMS.md](./DIAGRAMS.md): ERD, relaciones de modelos y vista visual del dominio actual
 - [overview.md](./overview.md): visión general y estado actual
 - [models.md](./models.md): modelos implementados y dominios previstos
 - [relationships.md](./relationships.md): relaciones actuales y futuras de alto nivel
@@ -18,11 +19,12 @@ La base de datos ya está conectada al backend, pero el modelo de dominio todav�
 ## Orden de lectura recomendado
 
 1. [overview.md](./overview.md)
-2. [models.md](./models.md)
-3. [relationships.md](./relationships.md)
-4. [migrations.md](./migrations.md)
-5. [indexes.md](./indexes.md)
-6. [seed-data.md](./seed-data.md)
+2. [DIAGRAMS.md](./DIAGRAMS.md)
+3. [models.md](./models.md)
+4. [relationships.md](./relationships.md)
+5. [migrations.md](./migrations.md)
+6. [indexes.md](./indexes.md)
+7. [seed-data.md](./seed-data.md)
 
 ## Por qué este orden
 

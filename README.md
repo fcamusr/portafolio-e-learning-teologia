@@ -18,6 +18,55 @@ Ademas de su proposito funcional, este repositorio tambien sirve como portafolio
 - Arquitectura: backend y frontend separados dentro del mismo repositorio
 - Estado actual: proyecto en construccion, con base tecnica inicial operativa y documentacion estructurada
 
+## Mapa visual del proyecto
+
+```mermaid
+flowchart LR
+  Proyecto["Portafolio e-learning de teologia<br/>Producto real + aprendizaje + evidencia profesional"]
+
+  Proyecto --> Repo["Monorepo<br/>backend / frontend / docs"]
+
+  Repo --> Backend["backend/<br/>Django como API principal"]
+  Backend --> Config["config/<br/>settings, urls, ASGI y WSGI"]
+  Backend --> Apps["apps/<br/>monolito modular"]
+  Apps --> Core["core<br/>GET /api/health/"]
+  Apps --> Users["users<br/>User personalizado"]
+  Apps --> Learning["learning<br/>Course, Unit, Lesson<br/>LessonProgress"]
+  Learning --> Admin["Django Admin<br/>gestion interna del dominio"]
+  Backend --> DRF["DRF + CORS<br/>base para API HTTP"]
+
+  Repo --> Database[("PostgreSQL<br/>base de datos principal")]
+  Learning --> Database
+  Users --> Database
+
+  Repo --> Frontend["frontend/<br/>Next.js con App Router"]
+  Frontend --> AppRouter["src/app/<br/>layout y pagina principal"]
+  Frontend --> ApiClient["src/lib/api.js<br/>conexion con backend"]
+  ApiClient --> Health["/api/health/<br/>primera integracion real"]
+
+  Repo --> Docs["docs/<br/>documentacion viva"]
+  Docs --> Setup["setup<br/>instalacion y ejecucion"]
+  Docs --> Architecture["architecture<br/>estructura y criterios"]
+  Docs --> Product["product<br/>MVP, usuarios y roadmap"]
+  Docs --> ApiDocs["api + database<br/>contratos y modelos"]
+  Docs --> Quality["quality + risks<br/>validacion y seguimiento"]
+  Docs --> Progress["progress + decisions<br/>avance y decisiones"]
+
+  Repo --> Security["Configuracion segura<br/>.env reales ignorados<br/>.env.example versionables"]
+
+  classDef root fill:#0f172a,stroke:#0f172a,color:#ffffff
+  classDef built fill:#e0f2fe,stroke:#0369a1,color:#0c4a6e
+  classDef data fill:#dcfce7,stroke:#15803d,color:#14532d
+  classDef docs fill:#fef3c7,stroke:#b45309,color:#78350f
+
+  class Proyecto,Repo root
+  class Backend,Config,Apps,Core,Users,Learning,Admin,DRF,Frontend,AppRouter,ApiClient,Health,Security built
+  class Database data
+  class Docs,Setup,Architecture,Product,ApiDocs,Quality,Progress docs
+```
+
+Este mapa se lee como un arbol de entrada al repositorio. Desde la raiz se ve que el proyecto esta organizado como monorepo con tres areas principales: backend, frontend y documentacion. Las ramas muestran que ya existe una base tecnica real con Django, Next.js, PostgreSQL, modelos del dominio `learning`, admin y una primera conexion HTTP.
+
 ## Estado actual
 
 Hoy el repositorio contiene una base solida sobre la cual seguir construyendo:

@@ -5,6 +5,7 @@ Esta seccion describe el estado actual de la API y documenta el diseno previsto 
 ## Contenido
 
 - [overview.md](./overview.md): estado general de la API
+- [DIAGRAMS.md](./DIAGRAMS.md): secuencias, estructura JSON y mapa de requisitos de endpoints
 - [health.md](./health.md): endpoint tecnico de salud actualmente implementado
 - [authentication.md](./authentication.md): estrategia actual y futura de autenticacion
 - [users.md](./users.md): endpoints previstos relacionados con usuarios
@@ -30,16 +31,17 @@ La fuente de verdad de validacion no vive aqui. Si necesitas saber como se prueb
 ## Orden de lectura recomendado
 
 1. [overview.md](./overview.md)
-2. [health.md](./health.md)
-3. [authentication.md](./authentication.md)
-4. [users.md](./users.md)
-5. [courses.md](./courses.md)
-6. [lessons.md](./lessons.md)
-7. [quizzes.md](./quizzes.md)
-8. [progress.md](./progress.md)
-9. [certificates.md](./certificates.md)
-10. [errors.md](./errors.md)
-11. [status-codes.md](./status-codes.md)
+2. [DIAGRAMS.md](./DIAGRAMS.md)
+3. [health.md](./health.md)
+4. [authentication.md](./authentication.md)
+5. [users.md](./users.md)
+6. [courses.md](./courses.md)
+7. [lessons.md](./lessons.md)
+8. [quizzes.md](./quizzes.md)
+9. [progress.md](./progress.md)
+10. [certificates.md](./certificates.md)
+11. [errors.md](./errors.md)
+12. [status-codes.md](./status-codes.md)
 
 ## Por que este orden
 

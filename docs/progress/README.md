@@ -15,6 +15,8 @@ Su proposito es permitir retomar el trabajo rapidamente cuando necesites recorda
 - que cambios recientes se realizaron
 - que deberia seguir despues
 
+Referencia visual complementaria: [DIAGRAMS.md](./DIAGRAMS.md).
+
 ## Estado actual resumido
 
 Hoy el proyecto ya cuenta con:
@@ -28,6 +30,8 @@ Hoy el proyecto ya cuenta con:
 - primer endpoint `GET /api/health/`
 - primera conexion real entre frontend y backend
 - nucleo inicial del dominio implementado en `learning`
+- diagramas documentales por area para explicar arquitectura, producto, API, datos, riesgos, calidad, decisiones y avance
+- flujo objetivo del MVP documentado: curso inicial unico, ruta de aprendizaje, unidades, clases de texto, progreso, quiz, desbloqueo, login y registro
 
 Todavia no existen endpoints de negocio ni una interfaz funcional del producto final. El proyecto sigue en construccion activa.
 
@@ -154,18 +158,34 @@ Estos avances se registran sin fecha porque ya estaban construidos antes de crea
 - Se dejo registrado en la documentacion que ese admin ya mejora listados, filtros, busquedas y orden para el dominio `learning`.
 - Se distinguio explicitamente entre este estado implementado y las partes del dominio que siguen sin endpoints de negocio.
 
+### 2026-05-28
+
+#### Diagramas documentales y alineacion del flujo MVP
+
+- Se crearon archivos `DIAGRAMS.md` en backend, frontend y secciones principales de `docs/` para explicar visualmente el proyecto por area.
+- Se agregaron diagramas de arquitectura, API, base de datos, producto, calidad, riesgos, progreso, decisiones y setup.
+- Se mantuvo la convencion de nombres en ingles para archivos de diagramas.
+- Se corrigio la coherencia entre el nombre visible de cada mapa y el tipo real usado en Mermaid: `Flowchart`, `Sequence Diagram`, `Timeline`, `Gantt`, `Pie Chart`, `Class Diagram`, `ERD` y `Mindmap`.
+- Se alineo la documentacion de producto con el flujo objetivo del MVP: curso inicial unico, ruta de aprendizaje, unidades como camino, modal de clases, clases de texto, marcado automatico como vista, quiz bloqueado hasta ver todas las clases, aprobacion con maximo de errores, repeticion con preguntas nuevas y desbloqueo de la siguiente unidad.
+- Se documento que login y registro son necesarios para asociar progreso a una cuenta real.
+- Se aclaro que no se priorizaran reportes y que los dashboards quedan como evolucion probable, manteniendo foco en el flujo principal de aprendizaje.
+- Se actualizaron documentos de API para reflejar endpoints pendientes del MVP relacionados con ruta inicial, unidad, lecciones, progreso y quiz.
+- Se actualizaron documentos de riesgos y decisiones para preparar futuras implementaciones sin sobrecargar el alcance inicial.
+- Se verifico la documentacion con busquedas de inconsistencias de nombres de mapas y con `git diff --check`.
+
 ## Ultimo punto alcanzado
 
-El ultimo avance real del proyecto es que la documentacion ya refleja tambien el estado administrativo implementado del dominio `learning` en Django admin, ademas de las secciones especificas para producto, calidad, riesgos y plantillas reutilizables conectadas con la base tecnica existente.
+El ultimo avance real del proyecto es que la documentacion ya cuenta con mapas visuales por area y un flujo MVP mas claro para orientar las proximas implementaciones. La base tecnica sigue igual: modelos principales implementados, admin de `learning` disponible y API de negocio pendiente.
 
 ## Proximo paso sugerido
 
-El siguiente avance natural puede ir por una de estas dos rutas:
+El siguiente avance natural puede ir por una de estas rutas:
 
-1. mejorar la UI inicial del frontend para salir de la pantalla de prueba
-2. comenzar a exponer el nucleo implementado mediante endpoints de negocio
+1. definir con precision los contratos API del flujo de ruta inicial, unidad, leccion, progreso y quiz
+2. implementar endpoints de negocio sobre el nucleo `Course`, `Unit`, `Lesson` y `LessonProgress`
+3. construir la primera pantalla funcional de ruta de aprendizaje en el frontend
 
-Recomendacion actual: empezar por los endpoints del dominio, porque el modelo de datos principal ya esta definido y migrado.
+Recomendacion actual: empezar por los contratos y endpoints del dominio, porque el modelo de datos principal ya esta definido y migrado.
 La nueva documentacion de [../product/README.md](../product/README.md) puede usarse como referencia para priorizar esos endpoints y la primera experiencia funcional del frontend.
 [../quality/README.md](../quality/README.md) y [../risks/README.md](../risks/README.md) ya pueden usarse para cerrar tareas con mejor trazabilidad y seguimiento.
 

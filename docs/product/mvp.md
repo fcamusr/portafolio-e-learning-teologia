@@ -8,23 +8,27 @@ El MVP deberia permitir que una persona estudie contenido estructurado y vea un 
 
 ## Capacidades que si deberian entrar
 
-- visualizar cursos disponibles
-- entrar a un curso y recorrer sus unidades
-- abrir lecciones y consumir su contenido principal
-- registrar avance por leccion
+- visualizar una ruta de aprendizaje inicial asociada a un unico curso
+- recorrer unidades presentadas como camino de aprendizaje
+- abrir una unidad desbloqueada y ver sus clases en un modal
+- abrir clases de texto y consumir su contenido principal
+- registrar automaticamente una clase como vista al entrar en ella
+- bloquear el quiz de unidad hasta que todas sus clases de texto hayan sido vistas
+- aprobar un quiz para completar la unidad y desbloquear la siguiente
 - retomar el estudio desde el ultimo punto relevante
+- iniciar sesion o registrarse para conservar el progreso
 
 ## Capacidades que pueden entrar despues
 
-- evaluaciones o quizzes
 - certificados o logros
 - paneles de administracion mas trabajados
 - recomendaciones personalizadas
 - comunidad, comentarios o funciones sociales
+- dashboards mas completos de avance y seguimiento
 
 ## Relacion con el estado actual del proyecto
 
-La base de datos ya tiene implementados `Course`, `Unit`, `Lesson` y `LessonProgress`, lo que calza bien con este alcance. La siguiente etapa natural es exponer ese nucleo mediante API y construir una interfaz minima sobre esa base.
+La base de datos ya tiene implementados `Course`, `Unit`, `Lesson` y `LessonProgress`, lo que calza parcialmente con este alcance. La siguiente etapa natural es exponer ese nucleo mediante API y construir una interfaz minima de ruta de aprendizaje. Las reglas de quiz, desbloqueo de unidad y progreso agregado todavia requieren modelos, contratos o decisiones adicionales.
 
 ## Criterios para aceptar trabajo dentro del MVP
 

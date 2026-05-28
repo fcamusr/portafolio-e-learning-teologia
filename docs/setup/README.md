@@ -10,6 +10,7 @@ Esta sección reúne todo lo necesario para preparar y ejecutar el proyecto en u
 - [database.md](./database.md): preparación de PostgreSQL y migraciones
 - [environment-variables.md](./environment-variables.md): variables de entorno esperadas
 - [run-project.md](./run-project.md): secuencia recomendada para levantar el proyecto
+- [DIAGRAMS.md](./DIAGRAMS.md): mapas visuales de estructura y orden de configuracion
 - [troubleshooting.md](./troubleshooting.md): problemas comunes y verificaciones rápidas
 
 ## Objetivo
@@ -30,7 +31,8 @@ El objetivo de esta carpeta es que cualquier persona pueda:
 4. [backend.md](./backend.md)
 5. [frontend.md](./frontend.md)
 6. [run-project.md](./run-project.md)
-7. [troubleshooting.md](./troubleshooting.md)
+7. [DIAGRAMS.md](./DIAGRAMS.md)
+8. [troubleshooting.md](./troubleshooting.md)
 
 ### Por qué este orden
 

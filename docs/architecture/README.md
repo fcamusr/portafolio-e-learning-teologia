@@ -4,6 +4,7 @@ Esta sección documenta cómo está pensado el sistema: su contexto, sus límite
 
 ## Contenido
 
+- [DIAGRAMS.md](./DIAGRAMS.md): vistas visuales de contexto, contenedores, componentes, arquitectura y bloques principales
 - [overview.md](./overview.md): visión general de la solución técnica
 - [system-context.md](./system-context.md): problema que resuelve el producto y actores principales
 - [folder-structure.md](./folder-structure.md): organización del repositorio
@@ -19,10 +20,11 @@ La intención de esta carpeta no es solo describir carpetas, sino dejar claros l
 
 1. [system-context.md](./system-context.md)
 2. [overview.md](./overview.md)
-3. [modules.md](./modules.md)
-4. [backend-frontend-communication.md](./backend-frontend-communication.md)
-5. [folder-structure.md](./folder-structure.md)
-6. [scalability.md](./scalability.md)
+3. [DIAGRAMS.md](./DIAGRAMS.md)
+4. [modules.md](./modules.md)
+5. [backend-frontend-communication.md](./backend-frontend-communication.md)
+6. [folder-structure.md](./folder-structure.md)
+7. [scalability.md](./scalability.md)
 
 ## Por qué este orden
 

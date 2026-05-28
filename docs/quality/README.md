@@ -11,6 +11,7 @@ Esta carpeta responde a la pregunta "como se valida el trabajo antes de consider
 ## Contenido principal
 
 - [qa-strategy.md](./qa-strategy.md): estrategia general de validacion, evidencias y criterio de cierre
+- [DIAGRAMS.md](./DIAGRAMS.md): mapas visuales de causas, prioridades y madurez tecnica
 - [backend-checklist.md](./backend-checklist.md): revision practica para cambios del backend
 - [frontend-checklist.md](./frontend-checklist.md): revision practica para cambios del frontend
 - [acceptance-checklist.md](./acceptance-checklist.md): puente entre criterios de aceptacion, evidencia y cierre
