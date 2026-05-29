@@ -22,8 +22,15 @@ Hoy la base de datos soporta principalmente:
 - modelo `User` personalizado como primera entidad del dominio
 - app `learning` creada y registrada para alojar el nucleo del MVP
 - modelos `Course`, `Unit`, `Lesson` y `LessonProgress` implementados como primer nucleo real del dominio
+- validacion manual desde Django admin del flujo `Course -> Unit -> Lesson -> LessonProgress` con datos reales de prueba
 
 El dominio ya cuenta con relaciones reales entre curso, unidad, leccion y progreso. `Lesson` usa `text_content` como campo textual actual para no cerrar la puerta a soportar otros formatos de contenido en el futuro.
+
+## Distincion de estado
+
+- Implementado: existen los modelos `Course`, `Unit`, `Lesson` y `LessonProgress`, sus relaciones y sus migraciones.
+- Validado manualmente: el flujo `Course -> Unit -> Lesson -> LessonProgress` ya fue cargado y probado desde Django admin con datos reales de prueba.
+- Planificado: los endpoints de negocio, seeds automaticos y flujos funcionales completos del producto todavia no forman parte del estado implementado.
 
 ## Alcance documental
 

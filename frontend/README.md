@@ -12,8 +12,9 @@ Actualmente el frontend incluye:
 - Configuracion base de ESLint
 - Variable de entorno publica para la URL del backend
 - Primera integracion real con Django consumiendo `GET /api/health/`
+- Primera integracion del frontend con un recurso real del dominio consumiendo `GET /api/courses/`
 
-La interfaz sigue siendo simple, pero ya no corresponde solo al scaffold inicial: la pagina principal consulta el backend y muestra en pantalla el estado de la API.
+La interfaz sigue siendo simple, pero ya no corresponde solo al scaffold inicial: la pagina principal consulta el backend, muestra el estado de la API y lista cursos publicados cuando existen.
 
 ## Estructura relevante
 
@@ -75,8 +76,22 @@ La primera conexion real ya esta implementada asi:
 
 - `frontend/src/lib/api.js` construye la URL usando `process.env.NEXT_PUBLIC_API_BASE_URL`
 - `getHealth()` consulta `GET /api/health/`
-- `frontend/src/app/page.js` usa esa funcion desde un Server Component
+- `getCourses()` consulta `GET /api/courses/`
+- `frontend/src/app/page.js` usa ambas funciones desde un Server Component
 - la pagina principal muestra `status`, `service` y `message` devueltos por Django
+- la pagina principal muestra los cursos publicados devueltos por el backend
+
+Estado implementado hoy:
+
+- lectura del endpoint tecnico de salud
+- lectura del endpoint de cursos publicados
+- renderizado simple del listado de cursos en la pagina principal
+
+Estado planificado:
+
+- detalle de curso
+- visualizacion de unidades y lecciones
+- experiencia completa de ruta de aprendizaje
 
 ## Verificacion rapida
 
@@ -85,6 +100,8 @@ Con backend y frontend levantados:
 - abre [http://localhost:3000/](http://localhost:3000/)
 - verifica que aparezca el mensaje de primera conexion entre Next.js y Django
 - confirma que se muestren los datos del backend devueltos por `/api/health/`
+- confirma que se muestre la seccion de cursos publicados
+- si no hay cursos publicados, verifica que aparezca el estado vacio correspondiente
 
 ## Referencias relacionadas
 

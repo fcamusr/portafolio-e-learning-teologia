@@ -205,6 +205,6 @@ Lectura rapida: el flujo de negocio empieza con una ruta unica de aprendizaje y 
 Estos diagramas explican la direccion funcional del producto. No significan que todos los flujos esten implementados. El estado real actual es:
 
 - existen modelos para cursos, unidades, lecciones y progreso por leccion;
-- todavia faltan endpoints de negocio;
-- todavia falta construir la interfaz funcional de cursos;
+- ya existe `GET /api/courses/` como primera lectura de dominio;
+- la pagina principal ya muestra cursos publicados, pero todavia no existe la interfaz funcional completa del flujo;
 - quizzes, intentos y progreso de unidad son piezas pendientes del MVP objetivo y requieren definicion de modelo, API y reglas de negocio.

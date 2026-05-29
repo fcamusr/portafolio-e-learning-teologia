@@ -32,8 +32,9 @@ Hoy el proyecto ya cuenta con:
 - nucleo inicial del dominio implementado en `learning`
 - diagramas documentales por area para explicar arquitectura, producto, API, datos, riesgos, calidad, decisiones y avance
 - flujo objetivo del MVP documentado: curso inicial unico, ruta de aprendizaje, unidades, clases de texto, progreso, quiz, desbloqueo, login y registro
+- primera exposicion del dominio `learning` por API con `GET /api/courses/`
 
-Todavia no existen endpoints de negocio ni una interfaz funcional del producto final. El proyecto sigue en construccion activa.
+Todavia no existe una interfaz funcional del producto final ni una API de dominio completa. El proyecto sigue en construccion activa.
 
 ## Avances anteriores sin fecha exacta
 
@@ -173,19 +174,42 @@ Estos avances se registran sin fecha porque ya estaban construidos antes de crea
 - Se actualizaron documentos de riesgos y decisiones para preparar futuras implementaciones sin sobrecargar el alcance inicial.
 - Se verifico la documentacion con busquedas de inconsistencias de nombres de mapas y con `git diff --check`.
 
+#### Validacion manual del nucleo del dominio en Django admin
+
+- Se dejo documentado que el flujo `Course -> Unit -> Lesson -> LessonProgress` ya fue validado manualmente desde Django admin con datos reales de prueba.
+- Se distinguio de forma explicita entre lo ya implementado en modelos, lo ya validado manualmente y lo que sigue planificado.
+- Se aclaro que esta validacion no implica la existencia de seeds automaticos ni de endpoints de negocio.
+
+### 2026-05-29
+
+#### Primera exposicion del dominio `learning` por API
+
+- Se verifico en el codigo real que `backend/apps/learning/serializers.py` define `CourseSerializer`.
+- Se verifico en el codigo real que `backend/apps/learning/views.py` define la vista `course_list`.
+- Se verifico en el codigo real que `backend/apps/learning/urls.py` publica `courses/` y que `backend/config/urls.py` la expone bajo `/api/`.
+- Quedo documentado que `GET /api/courses/` es el primer endpoint de negocio real del dominio `learning`.
+- Quedo explicitado que el endpoint devuelve solo cursos publicados y que otras rutas del dominio siguen planificadas.
+
+#### Primera integracion del frontend con un recurso real del dominio
+
+- Se verifico en el codigo real que `frontend/src/lib/api.js` define `getCourses()`.
+- Se verifico en el codigo real que `frontend/src/app/page.js` consume `getCourses()` junto con `getHealth()`.
+- Quedo documentado que la pagina principal ya muestra cursos publicados obtenidos desde `GET /api/courses/`.
+- Se distinguio entre esta integracion ya implementada y las partes del flujo de aprendizaje que siguen planificadas.
+
 ## Ultimo punto alcanzado
 
-El ultimo avance real del proyecto es que la documentacion ya cuenta con mapas visuales por area y un flujo MVP mas claro para orientar las proximas implementaciones. La base tecnica sigue igual: modelos principales implementados, admin de `learning` disponible y API de negocio pendiente.
+El ultimo avance real del proyecto es que la pagina principal de Next.js ya no solo verifica salud tecnica del backend: tambien consume y muestra cursos publicados desde `GET /api/courses/`. El resto de la API del dominio y la experiencia completa de aprendizaje siguen pendientes.
 
 ## Proximo paso sugerido
 
 El siguiente avance natural puede ir por una de estas rutas:
 
 1. definir con precision los contratos API del flujo de ruta inicial, unidad, leccion, progreso y quiz
-2. implementar endpoints de negocio sobre el nucleo `Course`, `Unit`, `Lesson` y `LessonProgress`
+2. ampliar los endpoints de negocio sobre el nucleo `Course`, `Unit`, `Lesson` y `LessonProgress`
 3. construir la primera pantalla funcional de ruta de aprendizaje en el frontend
 
-Recomendacion actual: empezar por los contratos y endpoints del dominio, porque el modelo de datos principal ya esta definido y migrado.
+Recomendacion actual: seguir por los contratos y endpoints faltantes del dominio, porque el modelo de datos principal ya esta definido y ya existe una primera exposicion API real para cursos.
 La nueva documentacion de [../product/README.md](../product/README.md) puede usarse como referencia para priorizar esos endpoints y la primera experiencia funcional del frontend.
 [../quality/README.md](../quality/README.md) y [../risks/README.md](../risks/README.md) ya pueden usarse para cerrar tareas con mejor trazabilidad y seguimiento.
 

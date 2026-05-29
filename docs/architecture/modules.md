@@ -37,7 +37,8 @@ Estado actual de esta decision:
 - la app local `learning` ya aloja este nucleo
 - las cuatro entidades ya existen como modelos implementados
 - `Lesson` usa `text_content` como campo de contenido textual actual
-- todavia no existen endpoints de negocio para estas entidades
+- ya existe un primer endpoint de negocio para `Course` mediante `GET /api/courses/`
+- `Unit`, `Lesson` y `LessonProgress` todavia no exponen endpoints propios
 
 ## Modulos previstos
 

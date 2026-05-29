@@ -9,7 +9,7 @@ Esta seccion describe el estado actual de la API y documenta el diseno previsto 
 - [health.md](./health.md): endpoint tecnico de salud actualmente implementado
 - [authentication.md](./authentication.md): estrategia actual y futura de autenticacion
 - [users.md](./users.md): endpoints previstos relacionados con usuarios
-- [courses.md](./courses.md): endpoints previstos para cursos
+- [courses.md](./courses.md): estado actual y evolucion prevista de los endpoints de cursos
 - [lessons.md](./lessons.md): endpoints previstos para lecciones
 - [quizzes.md](./quizzes.md): endpoints previstos para evaluaciones
 - [progress.md](./progress.md): endpoints previstos para seguimiento de avance

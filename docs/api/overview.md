@@ -4,10 +4,11 @@ La API es el contrato principal entre el backend Django y el frontend Next.js.
 
 ## Estado actual
 
-Hoy no existen endpoints de negocio implementados, pero la base API ya esta operativa. El backend expone:
+Hoy la base API ya esta operativa. El backend expone:
 
 - la ruta administrativa estandar de Django en `/admin/`
 - un endpoint tecnico de salud en `/api/health/`
+- un primer endpoint de negocio del dominio en `GET /api/courses/`
 - la configuracion inicial de Django REST Framework y CORS para integracion local con el frontend
 - una primera integracion real desde la pagina principal de Next.js consumiendo ese endpoint
 
@@ -17,6 +18,23 @@ Ademas, el backend ya tiene implementado el nucleo del dominio en modelos:
 - `Unit`
 - `Lesson`
 - `LessonProgress`
+
+Y ya existe una primera exposicion API real de ese dominio:
+
+- `CourseSerializer` en `backend/apps/learning/serializers.py`
+- `course_list` en `backend/apps/learning/views.py`
+- `courses/` en `backend/apps/learning/urls.py`
+- inclusion bajo `/api/` desde `backend/config/urls.py`
+
+Estado implementado hoy:
+
+- `GET /api/courses/` responde con una lista de cursos publicados
+
+Estado todavia planificado:
+
+- detalle de curso
+- ruta inicial agregada
+- unidades, lecciones, progreso y quiz expuestos por API
 
 ## Objetivo
 
@@ -45,4 +63,4 @@ La base tecnica actual incluye:
 - `CORS_ALLOWED_ORIGINS` con `http://localhost:3000`
 - el prefijo de rutas `api/` conectado desde `backend/config/urls.py`
 
-Esto deja preparado el backend para que el frontend en `http://localhost:3000` pueda consumir el backend en `http://127.0.0.1:8000` sin abrir CORS de forma global.
+Esto deja preparado el backend para que el frontend en `http://localhost:3000` consuma el backend en `http://127.0.0.1:8000` sin abrir CORS de forma global.

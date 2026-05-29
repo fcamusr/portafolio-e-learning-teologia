@@ -43,6 +43,7 @@ flowchart LR
   Frontend --> AppRouter["src/app/<br/>layout y pagina principal"]
   Frontend --> ApiClient["src/lib/api.js<br/>conexion con backend"]
   ApiClient --> Health["/api/health/<br/>primera integracion real"]
+  ApiClient --> Courses["/api/courses/<br/>primer recurso real del dominio"]
 
   Repo --> Docs["docs/<br/>documentacion viva"]
   Docs --> Setup["setup<br/>instalacion y ejecucion"]
@@ -60,7 +61,7 @@ flowchart LR
   classDef docs fill:#fef3c7,stroke:#b45309,color:#78350f
 
   class Proyecto,Repo root
-  class Backend,Config,Apps,Core,Users,Learning,Admin,DRF,Frontend,AppRouter,ApiClient,Health,Security built
+  class Backend,Config,Apps,Core,Users,Learning,Admin,DRF,Frontend,AppRouter,ApiClient,Health,Courses,Security built
   class Database data
   class Docs,Setup,Architecture,Product,ApiDocs,Quality,Progress docs
 ```
@@ -74,7 +75,9 @@ Hoy el repositorio contiene una base solida sobre la cual seguir construyendo:
 - Un proyecto Django funcional en `backend/`
 - Una base API inicial con Django REST Framework y CORS configurado
 - Un endpoint tecnico de salud en `backend/apps/core/` accesible en `/api/health/`
+- Un primer endpoint de negocio en `backend/apps/learning/` accesible en `GET /api/courses/`
 - Una primera conexion real entre Next.js y Django desde `frontend/src/app/page.js`
+- Una primera integracion del frontend con un recurso real del dominio mostrando cursos publicados
 - Un modelo de usuario personalizado en `backend/apps/users/models.py`
 - Una app local `learning` registrada para alojar el nucleo inicial del dominio del MVP
 - El nucleo del dominio del MVP ya implementado en `backend/apps/learning/models.py` con `Course`, `Unit`, `Lesson` y `LessonProgress`
@@ -82,7 +85,7 @@ Hoy el repositorio contiene una base solida sobre la cual seguir construyendo:
 - Un frontend Next.js con App Router en `frontend/`
 - Una estructura documental en `docs/` para setup, producto, arquitectura, API, base de datos, calidad, riesgos, progreso, decisiones tecnicas y plantillas reutilizables
 
-Todavia no existen endpoints de negocio ni una interfaz funcional del producto. En `learning`, el nucleo del dominio ya esta modelado en base de datos, mientras la capa API y la experiencia de producto siguen en construccion. La documentacion distingue explicitamente entre lo implementado y lo planificado para evitar ambiguedades.
+Todavia no existe una interfaz funcional del producto ni una API de dominio completa. En `learning`, el nucleo del dominio ya esta modelado en base de datos y ya tiene una primera exposicion API de lectura para cursos publicados, mientras el resto de la capa API y la experiencia de producto siguen en construccion. La documentacion distingue explicitamente entre lo implementado y lo planificado para evitar ambiguedades.
 
 Si quieres revisar el avance cronologico y retomar rapidamente el proyecto, consulta [docs/progress/README.md](./docs/progress/README.md).
 

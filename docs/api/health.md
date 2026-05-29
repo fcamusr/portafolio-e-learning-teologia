@@ -52,6 +52,13 @@ El primer consumidor real de este endpoint es el frontend Next.js:
 - `frontend/src/app/page.js` ejecuta esa funcion desde la pagina principal
 - el navegador muestra los datos devueltos por Django ya renderizados por Next.js
 
+Estado implementado hoy:
+
+- `/api/health/` sigue funcionando como verificacion tecnica base
+- la misma pagina principal tambien consume `GET /api/courses/` como primer recurso real del dominio
+
+Esto significa que `health` ya no es el unico dato remoto mostrado en la pagina principal, pero si sigue siendo la comprobacion tecnica mas simple de integracion.
+
 ## Verificacion local
 
 Con backend y frontend levantados:

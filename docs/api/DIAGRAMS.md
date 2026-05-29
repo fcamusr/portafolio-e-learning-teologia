@@ -4,13 +4,13 @@ Este documento resume visualmente como fluye hoy la integracion entre frontend y
 
 Los diagramas distinguen entre:
 
-- flujo ya implementado: `GET /api/health/`;
+- flujos ya implementados: `GET /api/health/` y `GET /api/courses/`;
 - estructura conceptual de respuestas JSON;
 - direccion de endpoints necesarios para el MVP y extensiones posteriores.
 
 ## Sequence Diagram
 
-Este diagrama muestra el flujo real actual desde Next.js hasta Django REST Framework y su salida hacia el frontend.
+Este diagrama muestra un flujo real ya implementado desde Next.js hasta Django REST Framework y su salida hacia el frontend.
 
 ```mermaid
 %%{init: {"themeVariables": {"fontSize": "18px", "fontFamily": "Arial"}}}%%
@@ -66,7 +66,7 @@ sequenceDiagram
   end
 ```
 
-Lectura rapida: la idea central es que el frontend no conoce el detalle interno de Django; solo consume un contrato HTTP/JSON que hoy se concentra en `getHealth()`.
+Lectura rapida: la idea central es que el frontend no conoce el detalle interno de Django; solo consume contratos HTTP/JSON mediante helpers como `getHealth()` y `getCourses()`.
 
 ## Flowchart de estructura JSON
 
@@ -119,6 +119,7 @@ flowchart TD
 
   subgraph Current["Disponible hoy"]
     Health["GET /api/health/<br/>verificacion tecnica"]
+    Courses["GET /api/courses/<br/>cursos publicados"]
   end
 
   subgraph MVP["Endpoints necesarios para el MVP"]
@@ -137,6 +138,7 @@ flowchart TD
   end
 
   Main --> Health
+  Main --> Courses
   Main --> Path --> UnitDetail --> Lessons --> ProgressWrite --> QuizRead --> QuizSubmit
   Main --> ProgressRead
   QuizSubmit --> Dashboard --> Certificates
@@ -147,17 +149,17 @@ flowchart TD
   classDef future fill:#fef3c7,stroke:#b45309,color:#78350f,font-size:19px,stroke-width:2px,stroke-dasharray: 6 4
 
   class Main main
-  class Health current
+  class Health,Courses current
   class Path,UnitDetail,Lessons,ProgressRead,ProgressWrite,QuizRead,QuizSubmit mvp
   class Dashboard,Certificates future
 ```
 
-Lectura rapida: hoy solo existe `GET /api/health/`. Para que el MVP funcione, la API necesita ruta inicial de aprendizaje, detalle de unidad, lectura de clase, marcado de clase vista, quiz de unidad y envio de respuestas. Dashboards y certificados quedan como extensiones posteriores.
+Lectura rapida: hoy existen `GET /api/health/` y `GET /api/courses/`. Para que el MVP funcione, la API todavia necesita ruta inicial de aprendizaje, detalle de unidad, lectura de clase, marcado de clase vista, quiz de unidad y envio de respuestas. Dashboards y certificados quedan como extensiones posteriores.
 
 ## Limite actual
 
 Estos diagramas muestran una mezcla intencional entre estado real y direccion futura:
 
-- implementado hoy: `GET /api/health/`, DRF, CORS y consumo desde Next.js;
+- implementado hoy: `GET /api/health/`, `GET /api/courses/`, DRF, CORS y consumo desde Next.js;
 - previsto para el MVP: endpoints de ruta inicial, unidad, lecciones, progreso y quiz;
 - previsto despues: dashboards completos, certificados y funcionalidades avanzadas.

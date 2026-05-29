@@ -24,7 +24,7 @@ flowchart LR
   end
 
   subgraph Frontend["Frontend"]
-    F1["Pantalla actual<br/>solo valida health"]
+    F1["Pantalla actual<br/>ya consume courses,<br/>pero no la ruta completa"]
     F2["Ruta visual y modal<br/>aun no existen"]
     F3["Estados bloqueado,<br/>visto y completado pendientes"]
   end
@@ -69,7 +69,7 @@ flowchart TD
   Matrix --> MH["Impacto medio<br/>Alta probabilidad<br/>Monitorear de cerca"]
   Matrix --> MM["Impacto medio<br/>Probabilidad media<br/>Planificar"]
 
-  HH --> R1["Sin endpoints de negocio<br/>no hay experiencia funcional"]
+  HH --> R1["API de dominio aun incompleta<br/>retrasa experiencia funcional"]
   HH --> R2["Autenticacion indefinida<br/>puede generar retrabajo"]
 
   HM --> R3["Reglas de quiz/desbloqueo<br/>mal definidas"]

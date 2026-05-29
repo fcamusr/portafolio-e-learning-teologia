@@ -12,15 +12,19 @@ Actualmente el backend incluye:
 - App local `learning` en `backend/apps/learning/` para alojar el nucleo del dominio del MVP
 - Modelo de usuario personalizado basado en `AbstractUser`
 - Nucleo inicial del dominio implementado con `Course`, `Unit`, `Lesson` y `LessonProgress`
+- Nucleo del dominio validado manualmente desde Django admin con datos reales de prueba siguiendo el flujo `Course -> Unit -> Lesson -> LessonProgress`
 - Configuracion de base de datos PostgreSQL mediante variables de entorno
 - Django REST Framework registrado para construir endpoints API
 - `django-cors-headers` configurado para permitir solicitudes desde `http://localhost:3000`
 - Endpoint tecnico de salud disponible en `/api/health/`
+- Primer endpoint de negocio del dominio disponible en `GET /api/courses/`
 - Ruta del panel administrativo de Django en `/admin/`
 
-Todavia no existen endpoints de negocio. El unico endpoint API implementado por ahora es el de verificacion tecnica de salud.
+Hoy ya existe una primera exposicion API del dominio `learning`: `GET /api/courses/`.
 
-La app `learning` ya esta creada y registrada en Django. Hoy concentra el nucleo del dominio del MVP a nivel de modelos, pero todavia no expone endpoints propios.
+Ese endpoint devuelve solo cursos publicados y se apoya en `CourseSerializer` y en la vista `course_list`.
+
+La app `learning` ya esta creada y registrada en Django. Hoy concentra el nucleo del dominio del MVP a nivel de modelos y ya expone su primer endpoint propio de lectura para cursos publicados.
 
 ## Estructura relevante
 
@@ -130,6 +134,7 @@ Verificaciones utiles:
 
 - panel administrativo: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
 - endpoint de salud API: [http://127.0.0.1:8000/api/health/](http://127.0.0.1:8000/api/health/)
+- endpoint de cursos publicados: [http://127.0.0.1:8000/api/courses/](http://127.0.0.1:8000/api/courses/)
 - migraciones de `learning`: `python manage.py showmigrations learning`
 
 ## Variables de entorno
@@ -193,6 +198,25 @@ Estado real implementado:
 
 Esto significa que el dominio ya no solo existe como modelos y migraciones: tambien cuenta con una configuracion administrativa base para facilitar carga, consulta y seguimiento desde `/admin/`.
 
+## Validacion manual del nucleo
+
+Ademas del estado implementado en codigo y admin, el nucleo `Course`, `Unit`, `Lesson` y `LessonProgress` ya fue validado manualmente desde el panel administrativo de Django con datos reales de prueba.
+
+Flujo validado manualmente:
+
+- se creo un `Course`
+- dentro del curso se crearon `Unit`
+- dentro de cada unidad se crearon `Lesson`
+- luego se registro `LessonProgress` asociado a usuarios y lecciones
+
+Esta validacion confirma que la jerarquia principal y su relacion con el progreso ya funciona a nivel de modelo y administracion.
+
+Importante:
+
+- esto documenta una validacion manual real, no un endpoint de negocio ya implementado
+- esto no implica que existan seeds automaticos o fixtures versionados en el repositorio
+- la API de negocio para este dominio sigue pendiente
+
 ## API y comunicacion local
 
 La base de la API ya esta preparada con estas piezas:
@@ -203,7 +227,15 @@ La base de la API ya esta preparada con estas piezas:
 - `CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]`
 - prefijo `api/` conectado en `backend/config/urls.py`
 
-Esto permite que el frontend en `http://localhost:3000` pueda consumir endpoints del backend en `http://127.0.0.1:8000` cuando se avance con la integracion real.
+Primera exposicion real del dominio `learning` por API:
+
+- `backend/apps/learning/serializers.py` define `CourseSerializer`
+- `backend/apps/learning/views.py` define `course_list`
+- `backend/apps/learning/urls.py` publica `courses/`
+- `backend/config/urls.py` incluye esas rutas bajo `/api/`
+- `GET /api/courses/` devuelve solo cursos con `is_published=True`
+
+Esto permite que el frontend en `http://localhost:3000` ya pueda consumir un primer endpoint de negocio real del backend en `http://127.0.0.1:8000`.
 
 ## Referencias relacionadas
 

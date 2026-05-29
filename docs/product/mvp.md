@@ -28,7 +28,7 @@ El MVP deberia permitir que una persona estudie contenido estructurado y vea un 
 
 ## Relacion con el estado actual del proyecto
 
-La base de datos ya tiene implementados `Course`, `Unit`, `Lesson` y `LessonProgress`, lo que calza parcialmente con este alcance. La siguiente etapa natural es exponer ese nucleo mediante API y construir una interfaz minima de ruta de aprendizaje. Las reglas de quiz, desbloqueo de unidad y progreso agregado todavia requieren modelos, contratos o decisiones adicionales.
+La base de datos ya tiene implementados `Course`, `Unit`, `Lesson` y `LessonProgress`, y el backend ya expone `GET /api/courses/` como primera lectura del dominio. La siguiente etapa natural es ampliar esa API y construir una interfaz minima de ruta de aprendizaje. Las reglas de quiz, desbloqueo de unidad y progreso agregado todavia requieren modelos, contratos o decisiones adicionales.
 
 ## Criterios para aceptar trabajo dentro del MVP
 

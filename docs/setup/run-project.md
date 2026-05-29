@@ -34,7 +34,9 @@ Una vez levantados ambos servicios:
 - verifica que el backend responda en `http://127.0.0.1:8000/admin/`
 - verifica que el endpoint API responda en `http://127.0.0.1:8000/api/health/`
 - confirma que la pagina principal muestre `status`, `service` y `message` provenientes del backend
+- verifica que el endpoint de cursos responda en `http://127.0.0.1:8000/api/courses/`
+- confirma que la pagina principal muestre cursos publicados o el estado vacio correspondiente
 
 ## Observacion
 
-Aunque todavia no existen endpoints de negocio, la primera conexion real entre frontend y backend ya esta implementada. Para ver esa integracion funcionando, ambos servicios deben estar activos al mismo tiempo.
+Aunque la API de dominio todavia no esta completa, ya existe un primer endpoint de negocio en `GET /api/courses/` y la primera conexion real entre frontend y backend ya esta implementada. Para ver esa integracion funcionando, ambos servicios deben estar activos al mismo tiempo.

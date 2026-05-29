@@ -204,4 +204,4 @@ Lectura rapida: la estructura principal del aprendizaje es `Course -> Unit -> Le
 
 ## Limite de estos diagramas
 
-Estos mapas muestran el backend real actual. No representan endpoints de negocio, serializers, permisos ni flujos completos de producto porque esas piezas todavia no estan implementadas.
+Estos mapas muestran el backend real actual. Ya existe un primer endpoint de negocio para cursos publicados, pero aqui el foco sigue puesto en organizacion interna, persistencia y modelos. Serializers, vistas, permisos y flujos completos del producto todavia no quedan cubiertos por estos diagramas.

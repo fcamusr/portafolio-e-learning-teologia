@@ -16,8 +16,8 @@ flowchart LR
   Problem["Problema<br/>frontend no muestra cursos reales"]
 
   subgraph Backend["Backend"]
-    B1["No existen endpoints<br/>de cursos"]
-    B2["No hay serializers<br/>del dominio learning"]
+    B1["El endpoint de cursos<br/>falla o no responde"]
+    B2["Serializer o vista<br/>de learning con error"]
     B3["Permisos o CORS<br/>mal configurados"]
   end
 
@@ -34,8 +34,8 @@ flowchart LR
   end
 
   subgraph Frontend["Frontend"]
-    F1["page.js consume<br/>solo /api/health/"]
-    F2["api.js no tiene<br/>funcion getCourses"]
+    F1["page.js no renderiza<br/>la respuesta de cursos"]
+    F2["api.js no llama bien<br/>a getCourses"]
     F3["No hay estados<br/>loading empty error"]
   end
 
@@ -115,8 +115,8 @@ flowchart TD
   Center --> Backend["Backend base<br/>4/5<br/>Django, DRF, CORS,<br/>health endpoint"]
   Center --> Data["Modelo de datos<br/>4/5<br/>User, Course, Unit,<br/>Lesson, LessonProgress"]
   Center --> Docs["Documentacion<br/>5/5<br/>setup, arquitectura,<br/>API, producto, calidad"]
-  Center --> Frontend["Frontend funcional<br/>3/5<br/>Next.js conectado<br/>a /api/health/"]
-  Center --> Api["API de negocio<br/>1/5<br/>pendientes endpoints<br/>de cursos y progreso"]
+  Center --> Frontend["Frontend funcional<br/>3/5<br/>Next.js conectado<br/>a health y courses"]
+  Center --> Api["API de negocio<br/>2/5<br/>courses expuesto,<br/>progreso pendiente"]
   Center --> Tests["Pruebas automatizadas<br/>1/5<br/>pendiente estrategia<br/>segun flujo real"]
 
   classDef center fill:#0f172a,stroke:#0f172a,color:#ffffff,font-size:22px,stroke-width:3px

@@ -17,6 +17,8 @@ timeline
              : Course, Unit, Lesson y LessonProgress
   2026-05-18 : Documentacion de producto, calidad y riesgos fortalecida
   2026-05-23 : Admin real de learning documentado
+  2026-05-29 : Primera exposicion API de courses
+             : Frontend consume GET /api/courses/
   Siguiente etapa : Ruta de aprendizaje inicial
                   : Endpoints, autenticacion, progreso y quiz por unidad
 ```
@@ -76,6 +78,7 @@ flowchart LR
     H3["PostgreSQL conectado"]
     H4["Modelos Course Unit Lesson LessonProgress"]
     H5["GET /api/health/"]
+    H6["GET /api/courses/<br/>consumido por frontend"]
   end
 
   Todo --> Doing --> Done
@@ -86,7 +89,7 @@ flowchart LR
 
   class T1,T2,T3,T4 todo
   class D1,D2,D3 doing
-  class H1,H2,H3,H4,H5 done
+  class H1,H2,H3,H4,H5,H6 done
 ```
 
 Lectura rapida: la base tecnica ya esta lista, pero el flujo de producto todavia necesita contratos, UI, datos iniciales y reglas de avance.
@@ -115,7 +118,7 @@ flowchart TD
   Progress --> Data["Modelo de datos<br/>alto"]
   Progress --> Docs["Documentacion<br/>alto"]
   Progress --> Frontend["Frontend funcional<br/>medio"]
-  Progress --> API["API de negocio<br/>bajo"]
+  Progress --> API["API de negocio<br/>bajo-medio"]
   Progress --> QA["Pruebas automatizadas<br/>bajo"]
 
   classDef root fill:#0f172a,stroke:#0f172a,color:#ffffff,font-size:22px,stroke-width:3px
@@ -141,8 +144,8 @@ flowchart TD
   Goal --> Backend["Backend<br/>actual 4/5<br/>meta 5/5"]
   Goal --> Database["Datos<br/>actual 4/5<br/>meta 5/5"]
   Goal --> Product["Reglas de producto<br/>actual 3/5<br/>meta 5/5"]
-  Goal --> Frontend["Frontend<br/>actual 2/5<br/>meta 5/5"]
-  Goal --> API["API de negocio<br/>actual 1/5<br/>meta 5/5"]
+  Goal --> Frontend["Frontend<br/>actual 3/5<br/>meta 5/5"]
+  Goal --> API["API de negocio<br/>actual 2/5<br/>meta 5/5"]
   Goal --> QA["QA automatizado<br/>actual 1/5<br/>meta 3/5"]
 
   classDef goal fill:#0f172a,stroke:#0f172a,color:#ffffff,font-size:22px,stroke-width:3px

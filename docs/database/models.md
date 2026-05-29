@@ -130,6 +130,7 @@ Detalles relevantes:
 - la app `backend/apps/learning/` ya existe y `LearningConfig` esta registrada en `INSTALLED_APPS`
 - `Course`, `Unit`, `Lesson` y `LessonProgress` ya estan implementados en el codigo del backend
 - por ahora no se documenta un modelo generico `Progress`; el seguimiento inicial real se concentra en `LessonProgress`
+- el flujo `Course -> Unit -> Lesson -> LessonProgress` ya fue validado manualmente desde Django admin con datos reales de prueba
 
 ## Registro real en Django admin
 
@@ -143,6 +144,19 @@ Estado implementado en el admin:
 - `LessonProgress` usa un `ModelAdmin` con columnas para usuario, leccion, completitud y timestamps relevantes, filtros por completitud y fechas, busqueda por usuario y por la jerarquia de la leccion, y orden descendente por `updated_at`.
 
 Esto ya esta implementado. No describe un plan futuro ni una propuesta: documenta el estado real actual del panel administrativo para el dominio `learning`.
+
+## Validacion manual del flujo principal
+
+Ademas del estado implementado, ya existe una validacion manual real del nucleo desde `/admin/`.
+
+Validado manualmente:
+
+- alta de `Course`
+- alta de `Unit` vinculada a un curso
+- alta de `Lesson` vinculada a una unidad
+- alta de `LessonProgress` vinculada a usuario y leccion
+
+Esta evidencia sirve para afirmar que el nucleo actual no solo existe en el esquema y en el admin, sino que ya pudo recorrerse manualmente con datos de prueba reales.
 
 ## Otros modelos previstos
 

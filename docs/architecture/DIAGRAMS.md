@@ -104,7 +104,7 @@ flowchart TD
   class DB data
 ```
 
-Lectura rapida: el backend sigue un monolito modular. `config/` concentra la configuracion global, `apps/` separa dominios internos y PostgreSQL queda detras del ORM. Hoy `core` expone el endpoint tecnico de salud; `learning` ya tiene modelos, pero no endpoints de negocio.
+Lectura rapida: el backend sigue un monolito modular. `config/` concentra la configuracion global, `apps/` separa dominios internos y PostgreSQL queda detras del ORM. Hoy `core` expone el endpoint tecnico de salud y `learning` ya expone `GET /api/courses/` como primer endpoint de dominio.
 
 ## Flowchart de arquitectura tecnica
 
@@ -118,6 +118,7 @@ flowchart LR
   ApiClient["src/lib/api.js<br/>fetch + no-store"]
   Django["Django dev server<br/>http://127.0.0.1:8000"]
   Health["GET /api/health/<br/>apps.core"]
+  Courses["GET /api/courses/<br/>apps.learning"]
   Admin["/admin/<br/>Django Admin"]
   ORM["Django ORM"]
   DB[("PostgreSQL<br/>Local")]
@@ -127,6 +128,7 @@ flowchart LR
   Next --> ApiClient
   ApiClient -->|"HTTP / JSON"| Django
   Django --> Health
+  Django --> Courses
   Django --> Admin
   Admin --> ORM
   Django --> ORM
@@ -140,12 +142,12 @@ flowchart LR
   classDef env fill:#f8fafc,stroke:#64748b,color:#0f172a,font-size:20px,stroke-width:2px
 
   class Browser,Next,ApiClient client
-  class Django,Health,Admin,ORM server
+  class Django,Health,Courses,Admin,ORM server
   class DB data
   class Env env
 ```
 
-Lectura rapida: en local corren dos servidores: Next.js y Django. El frontend llama a Django usando `NEXT_PUBLIC_API_BASE_URL`. Django usa PostgreSQL mediante el ORM y expone tanto `/api/health/` como `/admin/`.
+Lectura rapida: en local corren dos servidores: Next.js y Django. El frontend llama a Django usando `NEXT_PUBLIC_API_BASE_URL`. Django usa PostgreSQL mediante el ORM y expone `/api/health/`, `GET /api/courses/` y `/admin/`.
 
 ## Flowchart de bloques principales
 
@@ -183,4 +185,4 @@ Lectura rapida: la aplicacion se entiende como cuatro bloques principales: front
 
 ## Limite actual
 
-Estos diagramas representan el estado arquitectonico vigente. Todavia no existen endpoints de negocio ni pantallas funcionales completas del producto; por eso se muestran como base tecnica conectada y no como plataforma e-learning terminada.
+Estos diagramas representan el estado arquitectonico vigente. Ya existe un primer endpoint de negocio y una integracion inicial del frontend con cursos reales, pero todavia no hay pantallas funcionales completas del producto; por eso se muestran como base tecnica conectada y no como plataforma e-learning terminada.
