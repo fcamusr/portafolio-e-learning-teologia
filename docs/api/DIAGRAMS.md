@@ -4,7 +4,7 @@ Este documento resume visualmente como fluye hoy la integracion entre frontend y
 
 Los diagramas distinguen entre:
 
-- flujos ya implementados: `GET /api/health/` y `GET /api/courses/`;
+- flujos ya implementados: `GET /api/health/`, `GET /api/courses/` y `GET /api/courses/{id}/`;
 - estructura conceptual de respuestas JSON;
 - direccion de endpoints necesarios para el MVP y extensiones posteriores.
 
@@ -66,7 +66,7 @@ sequenceDiagram
   end
 ```
 
-Lectura rapida: la idea central es que el frontend no conoce el detalle interno de Django; solo consume contratos HTTP/JSON mediante helpers como `getHealth()` y `getCourses()`.
+Lectura rapida: la idea central es que el frontend no conoce el detalle interno de Django; solo consume contratos HTTP/JSON mediante helpers como `getHealth()`, `getCourses()` y `getCourseDetail()`.
 
 ## Flowchart de estructura JSON
 
@@ -120,6 +120,7 @@ flowchart TD
   subgraph Current["Disponible hoy"]
     Health["GET /api/health/<br/>verificacion tecnica"]
     Courses["GET /api/courses/<br/>cursos publicados"]
+    CourseDetail["GET /api/courses/:id/<br/>curso con units y lessons"]
   end
 
   subgraph MVP["Endpoints necesarios para el MVP"]
@@ -139,6 +140,7 @@ flowchart TD
 
   Main --> Health
   Main --> Courses
+  Main --> CourseDetail
   Main --> Path --> UnitDetail --> Lessons --> ProgressWrite --> QuizRead --> QuizSubmit
   Main --> ProgressRead
   QuizSubmit --> Dashboard --> Certificates
@@ -149,17 +151,18 @@ flowchart TD
   classDef future fill:#fef3c7,stroke:#b45309,color:#78350f,font-size:19px,stroke-width:2px,stroke-dasharray: 6 4
 
   class Main main
-  class Health,Courses current
+  class Health,Courses,CourseDetail current
   class Path,UnitDetail,Lessons,ProgressRead,ProgressWrite,QuizRead,QuizSubmit mvp
   class Dashboard,Certificates future
 ```
 
-Lectura rapida: hoy existen `GET /api/health/` y `GET /api/courses/`. Para que el MVP funcione, la API todavia necesita ruta inicial de aprendizaje, detalle de unidad, lectura de clase, marcado de clase vista, quiz de unidad y envio de respuestas. Dashboards y certificados quedan como extensiones posteriores.
+Lectura rapida: hoy existen `GET /api/health/`, `GET /api/courses/` y `GET /api/courses/:id/`. Para que el MVP funcione, la API todavia necesita ruta inicial de aprendizaje, detalle de unidad con estado de progreso, lectura de clase dedicada, marcado de clase vista, quiz de unidad y envio de respuestas. Dashboards y certificados quedan como extensiones posteriores.
 
 ## Limite actual
 
 Estos diagramas muestran una mezcla intencional entre estado real y direccion futura:
 
 - implementado hoy: `GET /api/health/`, `GET /api/courses/`, DRF, CORS y consumo desde Next.js;
-- previsto para el MVP: endpoints de ruta inicial, unidad, lecciones, progreso y quiz;
+- implementado hoy: `GET /api/courses/{id}/` con units y lessons anidados y consumo desde una ruta dinamica de Next.js;
+- previsto para el MVP: endpoints de ruta inicial, unidad con progreso, lecciones, progreso y quiz;
 - previsto despues: dashboards completos, certificados y funcionalidades avanzadas.

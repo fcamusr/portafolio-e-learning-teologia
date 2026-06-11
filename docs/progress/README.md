@@ -33,6 +33,8 @@ Hoy el proyecto ya cuenta con:
 - diagramas documentales por area para explicar arquitectura, producto, API, datos, riesgos, calidad, decisiones y avance
 - flujo objetivo del MVP documentado: curso inicial unico, ruta de aprendizaje, unidades, clases de texto, progreso, quiz, desbloqueo, login y registro
 - primera exposicion del dominio `learning` por API con `GET /api/courses/`
+- detalle de curso implementado por API con `GET /api/courses/{id}/`
+- pagina dinamica de detalle de curso implementada en Next.js
 
 Todavia no existe una interfaz funcional del producto final ni una API de dominio completa. El proyecto sigue en construccion activa.
 
@@ -197,19 +199,38 @@ Estos avances se registran sin fecha porque ya estaban construidos antes de crea
 - Quedo documentado que la pagina principal ya muestra cursos publicados obtenidos desde `GET /api/courses/`.
 - Se distinguio entre esta integracion ya implementada y las partes del flujo de aprendizaje que siguen planificadas.
 
+### 2026-06-11
+
+#### Endpoint real de detalle de curso en backend
+
+- Se verifico en los cambios locales no subidos que `backend/apps/learning/serializers.py` ahora define `LessonSerializer`, `UnitSerializer` y `CourseDetailSerializer`.
+- Se verifico en el codigo real que `backend/apps/learning/views.py` incorpora la vista `course_detail`.
+- Se verifico en el codigo real que `backend/apps/learning/urls.py` publica `courses/<int:course_id>/` bajo `/api/`.
+- Quedo documentado que `GET /api/courses/{id}/` devuelve solo cursos publicados.
+- Quedo documentado que el endpoint usa serializers anidados para responder `Course` con sus `units` y `lessons`.
+- Quedo documentado que la consulta usa `prefetch_related("units__lessons")` para optimizar la carga relacionada.
+
+#### Detalle de curso ya integrado en frontend
+
+- Se verifico en los cambios locales no subidos que `frontend/src/lib/api.js` ahora define `getCourseDetail(courseId)`.
+- Se verifico en el codigo real que `frontend/src/app/courses/[courseId]/page.js` consume `GET /api/courses/{id}/`.
+- Quedo documentado que la pagina dinamica muestra titulo, descripcion, nivel, unidades y lecciones del curso.
+- Quedo documentado que la pagina dinamica usa `notFound()` cuando el curso no existe o el identificador no es valido.
+- Se verifico en el codigo real que `frontend/src/app/page.js` ya enlaza cada curso publicado usando `Link` de Next.js en lugar de etiquetas `a`.
+
 ## Ultimo punto alcanzado
 
-El ultimo avance real del proyecto es que la pagina principal de Next.js ya no solo verifica salud tecnica del backend: tambien consume y muestra cursos publicados desde `GET /api/courses/`. El resto de la API del dominio y la experiencia completa de aprendizaje siguen pendientes.
+El ultimo avance real del proyecto es que el dominio `learning` ya no solo expone un listado de cursos publicados: ahora tambien expone `GET /api/courses/{id}/` con `units` y `lessons` anidados, y el frontend ya tiene una pagina dinamica para navegar desde la home hasta ese detalle de curso. El resto del flujo de aprendizaje completo sigue pendiente.
 
 ## Proximo paso sugerido
 
 El siguiente avance natural puede ir por una de estas rutas:
 
-1. definir con precision los contratos API del flujo de ruta inicial, unidad, leccion, progreso y quiz
-2. ampliar los endpoints de negocio sobre el nucleo `Course`, `Unit`, `Lesson` y `LessonProgress`
-3. construir la primera pantalla funcional de ruta de aprendizaje en el frontend
+1. definir con precision los contratos API del flujo de ruta inicial, progreso, desbloqueo y quiz
+2. ampliar los endpoints de negocio sobre `Unit`, `Lesson` y `LessonProgress`
+3. evolucionar la pagina de detalle de curso hacia una primera experiencia funcional de ruta de aprendizaje
 
-Recomendacion actual: seguir por los contratos y endpoints faltantes del dominio, porque el modelo de datos principal ya esta definido y ya existe una primera exposicion API real para cursos.
+Recomendacion actual: seguir por los contratos y endpoints faltantes del flujo de aprendizaje, porque el modelo de datos principal ya esta definido, el listado de cursos ya funciona y el detalle de curso ya tiene una primera integracion real entre backend y frontend.
 La nueva documentacion de [../product/README.md](../product/README.md) puede usarse como referencia para priorizar esos endpoints y la primera experiencia funcional del frontend.
 [../quality/README.md](../quality/README.md) y [../risks/README.md](../risks/README.md) ya pueden usarse para cerrar tareas con mejor trazabilidad y seguimiento.
 

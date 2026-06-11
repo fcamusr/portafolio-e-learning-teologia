@@ -44,6 +44,8 @@ flowchart LR
   Frontend --> ApiClient["src/lib/api.js<br/>conexion con backend"]
   ApiClient --> Health["/api/health/<br/>primera integracion real"]
   ApiClient --> Courses["/api/courses/<br/>primer recurso real del dominio"]
+  AppRouter --> CoursePage["src/app/courses/[courseId]/page.js<br/>detalle dinamico de curso"]
+  ApiClient --> CourseDetail["/api/courses/:id/<br/>curso con units y lessons"]
 
   Repo --> Docs["docs/<br/>documentacion viva"]
   Docs --> Setup["setup<br/>instalacion y ejecucion"]
@@ -76,8 +78,10 @@ Hoy el repositorio contiene una base solida sobre la cual seguir construyendo:
 - Una base API inicial con Django REST Framework y CORS configurado
 - Un endpoint tecnico de salud en `backend/apps/core/` accesible en `/api/health/`
 - Un primer endpoint de negocio en `backend/apps/learning/` accesible en `GET /api/courses/`
+- Un endpoint de detalle de curso en `backend/apps/learning/` accesible en `GET /api/courses/{id}/`
 - Una primera conexion real entre Next.js y Django desde `frontend/src/app/page.js`
 - Una primera integracion del frontend con un recurso real del dominio mostrando cursos publicados
+- Una pagina dinamica de detalle de curso en `frontend/src/app/courses/[courseId]/page.js`
 - Un modelo de usuario personalizado en `backend/apps/users/models.py`
 - Una app local `learning` registrada para alojar el nucleo inicial del dominio del MVP
 - El nucleo del dominio del MVP ya implementado en `backend/apps/learning/models.py` con `Course`, `Unit`, `Lesson` y `LessonProgress`
@@ -85,7 +89,7 @@ Hoy el repositorio contiene una base solida sobre la cual seguir construyendo:
 - Un frontend Next.js con App Router en `frontend/`
 - Una estructura documental en `docs/` para setup, producto, arquitectura, API, base de datos, calidad, riesgos, progreso, decisiones tecnicas y plantillas reutilizables
 
-Todavia no existe una interfaz funcional del producto ni una API de dominio completa. En `learning`, el nucleo del dominio ya esta modelado en base de datos y ya tiene una primera exposicion API de lectura para cursos publicados, mientras el resto de la capa API y la experiencia de producto siguen en construccion. La documentacion distingue explicitamente entre lo implementado y lo planificado para evitar ambiguedades.
+Todavia no existe una interfaz funcional completa del producto ni una API de dominio cerrada. En `learning`, el nucleo del dominio ya esta modelado en base de datos y ya tiene lectura de cursos publicados y detalle de curso con unidades y lecciones, mientras el resto de la capa API y la experiencia completa de aprendizaje siguen en construccion. La documentacion distingue explicitamente entre lo implementado y lo planificado para evitar ambiguedades.
 
 Si quieres revisar el avance cronologico y retomar rapidamente el proyecto, consulta [docs/progress/README.md](./docs/progress/README.md).
 

@@ -13,8 +13,9 @@ Actualmente el frontend incluye:
 - Variable de entorno publica para la URL del backend
 - Primera integracion real con Django consumiendo `GET /api/health/`
 - Primera integracion del frontend con un recurso real del dominio consumiendo `GET /api/courses/`
+- Pagina dinamica de detalle de curso consumiendo `GET /api/courses/{id}/`
 
-La interfaz sigue siendo simple, pero ya no corresponde solo al scaffold inicial: la pagina principal consulta el backend, muestra el estado de la API y lista cursos publicados cuando existen.
+La interfaz sigue siendo simple, pero ya no corresponde solo al scaffold inicial: la pagina principal consulta el backend, muestra el estado de la API, lista cursos publicados y enlaza a una pagina dinamica de detalle por curso cuando existen.
 
 ## Estructura relevante
 
@@ -77,21 +78,28 @@ La primera conexion real ya esta implementada asi:
 - `frontend/src/lib/api.js` construye la URL usando `process.env.NEXT_PUBLIC_API_BASE_URL`
 - `getHealth()` consulta `GET /api/health/`
 - `getCourses()` consulta `GET /api/courses/`
+- `getCourseDetail(courseId)` consulta `GET /api/courses/{id}/`
 - `frontend/src/app/page.js` usa ambas funciones desde un Server Component
+- `frontend/src/app/page.js` usa `Link` de Next.js para navegar al detalle de cada curso
+- `frontend/src/app/courses/[courseId]/page.js` consume `getCourseDetail()`
 - la pagina principal muestra `status`, `service` y `message` devueltos por Django
 - la pagina principal muestra los cursos publicados devueltos por el backend
+- la pagina de detalle muestra titulo, descripcion, nivel, unidades y lecciones
+- la pagina de detalle usa `notFound()` cuando el curso no existe o el identificador no es valido
 
 Estado implementado hoy:
 
 - lectura del endpoint tecnico de salud
 - lectura del endpoint de cursos publicados
+- lectura del endpoint de detalle de curso
 - renderizado simple del listado de cursos en la pagina principal
+- navegacion interna con `Link` de Next.js
+- renderizado del detalle con unidades y lecciones
 
 Estado planificado:
 
-- detalle de curso
-- visualizacion de unidades y lecciones
 - experiencia completa de ruta de aprendizaje
+- interaccion con progreso, desbloqueos y quiz
 
 ## Verificacion rapida
 
@@ -101,6 +109,7 @@ Con backend y frontend levantados:
 - verifica que aparezca el mensaje de primera conexion entre Next.js y Django
 - confirma que se muestren los datos del backend devueltos por `/api/health/`
 - confirma que se muestre la seccion de cursos publicados
+- si existe al menos un curso publicado, entra a su enlace y confirma que cargue el detalle
 - si no hay cursos publicados, verifica que aparezca el estado vacio correspondiente
 
 ## Referencias relacionadas

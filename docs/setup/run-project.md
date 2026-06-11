@@ -36,7 +36,9 @@ Una vez levantados ambos servicios:
 - confirma que la pagina principal muestre `status`, `service` y `message` provenientes del backend
 - verifica que el endpoint de cursos responda en `http://127.0.0.1:8000/api/courses/`
 - confirma que la pagina principal muestre cursos publicados o el estado vacio correspondiente
+- si existe un curso publicado, verifica que el detalle responda en `http://127.0.0.1:8000/api/courses/1/` o con un id real
+- desde `http://localhost:3000/`, entra al enlace de un curso y confirma que se rendericen sus unidades y lecciones
 
 ## Observacion
 
-Aunque la API de dominio todavia no esta completa, ya existe un primer endpoint de negocio en `GET /api/courses/` y la primera conexion real entre frontend y backend ya esta implementada. Para ver esa integracion funcionando, ambos servicios deben estar activos al mismo tiempo.
+Aunque la API de dominio todavia no esta completa, ya existen `GET /api/courses/` y `GET /api/courses/{id}/` como primeras lecturas reales del dominio, y la primera navegacion frontend hacia un detalle de curso ya esta implementada. Para ver esa integracion funcionando, ambos servicios deben estar activos al mismo tiempo.

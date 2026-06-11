@@ -9,8 +9,10 @@ Hoy la base API ya esta operativa. El backend expone:
 - la ruta administrativa estandar de Django en `/admin/`
 - un endpoint tecnico de salud en `/api/health/`
 - un primer endpoint de negocio del dominio en `GET /api/courses/`
+- un endpoint de detalle del dominio en `GET /api/courses/{id}/`
 - la configuracion inicial de Django REST Framework y CORS para integracion local con el frontend
-- una primera integracion real desde la pagina principal de Next.js consumiendo ese endpoint
+- una integracion real desde la pagina principal de Next.js consumiendo la lista de cursos publicados
+- una pagina dinamica de detalle de curso en Next.js consumiendo el endpoint individual
 
 Ademas, el backend ya tiene implementado el nucleo del dominio en modelos:
 
@@ -22,19 +24,22 @@ Ademas, el backend ya tiene implementado el nucleo del dominio en modelos:
 Y ya existe una primera exposicion API real de ese dominio:
 
 - `CourseSerializer` en `backend/apps/learning/serializers.py`
+- `CourseDetailSerializer` con serializers anidados para unidades y lecciones
 - `course_list` en `backend/apps/learning/views.py`
+- `course_detail` en `backend/apps/learning/views.py`
 - `courses/` en `backend/apps/learning/urls.py`
+- `courses/<int:course_id>/` en `backend/apps/learning/urls.py`
 - inclusion bajo `/api/` desde `backend/config/urls.py`
 
 Estado implementado hoy:
 
 - `GET /api/courses/` responde con una lista de cursos publicados
+- `GET /api/courses/{id}/` responde con un curso publicado y su estructura `Unit -> Lesson`
 
 Estado todavia planificado:
 
-- detalle de curso
 - ruta inicial agregada
-- unidades, lecciones, progreso y quiz expuestos por API
+- progreso, desbloqueos y quiz expuestos por API
 
 ## Objetivo
 

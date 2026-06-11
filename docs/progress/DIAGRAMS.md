@@ -19,6 +19,10 @@ timeline
   2026-05-23 : Admin real de learning documentado
   2026-05-29 : Primera exposicion API de courses
              : Frontend consume GET /api/courses/
+  2026-06-11 : Endpoint de detalle de curso implementado
+             : GET /api/courses/:id/ con units y lessons
+  2026-06-11 : Pagina dinamica de curso implementada
+             : Next.js navega desde la home al detalle
   Siguiente etapa : Ruta de aprendizaje inicial
                   : Endpoints, autenticacion, progreso y quiz por unidad
 ```
@@ -79,6 +83,8 @@ flowchart LR
     H4["Modelos Course Unit Lesson LessonProgress"]
     H5["GET /api/health/"]
     H6["GET /api/courses/<br/>consumido por frontend"]
+    H7["GET /api/courses/:id/<br/>units y lessons anidados"]
+    H8["/courses/[courseId]<br/>pagina dinamica en Next.js"]
   end
 
   Todo --> Doing --> Done
@@ -89,7 +95,7 @@ flowchart LR
 
   class T1,T2,T3,T4 todo
   class D1,D2,D3 doing
-  class H1,H2,H3,H4,H5,H6 done
+  class H1,H2,H3,H4,H5,H6,H7,H8 done
 ```
 
 Lectura rapida: la base tecnica ya esta lista, pero el flujo de producto todavia necesita contratos, UI, datos iniciales y reglas de avance.
@@ -117,8 +123,8 @@ flowchart TD
   Progress --> Backend["Backend base<br/>alto"]
   Progress --> Data["Modelo de datos<br/>alto"]
   Progress --> Docs["Documentacion<br/>alto"]
-  Progress --> Frontend["Frontend funcional<br/>medio"]
-  Progress --> API["API de negocio<br/>bajo-medio"]
+  Progress --> Frontend["Frontend funcional<br/>medio-alto"]
+  Progress --> API["API de negocio<br/>medio"]
   Progress --> QA["Pruebas automatizadas<br/>bajo"]
 
   classDef root fill:#0f172a,stroke:#0f172a,color:#ffffff,font-size:22px,stroke-width:3px

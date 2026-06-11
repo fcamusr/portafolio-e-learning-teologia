@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getCourses, getHealth } from "@/lib/api";
 
 export default async function HomePage() {
@@ -29,7 +30,7 @@ export default async function HomePage() {
           <ul>
             {courses.map((course) => (
               <li key={course.id} style={{ marginBottom: "1rem" }}>
-                <h3>{course.title}</h3>
+                <h3><Link href={`/courses/${course.id}`}>{course.title}</Link></h3>
                 <p>{course.description || "Sin descripción disponible."}</p>
                 <p><strong>Nivel:</strong> {course.level}</p>
               </li>

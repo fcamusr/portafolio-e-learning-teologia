@@ -18,11 +18,12 @@ Actualmente el backend incluye:
 - `django-cors-headers` configurado para permitir solicitudes desde `http://localhost:3000`
 - Endpoint tecnico de salud disponible en `/api/health/`
 - Primer endpoint de negocio del dominio disponible en `GET /api/courses/`
+- Endpoint de detalle de curso disponible en `GET /api/courses/{id}/`
 - Ruta del panel administrativo de Django en `/admin/`
 
-Hoy ya existe una primera exposicion API del dominio `learning`: `GET /api/courses/`.
+Hoy ya existe una primera exposicion API del dominio `learning`: `GET /api/courses/` y `GET /api/courses/{id}/`.
 
-Ese endpoint devuelve solo cursos publicados y se apoya en `CourseSerializer` y en la vista `course_list`.
+Estos endpoints devuelven solo cursos publicados. El listado se apoya en `CourseSerializer` y `course_list`. El detalle se apoya en `CourseDetailSerializer`, la vista `course_detail` y `prefetch_related("units__lessons")`.
 
 La app `learning` ya esta creada y registrada en Django. Hoy concentra el nucleo del dominio del MVP a nivel de modelos y ya expone su primer endpoint propio de lectura para cursos publicados.
 
@@ -135,6 +136,7 @@ Verificaciones utiles:
 - panel administrativo: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
 - endpoint de salud API: [http://127.0.0.1:8000/api/health/](http://127.0.0.1:8000/api/health/)
 - endpoint de cursos publicados: [http://127.0.0.1:8000/api/courses/](http://127.0.0.1:8000/api/courses/)
+- endpoint de detalle de curso: [http://127.0.0.1:8000/api/courses/1/](http://127.0.0.1:8000/api/courses/1/)
 - migraciones de `learning`: `python manage.py showmigrations learning`
 
 ## Variables de entorno
@@ -230,10 +232,14 @@ La base de la API ya esta preparada con estas piezas:
 Primera exposicion real del dominio `learning` por API:
 
 - `backend/apps/learning/serializers.py` define `CourseSerializer`
+- `backend/apps/learning/serializers.py` define tambien `LessonSerializer`, `UnitSerializer` y `CourseDetailSerializer`
 - `backend/apps/learning/views.py` define `course_list`
+- `backend/apps/learning/views.py` define tambien `course_detail`
 - `backend/apps/learning/urls.py` publica `courses/`
+- `backend/apps/learning/urls.py` publica tambien `courses/<int:course_id>/`
 - `backend/config/urls.py` incluye esas rutas bajo `/api/`
 - `GET /api/courses/` devuelve solo cursos con `is_published=True`
+- `GET /api/courses/{id}/` devuelve solo cursos publicados con `units` y `lessons` anidados
 
 Esto permite que el frontend en `http://localhost:3000` ya pueda consumir un primer endpoint de negocio real del backend en `http://127.0.0.1:8000`.
 

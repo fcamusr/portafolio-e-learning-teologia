@@ -50,9 +50,11 @@ La arquitectura ya esta definida a nivel estructural. La capa API de negocio tod
 - configuracion CORS para desarrollo local
 - endpoint tecnico `/api/health/`
 - endpoint de dominio `GET /api/courses/`
+- endpoint de dominio `GET /api/courses/{id}/`
 - primera conexion real Next.js <-> Django desde `frontend/src/app/page.js`
+- pagina dinamica de detalle de curso en `frontend/src/app/courses/[courseId]/page.js`
 
-El nucleo del dominio ya existe en base de datos y ya cuenta con un primer endpoint propio para cursos publicados. En `Lesson`, el contenido textual actual se modela con `text_content` para dejar abierta la evolucion futura hacia otros tipos de contenido.
+El nucleo del dominio ya existe en base de datos y ya cuenta con lectura de cursos publicados y detalle de curso con unidades y lecciones anidadas. En `Lesson`, el contenido textual actual se modela con `text_content` para dejar abierta la evolucion futura hacia otros tipos de contenido.
 
 ## Referencias relacionadas
 

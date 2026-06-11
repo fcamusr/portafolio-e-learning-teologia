@@ -38,6 +38,7 @@ Estado actual de esta decision:
 - las cuatro entidades ya existen como modelos implementados
 - `Lesson` usa `text_content` como campo de contenido textual actual
 - ya existe un primer endpoint de negocio para `Course` mediante `GET /api/courses/`
+- `Course` ya expone tambien `GET /api/courses/{id}/` con `units` y `lessons` anidados
 - `Unit`, `Lesson` y `LessonProgress` todavia no exponen endpoints propios
 
 ## Modulos previstos

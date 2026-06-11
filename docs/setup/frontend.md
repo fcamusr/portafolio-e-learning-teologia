@@ -47,9 +47,13 @@ Se creo el archivo `frontend/src/lib/api.js` con una funcion `getHealth()` que c
 
 Luego `frontend/src/lib/api.js` sumo tambien `getCourses()`, que consulta `GET /api/courses/`.
 
-Ambas funciones son usadas desde `frontend/src/app/page.js` para comprobar la primera conexion real entre frontend y backend y la primera integracion con un recurso real del dominio.
+En los cambios locales actuales, ese mismo archivo tambien suma `getCourseDetail(courseId)`, que consulta `GET /api/courses/{id}/`.
 
-Como esta integracion se hace desde App Router, la pagina principal consume el backend desde un Server Component y renderiza en pantalla tanto el estado tecnico del backend como la lista de cursos publicados.
+`frontend/src/app/page.js` usa `getHealth()` y `getCourses()` para comprobar la primera conexion real entre frontend y backend y la primera integracion con un recurso real del dominio.
+
+`frontend/src/app/courses/[courseId]/page.js` usa `getCourseDetail()` para renderizar una pagina dinamica de detalle de curso.
+
+Como esta integracion se hace desde App Router, la pagina principal consume el backend desde un Server Component, renderiza en pantalla tanto el estado tecnico del backend como la lista de cursos publicados y enlaza cada curso con `Link` de Next.js hacia su detalle.
 
 ## Verificacion recomendada
 
@@ -60,6 +64,7 @@ Con backend y frontend ejecutandose:
 - confirma que se muestren `status`, `service` y `message` recibidos desde `/api/health/`
 - confirma que aparezca la seccion de cursos publicados consumida desde `/api/courses/`
 - si existen cursos publicados en el backend, verifica que se listen en pantalla
+- entra a un curso publicado y confirma que el detalle cargue unidades y lecciones o sus estados vacios
 
 ## Referencias relacionadas
 

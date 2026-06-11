@@ -23,3 +23,19 @@ export async function getCourses() {
 
   return response.json();
 }
+
+export async function getCourseDetail(courseId) {
+  const response = await fetch(`${API_BASE_URL}/api/courses/${courseId}/`, {
+    cache: "no-store",
+  });
+
+  if (response.status === 404) {
+    return null;
+  }
+
+  if (!response.ok) {
+    throw new Error("No se pudo obtener el detalle del curso");
+  }
+
+  return response.json();
+}
